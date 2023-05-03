@@ -1,0 +1,28 @@
+.deliveryOrder {
+    background: #ffecdb;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px auto;
+    border-radius: 10px;
+}
+
+.deliveryOrder button img {
+    margin: 0 10px;
+}
+
+.deliveryOrder button {
+    color: #8e9ab3;
+}
+
+button.avisePronto {
+    background: #00b700;
+    border-radius: 20px;
+    margin: 20px;
+    height: 39px;
+    color: white;
+    padding-right: 28px;
+    display: flex;
+    align-items: center;
+}

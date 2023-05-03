@@ -1,0 +1,261 @@
+div#notificacao {
+    display: none;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background: white;
+    padding: 0 0;
+    overflow: auto;
+    height: 100%;
+}
+#notifications{
+    position: relative;
+    display: none;
+ 
+}
+div#notifications.show {
+    display: block !important;
+}
+div#notifications img {
+    position: relative;
+    top: 0;
+    left: -20px;
+}
+span#notQtd {
+    display: none !important;
+    background: #ff5201;
+    width: 23px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 26px;
+    position: absolute;
+    top: -24px;
+    right: -17px;
+    font-size: 11px;
+}
+
+.notificationView {
+    position: fixed;
+    background: #ff5201;
+    width: 100%;
+    height:  100%;
+    left: 0;
+    top: 0;
+}
+div#notification_content .card:last-child {
+    background: #FFF212;
+    color: white;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 20px;
+}
+.notificationView .card {
+    display: flex;
+}
+.yellow{
+    color: #FFF212;
+    border: 2px solid;
+    height: 40px;
+    border-radius: 20px;
+    width: 160px;
+    margin: 0 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+.notificationView .mesaIcon {
+    display: flex;
+
+
+}
+.card .close {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35px;
+    color: #afafaf;
+}
+.notificationView .mesaIcon {
+    display: flex;
+    background: #ff5201;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 90px;
+    text-align: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.notificationView h6 {
+    font-size: 16px;
+    color: #ff5201;
+    margin: 0;
+}
+
+
+p{
+    color: #AFAFAF;
+}
+
+.datails {
+    margin: 0 15px;
+}
+
+.notificationView button {
+    background: #AFAFAF;
+    border: 1px solid;
+    border-radius: 40px;
+    width: auto;
+    height: 35px;
+    
+
+}
+button.aceita {
+    background: #2562E3;
+    border: 1px solid;
+    border-radius: 40px;
+    width: auto;
+    height: 35px;
+    color: white;
+
+}
+button.recusa {
+    background: #AFAFAF;
+    border: 1px solid;
+    border-radius: 40px;
+    width: 110px;
+    height: 35px;
+    color: white;
+    margin: 0 14px;
+}
+.notificationView .card a{
+    font-size: 14px;
+    color: #AFAFAF;
+
+}
+
+
+.notificationView   .controls{
+    background-color: white;
+    border: 0;
+    justify-content: space-between;
+    }
+    .notificationView   .controls button{
+    background-color: transparent !important;
+    border: 0;
+    
+
+    }
+    .notificationView .buttons {
+        margin: 15px auto 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .card .close {
+        background: transparent;
+        border: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+
+    div#notificacao > div:last-child button {
+        color: white;
+        border: 2px solid yellow;
+        margin: 0 15px;
+        height: 40px;
+        border-radius: 20px;
+        
+        color: yellow;
+    }
+
+    div#notification_content {
+        display: flex;
+        flex-wrap: wrap;
+        color: yellow;
+        flex-direction: column-reverse;
+    }
+    div#notificacao > div > button {
+        color: #818f9b;
+        text-transform: initial;
+        font-size: 16px;
+    }
+    h4 {
+        color: #fff;
+        /* border-bottom: 1px solid; */
+    } 
+    .qr h4 {
+        color: #01b9ff;
+    }
+    .relatorioDelivery,.relatorioMesas {
+        color: #eee;
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 15px ;
+        background-color: #ff5722;
+        height: 145px;
+    }
+    strong {
+        color: yellow;
+    }
+    .qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 190px;
+    }
+    div#notificacao span {
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+    div#notification_content .card {
+        background: white;
+        margin: 10px ;
+        width: inherit;
+        padding: 5px 10px;
+        box-shadow: 2px 2px 10px #eeee;
+        justify-content: space-between;
+        align-items: center;
+     
+    }
+
+    div#notification_content h6 {
+        color: red;
+        font-size: 16px;
+        margin: 10px 5px 0;
+    }
+
+    
+    div#notification_content p {
+        color: black;
+        font-size: 14px;
+        margin: 10px 5px ;
+        font-weight: 400;
+
+    }
+
+    div#notification_content .card div:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    div#notificacao h2 {
+        margin: 20px 20px;
+    }
+    

@@ -1,0 +1,25 @@
+  
+
+.painelvendas h3 {
+    width: 100%;
+    color: #9bacb9;
+    font-weight: 400;
+}
+.name {
+    font-size: 23px;
+    text-transform: capitalize;
+    color: #ff5201;
+    font-weight: 700;
+    margin: 0 auto 25px;
+}
+
+@media(min-width:769px){
+    .painelvendas{
+        display: flex;
+        }
+}
+
+.observacoes {
+    color: indianred;
+    font-style: italic;
+}

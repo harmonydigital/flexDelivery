@@ -1,0 +1,25 @@
+div#login h3 {
+    color: #838383;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+    left: 0;
+    background: white;
+    bottom: 0;
+    height: 200px;
+    padding: 0;
+    max-width: 380px;
+    margin: 0 auto;
+}
+img.logo {
+    height: 80px;
+    padding: 25px;
+    margin: 10% auto 30%;
+    display: block;
+}
+#login button {
+    margin: 10px auto;
+    background-color: #E5040E;
+}

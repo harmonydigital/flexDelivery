@@ -1,0 +1,276 @@
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ADM </title> 
+      <link rel="shortcut icon" href="favico.png" type="image/png">
+
+      <link rel="stylesheet" href="app.css">
+      <link rel="stylesheet" href="modal.css">
+      <link rel="stylesheet" href="assets/components/notifications.css">
+      <link rel="stylesheet" href="assets/components/getdataapi/getdata.css">
+      <link rel="stylesheet" href="assets/components/home/home.css">
+      <link rel="stylesheet" href="assets/components/login/login.css">
+      <link rel="stylesheet" href="assets/components/menu/menu.css">
+      <link rel="stylesheet" href="assets/components/delivery/deliveryorder.css">
+      
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body> 
+      <div id="app"></div> 
+
+      <!-- // fechar conta form -->
+      <div id="closeForm" style="display: none;">
+            <div class="controls">
+                <button onclick="closeOrder(false)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button onclick="closeOrder(false)"><i class="fa-solid fa-xmark"></i></button>    
+            </div>
+            <form class="closeForm" action="">
+                <div class="mylabel select">
+
+                    <label style="
+                    top: 0px;
+                    height: 46px;
+                ">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </label>
+
+                    <select onchange="getPay()" id="paymentCheck">   
+                            <option value="1">Selecione a forma de Pagamento</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="pix">Pix</option>
+                            <option value="debito">Debido Cartão</option>
+                            <option value="credito">Crédito Cartão</option>  
+                    </select>
+
+            </div>
+            <div class="placeCheckout">
+                <button onclick="loseOrder(false)" class="btn cancel" type="button">cancelar</button>
+                <button type="submit" class="btn closeOrders">Encerrar conta</button>
+            </div>
+            </form>  
+       </div> 
+
+
+       <!-- MODAL PREVIEW  -->
+       <div id="modalApp" >
+        <div onclick="modalJs(false)" class="overylay"> </div>
+        <div id="modalBody" class="modalBody">  
+        <div class="controls">
+            <button onclick="modalJs(false)">
+            <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com --> 
+         
+            </button>
+            <button onclick="modalJs(false)"> 
+                <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com -->  
+            </button>    
+        </div>   
+        <div id="modalContent">   
+            </div>   
+            <div class="botoes">
+                <form class="deleteNotification">
+                    <button type="submit"><svg class="svg-inline--fa fa-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg><!-- <i class="fa-solid fa-check"></i> Font Awesome fontawesome.com --> Clique para saber que o pedido foi entregue!</button>
+                </form>
+            </div>                    
+        </div>
+    </div>
+</div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+
+  <script src="api.js"></script>
+  <script src="fluxo.js"></script>
+  <script src="relatorio.js"></script>
+  <script src="assets/components/whatsapp/whatsapp.js"></script>
+  <script src="assets/components/relogio/relogio.js"></script>
+  <script src="assets/components/modal.js"></script>
+   <script src="assets/components/notifications.js"></script>
+  <script src="assets/components/impressao/impressao.js"></script>
+  <script src="assets/components/getdataapi/getdata.js"></script>
+
+  <script src="assets/components/closeOrder/closeOrder.js"></script>
+  <script src="assets/components/menu/menutoggle.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <!-- <script src="assets/js/all.js"></script> -->
+
+  <script type="module">
+   
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY6JXe0kBoMU2BlrkafuTm6gq1H5LUohY",
+    authDomain: "harmonydigi-24166.firebaseapp.com",
+    projectId: "harmonydigi-24166",
+    storageBucket: "harmonydigi-24166.appspot.com",
+    messagingSenderId: "970946599618",
+    appId: "1:970946599618:web:e13bd162b24dc46718795b"
+  }; 
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig); 
+  const db = firebase.firestore();
+  let formClose=document.querySelector('.closeForm')
+  let delNotification=document.querySelector('.deleteNotification')
+  let horaAtual=relogio()
+  let currencyData=dataHora()
+  
+    delNotification.addEventListener('submit', function(e){
+        e.preventDefault()     
+        db.collection("notificacoes").doc(dataDelete).delete().then(() => {
+            console.log("Document successfully deleted!");
+            alert('Pedido entregue com sucesso!')
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+    })
+
+    //FECHAR CONTAS
+    formClose.addEventListener('submit', function(e){
+        e.preventDefault() 
+
+        let btnSubmit=document.querySelector('.btn.closeOrders')
+
+        console.log(btnSubmit)
+        btnSubmit.setAttribute('disabled', true)
+        contasClosedb.map((clc)=>{  
+            clc.contasFechadas.map((cf)=>{ 
+                    unifechamentos.push(cf)  
+            }) 
+            
+        })
+        
+        unifechamentos.push(contaFechada) 
+
+        db.collection('fechamentos').doc(currencyData).set({
+            "name":"fechamentos",
+            "contasFechadas":unifechamentos,  
+        })
+
+     
+        
+        setTimeout(function(){ 
+            if(plataforma=='Mesas'){ 
+
+                db.collection("mesasOpen").doc(idConta).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                    alert('Conta encerrada com sucesso!') 
+
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                    alert('Erro ao encerrar') 
+
+                });
+            
+            }else if(plataforma=='Deliverys'){ 
+                
+                db.collection("delivery").doc(idConta).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
+
+            }
+        }, 3000)
+        
+  
+ 
+  })
+
+
+
+
+
+
+  let list = document.getElementById("notifications") 
+  const ordersLab=db.collection('mesasOpen') 
+ 
+
+    ordersLab.onSnapshot((snapshot) => { 
+        
+        notQtd.innerHTML=""
+        let pedidosAll=[]   
+
+        snapshot.forEach((doc) => {
+            dataTable.push(doc.data())  
+            pedidosAll.push(doc.data())   
+            tabledatatest.push(doc.data())
+            notQtd.innerHTML=pedidosAll.length 
+            let storegeProds=JSON.stringify(pedidosAll) 
+
+            getData(pedidosAll)
+            appNotification(pedidosAll,'mesa')
+
+        }); 
+    }, (error) => {
+        console.log('Erro api')
+    });
+
+
+ 
+    //REQUEST DELIVERY 
+    const ordersDelivery=db.collection('delivery')
+    const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
+
+    
+    ordersDelivery.onSnapshot((snapshot) => { 
+        let deliveryAll=[]
+        snapshot.forEach((doc) => { 
+            // console.log(doc.data())
+            deliveryAll.push(doc.data())  
+        }); 
+
+        if(deliveryAll){
+            deliveryData(deliveryAll)
+            appNotification(deliveryAll,'delivery')
+        }
+        // ..
+    }, (error) => {
+        // ...
+    });
+
+
+    //REQUEST NOTIFICAÇÕES 
+    const ordersNotifications=db.collection('notificacoes')  
+    ordersNotifications.onSnapshot((snapshot) => { 
+        let notificationsBd=[]
+        snapshot.forEach((doc) => { 
+            notificationsBd.push(doc.data())  
+            innerSequenceOrders(notificationsBd) 
+        }); 
+
+        if(deliveryAll!=false){
+            deliveryData(deliveryAll)
+            appNotification(deliveryAll,'delivery')
+        }
+        // ..
+    }, (error) => {
+        // ...
+    });
+
+
+    //REQUEST CONTAS CLOSE 
+    const contasClose=db.collection('fechamentos')  
+    contasClose.onSnapshot((snapshot) => { 
+        let mapContasClose=[]
+        snapshot.forEach((doc) => { 
+            mapContasClose.push(doc.data()) 
+            contasClosedb.push(doc.data()) 
+            // innerSequenceOrders(notificationsBd) 
+        }); 
+ 
+        // ..
+    }, (error) => {
+        // ...
+    });
+
+
+ 
+  </script>
+
+  </html>

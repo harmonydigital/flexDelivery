@@ -1,0 +1,69 @@
+div#mesas {
+    display: flex;
+    flex-wrap: wrap;
+  
+}
+button.deliveryButton {
+    width: 100%;
+    text-align: left;
+    height: 60px;
+    background: #fffaf2;
+    border-bottom: 1px solid #ffeae0;
+    display: flex;
+    align-items: center;
+    color: #9bacb9;
+    text-transform: uppercase;
+}
+button.deliveryButton img{margin-right: 5px;}
+div#badgemesa {
+ 
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: #ff9800;
+    flex-wrap: wrap;
+}
+
+.idpedido {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 25px;
+    color: #9e9e9e;
+}
+div#badgemesa div:first-child {
+    text-align: center;
+}
+h5 span {
+    background: #ff5201;
+    color: white;
+    border-radius: 20px;
+    width: auto;
+    display: inline-flex;
+    height: 40px; 
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    padding: 0 10px;
+}
+@media(max-width:600px){
+    div#mesas {
+       
+        width: 100%;
+    }
+    
+}
+
+
+@media(min-width:769px){
+    div#mesas {
+       
+        width: 50%;
+    }
+    div#deliveyPedidos{
+        width: 50%;
+        max-height: 75vh;
+        overflow: auto;
+    }
+    
+}

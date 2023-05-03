@@ -1,0 +1,101 @@
+body{
+    background-color: #fff;
+    margin: 0   ;
+}
+
+.header {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+}
+.xs-hidden{
+    display: none;
+}
+@media (min-width:768px) {
+    .sm-hidden{
+        display: none;
+    }  
+    .xs-hidden{
+        display: inherit;
+    }
+}
+
+
+.flx{
+    display: flex;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+/* div#containerTables .card {
+    width: 18%;
+} */
+.user {
+    color: #2F1718;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+  .user strong {
+    font-weight: bold;
+    color: #E5040E;
+  }
+  h2 { 
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    color: #E5040E;
+    margin: 10px 0px 15px;
+    line-height: 1.1;
+}
+h5 {
+    text-align: left;
+    font-weight: 900;
+    color: #818f9b;
+    font-size: 17px;
+    margin: 10px 20px;
+    
+ 
+}
+
+.data_container {
+    margin:0px auto 20px;
+    background-color: #FBFBFB;
+    padding: 10px;
+    border: 0px;
+    border-radius: 25px 25px 0px 0px;
+    padding-bottom: 50px;
+}
+
+.data_container .card  {
+    background-color: white;
+    box-shadow: 2px 6px 10px #d7d4d4a3;
+    margin: 20px 5px;
+
+}
+.data_container .card:last-child {
+    margin-bottom: 20px !important;
+}
+
+
+    .data_container .card h6 {
+        color: red;
+        font-size: 0.9rem;
+        margin: 0;
+}
+
+.data_container .card span {
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+}
+.data_container span.tooltip {
+    background: red;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    color: white !important;
+    border-radius: 50px;
+}
