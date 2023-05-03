@@ -40,6 +40,7 @@ function innerDataTotalPrice(idData){
     console.log(document.getElementById(idCardData))
 
     idt=document.getElementById(idCardData)
+    idt.innerHTML=""
     if(idt){
         idt.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 

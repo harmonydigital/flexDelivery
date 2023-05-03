@@ -172,7 +172,12 @@ admLogin=false
 function login(){
     credentials=sessionStorage.getItem("credentials");
     
-     
+      inputFocus=()=>{
+ 
+        var clasFormLogin=document.querySelector('.form')
+        console.log('inputFocus',clasFormLogin.childNodes[1])
+        clasFormLogin.childNodes[1].style.cssText='display:none;'
+     }
     if(credentials===null){
     app.innerHTML+=`  
             <div id="login">   
@@ -183,7 +188,7 @@ function login(){
                     </div>
                     <form>
 
-                        <input type='text' id='nameuser' placeholder='Nome de Usuário'>
+                        <input onfocus="inputFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
                         <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
                         <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
                         <a style="

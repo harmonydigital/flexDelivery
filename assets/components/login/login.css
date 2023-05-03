@@ -15,8 +15,8 @@ div#login h3 {
 }
 img.logo {
     height: 80px;
-    padding: 25px;
-    margin: 10% auto 30%;
+    padding: 0px;
+    margin: 10% auto ;
     display: block;
 }
 #login button {
