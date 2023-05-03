@@ -23,3 +23,15 @@ img.logo {
     margin: 10px auto;
     background-color: #E5040E;
 }
+
+@media (max-height:348px){
+    img.logo {
+        height: 30px;
+        padding: 25px;
+        margin: 0% auto 0%;
+        display: block;
+    }
+    div#login .form h3 {
+        display: none !important;
+    }
+}
