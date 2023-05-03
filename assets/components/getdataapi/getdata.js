@@ -6,7 +6,7 @@ dataTable=[]
 
 function innerDataTotalPrice(idData){
     // console.log(JSON.stringify(tabledatatest)+"<")
-    idData='1'
+    // idData='10'
     var totalBuy=0
     dataTable.map((pedidosMap)=>{
 
@@ -17,11 +17,16 @@ function innerDataTotalPrice(idData){
                     pedidosOrderMap.itens.map((pedidosItensMap)=>{
 
 
-                        totalBuy=pedidosItensMap.quantidade*pedidosItensMap.price
                 
-                        console.log("qts",pedidosItensMap.quantidade) 
-                        console.log(pedidosItensMap.name) 
-                        console.log(pedidosItensMap.price) 
+                        // console.log("qts",pedidosItensMap.quantidade) 
+                        // console.log(pedidosItensMap.name) 
+                        if(pedidosItensMap.price===undefined) {
+                        // console.log(pedidosItensMap.name)
+                            
+                        }else{
+                            totalBuy+=pedidosItensMap.quantidade*pedidosItensMap.price
+
+                        }
             
                 })
         
@@ -30,7 +35,15 @@ function innerDataTotalPrice(idData){
         }
 
     })
+    // console.log("total",totalBuy)
+    var idCardData='cardHome'+idData 
+    console.log(document.getElementById(idCardData))
 
+    idt=document.getElementById(idCardData)
+    if(idt){
+        idt.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+
+    }
 }
 
 
@@ -50,11 +63,11 @@ containerTables.innerHTML=" <h5 class=tittle>Controle de Mesas </h5>"
                     <div key='`+pedidosMap.mesa+`' id='`+pedidosMap.mesa+`' 
                     onclick="tabledetails(event,'mesa')" class="card"> 
                         <h6> `+pedidosMap.mesa+`</h6>   
-                        <span id=totalHome`+pedidosMap.mesa+` class="price">..</span>
+                        <span id=cardHome`+pedidosMap.mesa+` class="price">..</span>
                     </div>
 
                 ` 
-                innerDataTotalPrice('1')
+                innerDataTotalPrice(pedidosMap.mesa)
 
               
         }
