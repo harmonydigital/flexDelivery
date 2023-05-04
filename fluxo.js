@@ -175,9 +175,10 @@ function login(){
       inputFocus=()=>{
  
         var clasFormLogin=document.querySelector('.form')
-        console.log('inputFocus',clasFormLogin.childNodes[1])
-        clasFormLogin.childNodes[1].style.cssText='display:none;'
-     }
+        // console.log('inputFocus',clasFormLogin.childNodes[1])
+        clasFormLogin.childNodes[1].style.cssText='height:25px;'
+        }
+         
     if(credentials===null){
     app.innerHTML+=`  
             <div id="login">   
@@ -188,7 +189,7 @@ function login(){
                     </div>
                     <form>
 
-                        <input onfocus="inputFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
+                        <input onfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
                         <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
                         <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
                         <a style="

@@ -476,7 +476,7 @@ div#faturamentoatual {
     background: #ff5722;
     border-radius: 10px;
     color: #fff;
-    width: 100%;
+    /* width: 100%; */
 }
 
 div#closeForm {

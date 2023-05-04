@@ -8,6 +8,10 @@ function innerDataTotalPrice(idData){
     // console.log(JSON.stringify(tabledatatest)+"<")
     // idData='10'
     var totalBuy=0
+    var idCardData='cardHome'+idData  
+
+    idt=document.getElementById(idCardData)
+    idt.innerHTML=""
     dataTable.map((pedidosMap)=>{
 
         if(idData===pedidosMap.mesa){ 
@@ -26,6 +30,12 @@ function innerDataTotalPrice(idData){
                         }else{
                             totalBuy+=pedidosItensMap.quantidade*pedidosItensMap.price
 
+                           
+                            if(idt){
+                                idt.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                                totalBuy=0
+                            }
+
                         }
             
                 })
@@ -36,15 +46,7 @@ function innerDataTotalPrice(idData){
 
     })
     // console.log("total",totalBuy)
-    var idCardData='cardHome'+idData 
-    console.log(document.getElementById(idCardData))
-
-    idt=document.getElementById(idCardData)
-    idt.innerHTML=""
-    if(idt){
-        idt.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-
-    }
+   
 }
 
 
