@@ -1,12 +1,4 @@
-.deliveryOrder {
-    background: #ffecdb;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px auto;
-    border-radius: 10px;
-}
+ 
 
 .deliveryOrder button img {
     margin: 0 10px;

@@ -701,19 +701,12 @@ function  fluxo(){
 
                 <div> 
                     <div id="containerTables" class="flx wrap"> </div>    
+                </div>
+                <div> 
+                    <div id="containerDel" class="flx wrap"> </div>    
                 </div> 
                 
-                <div>
-                    <h5 class="tittle">Controle de Delivery  ( 3 )</h5> 
-                    <div class="card"> 
-                        <h6>Thais Mariano</h6>   
-                        <span class="price">R$ 100,00</span>
-                    </div>
-                    <div class="card"> 
-                        <h6>João da Silva</h6>   
-                        <span class="price">R$ 50,00</span>
-                    </div>    
-                </div> 
+                
 
 
 

@@ -83,9 +83,12 @@ containerTables.innerHTML=" <h5 class=tittle>Controle de Mesas. </h5>"
 
 //
 deliveryContainer=document.getElementById("deliveyPedidos")
+containerDel=document.getElementById("containerDel")
 
 function deliveryData(deliveryAll){
     deliveryContainer.innerHTML="<h3>Pedidos Delivery:</h3>"
+    containerDel.innerHTML='<h5 class="tittle">Controle de Delivery  ( 3 )</h5>'
+
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
  
     deliveryAll.map((deliveryMap)=>{
@@ -104,6 +107,19 @@ function deliveryData(deliveryAll){
                             
                             
                             `;
+
+
+        containerDel.innerHTML+=`
+        
+                <div key='`+deliveryMap.name+`'  onclick="tabledetails(event,'delivery')" class="deliveryOrder">
+                    <div class="card"> 
+                        <h6>`+deliveryMap.name+`</h6>   
+                        <span class="price">..</span>
+                    </div>
+                </div>     
+            
+    
+        `;
 
     })
  
