@@ -20,7 +20,12 @@ body{
     }
 }
 
-
+@media (max-width:768px) {
+div#containerTables {
+    height: 290px;
+    overflow-x: auto;
+}
+}
 .flx{
     display: flex;
 }
@@ -34,7 +39,7 @@ div#containerTables .card {
     width: 18%;
 } */
 .user {
-    color: #2F1718;
+    color: #818f9b;
     padding: 5px;
     font-size: 15px;
     font-weight: 800;
@@ -44,12 +49,12 @@ div#containerTables .card {
     font-weight: bold;
     color: #E5040E;
   }
-  h2 { 
-    font-size: 25px;
+  h2 {
+    font-size: 2.2rem;
     font-weight: bold;
-    width: 200px;
+    width: auto;
     color: #E5040E;
-    margin: 10px 0px 15px;
+    margin: 35px 0px;
     line-height: 1.1;
 }
 h5 {
@@ -84,7 +89,7 @@ h5 {
 
     .data_container .card h6 {
         color: red;
-        font-size: 0.9rem;
+        font-size: 1.0rem;
         margin: 0;
 }
 

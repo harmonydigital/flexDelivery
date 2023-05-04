@@ -52,7 +52,7 @@ function innerDataTotalPrice(idData){
 
 function getData(bddata){
 pedidosContainer.innerHTML="<h3>Controle de Mesas:</h3>"
-containerTables.innerHTML=" <h5 class=tittle>Controle de Mesas </h5>"
+containerTables.innerHTML=" <h5 class=tittle>Controle de Mesas. </h5>"
 
 
     localStorage.setItem("mesasOpen", JSON.stringify(bddata));
