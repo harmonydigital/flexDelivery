@@ -32,7 +32,7 @@ div#containerTables {
 .wrap{
     flex-wrap: wrap;
 }
-div#containerTables .card,div#containerDel .card {
+div#containerTables .card {
     width: 32%;
 }
 /* div#containerTables .card {

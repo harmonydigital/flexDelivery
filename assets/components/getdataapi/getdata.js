@@ -111,11 +111,11 @@ function deliveryData(deliveryAll){
 
         containerDel.innerHTML+=`
         
-                <div key='`+deliveryMap.name+`'  onclick="tabledetails(event,'delivery')" class="deliveryOrder">
-                    <div class="card"> 
+                <div key='`+deliveryMap.name+`'  onclick="tabledetails(event,'delivery')" class="card">
+                    
                         <h6>`+deliveryMap.name+`</h6>   
                         <span class="price">..</span>
-                    </div>
+            
                 </div>     
             
     
