@@ -28,10 +28,10 @@ innerSequenceOrders=(notDataBase)=>{
   notificacao.innerHTML=`
     <div class="controls">
       <button onclick="toogleNot('notificacao')">
-          <i class="fa-solid fa-chevron-left"></i>  <
+          <i class="fa-solid fa-chevron-left"></i>  
       </button>
       <button onclick="toogleNot('notificacao')"> 
-          <i class="fa-solid fa-xmark"></i> x
+          <i class="fa-solid fa-xmark"></i> 
       </button>    
     </div>
     
@@ -63,10 +63,13 @@ innerSequenceOrders=(notDataBase)=>{
                   
           <div  class='flx card'>
 
-          <div>
-            <span><i class="fa-regular fa-bell"></i> </span>
+          <div class="flx">
+           <span><i class="fa-regular fa-bell"></i> </span>
+
+            <div>
             <h6>Novo pedido Mesa (`+notMap.name+`) </h6>
             <p>Hora do Pedido: `+notMap.hora+`</p>
+            </div
           </div>
           <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
           <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver pedido</button>
@@ -78,11 +81,18 @@ innerSequenceOrders=(notDataBase)=>{
             
           <div  class='flx card'>
 
-            <div>
+            <div class='flx' >
               <span><i class="fa-regular fa-bell"></i> </span>
-              <h6>Novo pedido Mesa (`+notMap.mesa+`) </h6>
-              <p>Hora do Pedido: `+notMap.hora+`</p>
+
+              <div>
+                <h6>Novo pedido Mesa (`+notMap.mesa+`) </h6>
+                <p>Hora do Pedido: `+notMap.hora+`</p>
+              </div>
+
             </div>
+
+
+
             <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
             <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver pedido</button>
            

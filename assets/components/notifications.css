@@ -52,7 +52,7 @@ div#notification_content .card:last-child {
     background: #FFF212;
     color: white;
     font-weight: bold;
-    padding: 25px;
+    padding: 10px;
     border-radius: 20px;
 }
 .notificationView .card {
@@ -177,14 +177,13 @@ button.recusa {
 
     div#notificacao > div:last-child button {
         color: white;
-        border: 2px solid yellow;
         margin: 0 15px;
-        height: 40px;
-        border-radius: 20px;
-        
-        color: yellow;
+        height: 25px;
+        color: red;
     }
-
+    div#notification_content .flx.card span {
+        display: none;
+    }
     div#notification_content {
         display: flex;
         flex-wrap: wrap;
@@ -192,7 +191,7 @@ button.recusa {
         flex-direction: column-reverse;
     }
     div#notificacao > div > button {
-        color: #818f9b;
+        color: #ff0000;
         text-transform: initial;
         font-size: 16px;
     }
@@ -252,8 +251,8 @@ button.recusa {
 
     div#notification_content .card div:first-child {
         display: flex;
-        flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
     div#notificacao h2 {
         margin: 20px 20px;
