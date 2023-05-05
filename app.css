@@ -22,8 +22,9 @@ body{
 
 @media (max-width:768px) {
 div#containerTables {
-    height: 290px;
+    max-height: 290px;
     overflow-x: auto;
+    align-items: flex-start;
 }
 }
 .flx{

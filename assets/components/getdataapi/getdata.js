@@ -87,10 +87,32 @@ containerDel=document.getElementById("containerDel")
 
 function deliveryData(deliveryAll){
     deliveryContainer.innerHTML="<h3>Pedidos Delivery:</h3>"
-    containerDel.innerHTML='<h5 class="tittle">Controle de Delivery  ( 3 )</h5>'
+    containerDel.innerHTML='<h5 class="tittle">Controle de Delivery( 3 )</h5>'
 
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
- 
+    
+
+    innerDataTotalDel=(idDel)=>{
+
+      
+        var totalBuy=0 
+        var idCardData='cardDel'+idDel   
+        idd=document.getElementById(idCardData)
+        console.log(idd)
+
+        deliveryAll.map((deliveryMap)=>{
+
+            deliveryMap.orders.map((deliveryMapOrders)=>{
+                deliveryMapOrders.itens.map((itensMapDel)=>{
+                    totalBuy+=itensMapDel.quantidade*itensMapDel.price
+                    console.log(totalBuy)
+                    idd.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                })
+
+            })
+        })
+
+    }
     deliveryAll.map((deliveryMap)=>{
        
     // sadasdasdas/
@@ -114,12 +136,13 @@ function deliveryData(deliveryAll){
                 <div key='`+deliveryMap.name+`'  onclick="tabledetails(event,'delivery')" class="card">
                     
                         <h6>`+deliveryMap.name+`</h6>   
-                        <span class="price">..</span>
+                        <span id='cardDel`+deliveryMap.name+`'class="price">..</span>
             
                 </div>     
             
     
         `;
+        innerDataTotalDel(deliveryMap.name)
 
     })
  

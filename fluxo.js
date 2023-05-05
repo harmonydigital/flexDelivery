@@ -670,7 +670,10 @@ function  fluxo(){
                 <div id="menu"> </div>
 
                 <div onclick="toogleNot('notificacao')" style=" position: absolute; right: 30px;  top: 30px;">
-                    <img src="assets/img/bell.png" style="width: 23px; ">
+                
+                    <i style="
+                    color: red;
+                " class="fa-solid fa-bell"></i>
                     <span id="notQtd"></span> 
                 </div>
 
