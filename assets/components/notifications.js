@@ -7,6 +7,7 @@ mesasData=0
 deliverysData=0
 
 faturamentoatual=document.getElementById('faturamentoatual')
+ftotal=document.getElementById('ftotal')
 mesasRelatorio=document.getElementById('innerMesas')
 
 pedidosDeliveryAtuais=document.getElementById('pedidosDeliveryAtuais')
@@ -251,9 +252,10 @@ if(todosPedidos.length>0){
 
       var FATURAATUAL=somaProdTotalMesas+somaProdTotalDelivery
 
-      // console.log(FATURAATUAL)
-
-        faturamentoatual.innerHTML=`FATURAMENTO ATUAL  <strong style="margin: 0 5px;"> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
+      
+      ftotal.innerHTML=` Total ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +``;  
+ 
+        // faturamentoatual.innerHTML=`FATURAMENTO ATUAL  <strong style="margin: 0 5px;"> ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`</strong>`;  
 
   }else{
 

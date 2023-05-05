@@ -667,7 +667,19 @@ function  fluxo(){
                     <h2>Administre seus pedidos aqui.</h2>
                 </div>
 
-                <div id="menu"> </div>
+                <div id="menu">
+                <div id=" ">
+                    <i class="fa-solid fa-bars"></i>    
+
+                </div>
+                <div id="ftotal">
+                    .. 
+                  
+                </div>
+                <div id=" ">
+                    ..
+                </div>
+                </div>
 
                 <div onclick="toogleNot('notificacao')" style=" position: absolute; right: 30px;  top: 30px;">
                 

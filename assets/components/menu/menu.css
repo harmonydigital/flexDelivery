@@ -4,7 +4,15 @@
     position: fixed;
     bottom: 0;
     z-index: 99;
-    height: 75px;
+    height: auto;
     left: 0;
     /* display: none; */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+div#menu > div {
+    margin: 35px auto;
+}
+
