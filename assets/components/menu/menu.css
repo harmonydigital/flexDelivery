@@ -16,3 +16,31 @@ div#menu > div {
     margin: 35px auto;
 }
 
+.menu-nav {
+    background: red;
+    left: 0;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: none;
+}
+.menu-nav.show{
+    display: block;
+} 
+.menu-nav .controls button {
+    color: red;
+    
+}
+div#menu-nav ul li   {
+    list-style: none;
+}
+div#menu-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    display: block;
+}
+

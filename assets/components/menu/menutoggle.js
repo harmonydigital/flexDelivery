@@ -1,6 +1,8 @@
-menuToggle=()=>{
-     // console.log('menuToggle')
+menuToggle=()=>{ 
+     var navContent=document.getElementById('menu-nav')
+
+     navContent.classList.toggle('show')
 }
 
-menuToggle()
+ 
 
