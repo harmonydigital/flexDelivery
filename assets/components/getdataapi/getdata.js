@@ -95,21 +95,24 @@ function deliveryData(deliveryAll){
     innerDataTotalDel=(idDel)=>{
 
       
-        var totalBuy=0 
+        var totalBuyDel=0 
         var idCardData='cardDel'+idDel   
         idd=document.getElementById(idCardData)
+        idd.innerHTML=''
         console.log(idd)
 
         deliveryAll.map((deliveryMap)=>{
+            if(idDel===deliveryMap.name){ 
+                deliveryMap.orders.map((deliveryMapOrders)=>{
+                    deliveryMapOrders.itens.map((itensMapDel)=>{
+                        totalBuyDel+=itensMapDel.quantidade*itensMapDel.price
+                        console.log(totalBuyDel)
+                        idd.innerHTML=totalBuyDel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                        
+                    })
 
-            deliveryMap.orders.map((deliveryMapOrders)=>{
-                deliveryMapOrders.itens.map((itensMapDel)=>{
-                    totalBuy+=itensMapDel.quantidade*itensMapDel.price
-                    console.log(totalBuy)
-                    idd.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                 })
-
-            })
+            }
         })
 
     }
