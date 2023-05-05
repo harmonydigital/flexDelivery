@@ -52,7 +52,7 @@ function innerDataTotalPrice(idData){
 
 function getData(bddata){
 pedidosContainer.innerHTML="<h3>Controle de Mesas:</h3>"
-containerTables.innerHTML=" <h5 class=tittle>Controle de Mesas. </h5>"
+containerTables.innerHTML=" <h5 class='tittle' style='width:100%;'>Controle de Mesas. </h5>"
 
 
     localStorage.setItem("mesasOpen", JSON.stringify(bddata));
@@ -86,8 +86,8 @@ deliveryContainer=document.getElementById("deliveyPedidos")
 containerDel=document.getElementById("containerDel")
 
 function deliveryData(deliveryAll){
-    deliveryContainer.innerHTML="<h3>Pedidos Delivery:</h3>"
-    containerDel.innerHTML='<h5 class="tittle">Controle de Delivery( 3 )</h5>'
+    deliveryContainer.innerHTML="<h3 >Pedidos Delivery:</h3>"
+    containerDel.innerHTML='<h5 class="tittle" style="width:100%;">Controle de Delivery( 3 )</h5>'
 
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
     

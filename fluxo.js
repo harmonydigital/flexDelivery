@@ -716,7 +716,7 @@ function  fluxo(){
 
 
                 </div>
-                <div id="relogio"></div>
+                <div id="relogio" hidden></div>
 
 
                 <div class="notificacoes"> 
@@ -724,9 +724,9 @@ function  fluxo(){
                 </div>
 
 
-            <button class="btn-circle-bottom" onclick='getModal(modalMesa)'> + </button>
+            <button class="btn-circle-bottom" onclick='getModal(modalMesa)' hidden> + </button>
             
-            <div id="relatorioFinanceiro" class="relatorioFinanceiro">
+            <div id="relatorioFinanceiro" class="relatorioFinanceiro" hidden>
             
                     <h5>Fluxo de Caixa</h5>
                     <div id="vendasareceber" class="relatorioFinanceiro"> </div>
@@ -751,7 +751,7 @@ function  fluxo(){
                         </div>
                 </div>
           
-            <div class="painelvendas">
+            <div class="painelvendas" hidden>
                 <div id="mesas">
                   <h3>Pedidos Mesa:</h3>
                 </div>
