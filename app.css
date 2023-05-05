@@ -91,8 +91,9 @@ h5 {
     .data_container .card h6 {
         color: red;
         font-size: 1.0rem;
-        margin: 0; 
-        text-transform: capitalize;
+        margin: 0;
+        
+    text-transform: capitalize;
 }
 
 .data_container .card span {

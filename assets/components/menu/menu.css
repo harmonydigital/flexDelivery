@@ -3,8 +3,8 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    z-index: 9999;
+    z-index: 99;
     height: 75px;
     left: 0;
-    display: none;
+    /* display: none; */
 }
