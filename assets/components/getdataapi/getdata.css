@@ -45,7 +45,6 @@ h5 span {
     justify-content: center;
     text-transform: capitalize;
     padding: 0 10px;
-    
     min-width: 80px;
 }
 @media(max-width:600px){

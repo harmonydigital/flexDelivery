@@ -12,6 +12,7 @@ function innnerOrderItens(mesaKey,tipo){
     ordersContainer=document.querySelectorAll('.card')
     setores=document.querySelectorAll('.setor')
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
+    let key=mesaKey
     
     //DADOS FINANCEIRO
     QTDITENSMESA=0
@@ -394,7 +395,7 @@ function  fluxo(){
     }
     
     tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
-       key=event.target.getAttribute('key') 
+       var key=event.target.getAttribute('key') 
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
 
@@ -425,11 +426,13 @@ function  fluxo(){
         if(tipo==='mesa'){
             // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
-            console.log(mesasO)
+           
             mesasO.map((mesasMap)=>{
 
-                if(mesasMap.mesa==key){
+                if(mesasMap.mesa===key){
                     badgeMesa=document.getElementById('badgemesa')
+
+                    console.log('key',key)
                     badgeMesa.innerHTML=`
                         <h5>Pedidos Mesa <span> `+key+`</span></h5>
                     `; //Imprime numero da mesa
@@ -453,7 +456,7 @@ function  fluxo(){
 
                     innnerOrderItens(key,'mesa')
                 }else{
-                    console.log(mesasMap.mesa==key)
+                    console.log('oi',key)
 
                 }
             })
