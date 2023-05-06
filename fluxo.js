@@ -394,10 +394,13 @@ function  fluxo(){
     }
     
     tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
-    
        key=event.target.getAttribute('key') 
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
+
+   
+
+
        containerMesaDetails.innerHTML=`
             <div class="controls">
                 <button onclick="tabledetails(event)">
@@ -422,7 +425,6 @@ function  fluxo(){
         if(tipo==='mesa'){
             // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
-
             mesasO.map((mesasMap)=>{
 
                 if(mesasMap.mesa==keybtn){
@@ -449,6 +451,9 @@ function  fluxo(){
                     })
 
                     innnerOrderItens(keybtn,'mesa')
+                }else{
+                    console.log(event.target)
+
                 }
             })
 

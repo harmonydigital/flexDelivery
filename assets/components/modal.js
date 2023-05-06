@@ -1,5 +1,6 @@
 
 modalJs=(idPed)=>{
+
   modalApp=document.getElementById('modalApp')
   modalBody=document.getElementById('modalBody')
   modalContent=document.getElementById('modalContent')
