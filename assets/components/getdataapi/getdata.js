@@ -4,9 +4,8 @@ containerTables=document.getElementById("containerTables")
 
 dataTable=[]
 
-function innerDataTotalPrice(idData){
-    // console.log(JSON.stringify(tabledatatest)+"<")
-    // idData='10'
+function innerDataTotalPrice(idData){ 
+ 
     var totalBuy=0
     var idCardData='cardHome'+idData  
 
@@ -21,9 +20,7 @@ function innerDataTotalPrice(idData){
                     pedidosOrderMap.itens.map((pedidosItensMap)=>{
 
 
-                
-                        // console.log("qts",pedidosItensMap.quantidade) 
-                        // console.log(pedidosItensMap.name) 
+                 
                         if(pedidosItensMap.price===undefined) {
                         // console.log(pedidosItensMap.name)
                             
@@ -99,14 +96,14 @@ function deliveryData(deliveryAll){
         var idCardData='cardDel'+idDel   
         idd=document.getElementById(idCardData)
         idd.innerHTML=''
-        console.log(idd)
+        
 
         deliveryAll.map((deliveryMap)=>{
             if(idDel===deliveryMap.name){ 
                 deliveryMap.orders.map((deliveryMapOrders)=>{
                     deliveryMapOrders.itens.map((itensMapDel)=>{
                         totalBuyDel+=itensMapDel.quantidade*itensMapDel.price
-                        console.log(totalBuyDel)
+                      
                         idd.innerHTML=totalBuyDel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                         
                     })
