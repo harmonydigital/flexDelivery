@@ -24,12 +24,12 @@ div#badgemesa {
     flex-wrap: wrap;
 }
 
-.idpedido {
-    display: flex;
+.idpedido { 
     width: 100%;
     justify-content: center;
     font-size: 25px;
     color: #9e9e9e;
+    display: none;
 }
 div#badgemesa div:first-child {
     text-align: center;

@@ -55,6 +55,16 @@ div#notification_content .card:last-child {
     padding: 10px;
     border-radius: 20px;
 }
+
+div#notification_content .card:last-child h6{
+    color: white;
+
+}
+div#notification_content .card:last-child p{
+    color: white;
+    opacity: .8;
+
+}
 .notificationView .card {
     display: flex;
 }
@@ -236,7 +246,7 @@ button.recusa {
     }
 
     div#notification_content h6 {
-        color: white;
+        color: red;
         font-size: 16px;
         margin: 10px 5px 0;
     }

@@ -17,10 +17,10 @@ function innnerOrderItens(mesaKey,tipo){
     QTDITENSMESA=0
     TOTALDAMESA=0
 
-    if(tipo=='mesa'){
+    if(tipo==='mesa'){
         mesasO.map((mesasMap)=>{
 
-            if(mesasMap.mesa==key){ 
+            if(mesasMap.mesa===key){ 
                 mesasMap.orders.map((mOrder)=>{ 
                     Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
 
@@ -425,6 +425,7 @@ function  fluxo(){
         if(tipo==='mesa'){
             // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
+            console.log(mesasO)
             mesasO.map((mesasMap)=>{
 
                 if(mesasMap.mesa==key){
