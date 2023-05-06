@@ -694,7 +694,7 @@ function  fluxo(){
 
                     <ul>
                     <li><a href="">Inicio</a></li>
-                    <li><a href="">Fechamentos</a></li>
+                    <li><a href="closeds.html">Fechamentos</a></li>
                     <li><a href="https://harmonydigital.github.io/updateFlexDelivery/">Alterar Cardápio</a></li>
 
                     </ul>
