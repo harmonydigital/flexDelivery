@@ -214,7 +214,8 @@ button.recusa {
         color: yellow;
     }
     .qr {
-        display: flex;
+
+        display: none;
         flex-direction: column;
         align-items: center;
         margin-bottom: 190px;

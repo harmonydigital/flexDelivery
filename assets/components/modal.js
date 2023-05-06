@@ -34,7 +34,7 @@ modalJs=(idPed)=>{
  
 
         modalContent.innerHTML=` 
-          <button class="printAll" onclick="getPrint(this)">
+          <button class="printAll" onclick="getPrint(this)" hidden>
                 <img src="assets/img/printer.png"> Imprimir   
             </button>
             <div class="card" id="`+oMap.idPedido+`">
@@ -43,7 +43,7 @@ modalJs=(idPed)=>{
                     margin: 10px auto 20px;
                     border-bottom: 1px solid #eee;
                     padding-bottom: 15px;
-                ">`+innherCategoria+`</h5>
+                ">`+innherCategoria+`oo</h5>
                 </div> 
               <div class="idpedido">
                 #Pedido `+oMap.idPedido+`</div>
