@@ -35,7 +35,7 @@ div#badgemesa div:first-child {
     text-align: center;
 }
 h5 span {
-    background: #ff5201;
+    background:  red;
     color: white;
     border-radius: 20px;
     width: auto;
@@ -45,6 +45,8 @@ h5 span {
     justify-content: center;
     text-transform: capitalize;
     padding: 0 10px;
+    
+    min-width: 80px;
 }
 @media(max-width:600px){
     div#mesas {
