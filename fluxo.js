@@ -20,7 +20,7 @@ function innnerOrderItens(mesaKey,tipo){
     if(tipo=='mesa'){
         mesasO.map((mesasMap)=>{
 
-            if(mesasMap.mesa==keybtn){ 
+            if(mesasMap.mesa==key){ 
                 mesasMap.orders.map((mOrder)=>{ 
                     Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
 
@@ -398,6 +398,7 @@ function  fluxo(){
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show")
 
+    //    key=event.target.getAttribute('key') 
    
 
 
@@ -419,7 +420,6 @@ function  fluxo(){
              
        `;
        
-       keybtn=event.target.getAttribute('key') 
          
 
         if(tipo==='mesa'){
@@ -427,10 +427,10 @@ function  fluxo(){
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
             mesasO.map((mesasMap)=>{
 
-                if(mesasMap.mesa==keybtn){
+                if(mesasMap.mesa==key){
                     badgeMesa=document.getElementById('badgemesa')
                     badgeMesa.innerHTML=`
-                        <h5>Pedidos Mesa <span> `+keybtn+`</span></h5>
+                        <h5>Pedidos Mesa <span> `+key+`</span></h5>
                     `; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
                         // console.log(mOrder)
@@ -450,9 +450,9 @@ function  fluxo(){
                         `;
                     })
 
-                    innnerOrderItens(keybtn,'mesa')
+                    innnerOrderItens(key,'mesa')
                 }else{
-                    console.log(event.target)
+                    console.log(mesasMap.mesa==key)
 
                 }
             })
@@ -474,7 +474,7 @@ function  fluxo(){
             deliveryO=JSON.parse(localStorage.getItem("pedidosDelivery"))
             deliveryO.map((deliMap)=>{
 
-                if(deliMap.name==keybtn){
+                if(deliMap.name==key){
                    
                     deliMap.orders.map((dOrder)=>{
                         containerMesaDetails.innerHTML+=`
@@ -486,7 +486,7 @@ function  fluxo(){
                         </div>  
                         `;
                     })
-                    innnerOrderItens(keybtn,'delivery')
+                    innnerOrderItens(key,'delivery')
 
  
                 }
@@ -504,67 +504,7 @@ function  fluxo(){
         `
         }
 
-
-
-
-        //     containerMesaDetails.setAttribute('class','openTable') 
-
-        // if(event){
-        //     var mesaKey=event.target.getAttribute('key')
-
-        //     prodsSaved=JSON.parse(localStorage.getItem("oders"))
-
-        //     prodsSaved.map((savedMap)=>{
-        //        if(savedMap.mesa==mesaKey){
-          
-           
-        //         console.log(containerMesaDetails)
-                
-        //         containerMesaDetails.innerHTML=`  
-
-        //         <div class="controls">
-        //              <button onclick="tabledetails(event)"><</button>
-        //             <button onclick="tabledetails(event)">x</button>    
-        //         </div> 
-
-             
-        //          `; 
-        //             savedMap.orders.map((ordersSavedMap)=>{
-                        
-        //                 containerMesaDetails.innerHTML+=`  
-        //                     <div class="card" id="`+ordersSavedMap.idPedido+`">
-        //                     <span class="orderId">#`+ordersSavedMap.idPedido+`</span>
-
-        //                     <button  style="width: 220px;margin: 0 auto; border: 1px solid #9e9e9e;border-radius: 10px;display: flex;align-items: center;padding: 5px 30px;"><img src="assets/img/printer.png">Imprimir Compra total</button>
-                                 
-        //                         <div id="porcoes">
-        //                         <h3>Setor Cozinha <button  style="float: right;"><img src="assets/img/printer.png"></button></h3>  </div> 
-        //                         <div id="pasteis"><h3>Setor Pastéis <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
-        //                         <div id="bebidas"><h3>Setor Bebidas <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
-        //                         <div id="tapiocas"><h3>Setor Tapiocas <button  style="float: right;"><img src="assets/img/printer.png"></button></h3></div>
-                                 
-                
-        //                     </div> 
-        //                 `;  
-                      
-        //             })
-
-        //             innnerOrderItens( mesaKey, prodsSaved)
-        //        }
-
-        //     })
-
-        // }
-   
-        // if(mesaKey){
-        //      containerMesaDetails.setAttribute('class','openTable show')  
-        //      getProdsSaved=JSON.parse(localStorage.getItem("oders")) 
-        // }else{
-        //     containerMesaDetails.setAttribute('class','openTable') 
-        //     containerMesaDetails.innerHTML=""; 
-
-        // }
-      
+ 
  
     }
 
