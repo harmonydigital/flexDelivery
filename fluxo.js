@@ -394,21 +394,25 @@ function  fluxo(){
        
     }
     
-    tabledetails=(event, tipo)=>{ //imprime detalhes do pedido
-       var key=event.target.getAttribute('key') 
+    tabledetails=(datakey, tipo)=>{ //imprime detalhes do pedido
+    //    var key=event.target.getAttribute('key') 
+
+    
        containerMesaDetails=document.getElementById('openTable')  
+       if(datakey){
+        var key=datakey.toString()
+        }
+
        containerMesaDetails.classList.toggle("show")
 
-    //    key=event.target.getAttribute('key') 
-   
-
+    
 
        containerMesaDetails.innerHTML=`
             <div class="controls">
-                <button onclick="tabledetails(event)">
+                <button onclick="tabledetails()">
                     <i class="fa-solid fa-chevron-left"></i>  
                 </button>
-                <button onclick="tabledetails(event)"> 
+                <button onclick="tabledetails()"> 
                     <i class="fa-solid fa-xmark"></i> 
                 </button>    
             </div> 
@@ -422,6 +426,7 @@ function  fluxo(){
        `;
        
          
+       console.log('key',key)
 
         if(tipo==='mesa'){
             // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
@@ -432,7 +437,6 @@ function  fluxo(){
                 if(mesasMap.mesa===key){
                     badgeMesa=document.getElementById('badgemesa')
 
-                    console.log('key',key)
                     badgeMesa.innerHTML=`
                         <h5>Pedidos Mesa <span> `+key+`</span></h5>
                     `; //Imprime numero da mesa
@@ -516,11 +520,11 @@ function  fluxo(){
         tableButton=document.querySelectorAll('.mesabutton')
         var btnsArr = Array.prototype.slice.call(tableButton);
 
-        btnsArr.forEach(element => {
-       
-            element.addEventListener('click',tabledetails)
-            
-        });
+            // btnsArr.forEach(element => {
+        
+            //     element.addEventListener('click',tabledetails(event))
+                
+            // });
     } 
      
  

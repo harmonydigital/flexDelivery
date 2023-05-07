@@ -61,7 +61,7 @@ containerTables.innerHTML=" <h5 class='tittle' style='width:100%;'>Controle de M
                 containerTables.innerHTML+=`
             
                     <div key='`+pedidosMap.mesa+`' id='`+pedidosMap.mesa+`' 
-                    onclick="tabledetails(event,'mesa')" class="card"> 
+                    onclick="tabledetails(`+pedidosMap.mesa+`,'mesa')" class="card"> 
                         <h6> `+pedidosMap.mesa+`</h6>   
                         <span id=cardHome`+pedidosMap.mesa+` class="price">..</span>
                     </div>
