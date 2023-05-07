@@ -7,12 +7,12 @@ inputMesa=document.getElementById('mesa')
 repeat=false
 
 
-function innnerOrderItens(mesaKey,tipo){
+function innnerOrderItens(dataKey,tipo){
  
     ordersContainer=document.querySelectorAll('.card')
     setores=document.querySelectorAll('.setor')
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
-    let key=mesaKey
+    let key=dataKey
     
     //DADOS FINANCEIRO
     QTDITENSMESA=0
@@ -23,10 +23,7 @@ function innnerOrderItens(mesaKey,tipo){
 
             if(mesasMap.mesa===key){ 
                 mesasMap.orders.map((mOrder)=>{ 
-                    Array.from(ordersContainer).map((containerOnlyOrder)=>{ 
-
-
-
+                    Array.from(ordersContainer).map((containerOnlyOrder)=>{   
                         
                         mOrder.itens.map((myItens)=>{ 
                             if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
@@ -83,13 +80,11 @@ function innnerOrderItens(mesaKey,tipo){
         
 
        deliveryPedidos.map((delPedMap)=>{
-            if(delPedMap.name===mesaKey){
+        console.log(delPedMap.id)
+            if(delPedMap.id==key){
              
                 delPedMap.orders.map((orMapDel)=>{
-                    orMapDel.itens.map((itmaps)=>{
-                      
-
-
+                    orMapDel.itens.map((itmaps)=>{ 
                         Array.from(setores).map((setMap)=>{
                               
                             if(setMap.getAttribute('id')==itmaps.categoria+orMapDel.idPedido){
@@ -401,6 +396,8 @@ function  fluxo(){
        containerMesaDetails=document.getElementById('openTable')  
        if(datakey){
         var key=datakey.toString()
+        }else{
+            console.log("oi")
         }
 
        containerMesaDetails.classList.toggle("show")
@@ -481,8 +478,8 @@ function  fluxo(){
             // console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
             deliveryO=JSON.parse(localStorage.getItem("pedidosDelivery"))
             deliveryO.map((deliMap)=>{
-
-                if(deliMap.name==key){
+                
+                if(deliMap.id==key){
                    
                     deliMap.orders.map((dOrder)=>{
                         containerMesaDetails.innerHTML+=`

@@ -120,7 +120,7 @@ function deliveryData(deliveryAll){
         deliveryContainer.innerHTML+=`
 
                                 <div class="deliveryOrder">
-                                    <button key='`+deliveryMap.name+`'   onclick="tabledetails(event,'delivery')" >
+                                    <button key='`+deliveryMap.name+`'   >
                                         <img src="assets/img/user.png" style="width: 16px;">`+deliveryMap.name+`
                                     </button>
                                     <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="sendMsgWhats('`+deliveryMap.whatsapp+`')" >
@@ -133,7 +133,8 @@ function deliveryData(deliveryAll){
 
         containerDel.innerHTML+=`
         
-                <div key='`+deliveryMap.name+`'  onclick="tabledetails(event,'delivery')" class="card">
+                <div key='`+deliveryMap.name+`'  
+                onclick="tabledetails(`+deliveryMap.id+`,'delivery')" class="card">
                     
                         <h6>`+deliveryMap.name+`</h6>   
                         <span id='cardDel`+deliveryMap.name+`'class="price">..</span>
