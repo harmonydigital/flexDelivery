@@ -3,7 +3,7 @@ div#notificacao {
     flex-direction: column-reverse;
     flex-wrap: wrap;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     background: white;
     padding: 0 0;

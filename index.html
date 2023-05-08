@@ -39,8 +39,8 @@
                     top: 0px;
                     height: 46px;
                 ">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
-                    </label>
+                        <i style="color:red; " class="fa-solid fa-file-invoice-dollar"></i>
+                    </label>   
 
                     <select onchange="getPay()" id="paymentCheck">   
                             <option value="1">Selecione a forma de Pagamento</option>
@@ -52,8 +52,8 @@
 
             </div>
             <div class="placeCheckout">
-                <button onclick="loseOrder(false)" class="btn cancel" type="button">cancelar</button>
-                <button type="submit" class="btn closeOrders">Encerrar conta</button>
+                <button onclick="loseOrder(false)" class="btn cancel" type="button" hidden>cancelar</button>
+                <button type="submit" class="btn closeOrders">Fechar conta</button>
             </div>
             </form>  
        </div> 

@@ -62,5 +62,35 @@
     </div> 
 </body>
 <script src="assets/js/all.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="assets/js/all.js"></script>
 
+  <script type="module">
+   
+  const firebaseConfig = {
+    apiKey: "AIzaSyDY6JXe0kBoMU2BlrkafuTm6gq1H5LUohY",
+    authDomain: "harmonydigi-24166.firebaseapp.com",
+    projectId: "harmonydigi-24166",
+    storageBucket: "harmonydigi-24166.appspot.com",
+    messagingSenderId: "970946599618",
+    appId: "1:970946599618:web:e13bd162b24dc46718795b"
+  }; 
+
+  firebase.initializeApp(firebaseConfig); 
+  const db = firebase.firestore();
+   //REQUEST NOTIFICAÇÕES 
+   const fechamentosData=db.collection('fechamentos')  
+   fechamentosData.onSnapshot((snapshot) => { 
+        let closedData=[]
+        snapshot.forEach((doc) => { 
+            closedData.push(doc.data())   
+            console.log(closedData)
+        }); 
+ 
+        // ..
+    }, (error) => {
+        // ...
+    });
+</script> 
 </html>

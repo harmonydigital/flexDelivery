@@ -365,7 +365,7 @@ button.closeOrder {
     max-width: 250px;
 }
 div#dataOrder div#subTotal {
-    color: black;
+    color: #81808f;
     margin: 25px auto 0;
     font-weight: 800;
 }
@@ -403,7 +403,7 @@ button.printAll {
 }
  
 .overylay {
-    background: black;
+    background: #81808f;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -537,7 +537,7 @@ select{
     position: fixed;
     bottom: 0;
     height: 130px;
-    background: #ff5722;
+    background: white;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -546,10 +546,10 @@ select{
 }
 
 .btn{
-    background: transparent;
+    background: red;
     width: 230px;
     height: 45px;
     border-radius: 50px;
     color: white;
-    border: 2px solid;  
+    border: 2px solid;
 }
