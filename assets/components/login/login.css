@@ -20,11 +20,12 @@ img.logo {
     display: block;
 }
 #login button {
-    margin: 10px auto;
+    margin: 20px auto 0;
     background-color: #E5040E;
+    max-width: 225px;
 }
 
-@media (max-height:348px){
+@media (max-height:348px) and (max-width:768px){
     img.logo {
         height: 30px;
         padding: 25px;

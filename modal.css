@@ -345,7 +345,7 @@ div#porcoes, div#pasteis, div#bebidas, div#tapiocas {
 div#dataOrder {
     position: fixed;
     z-index: 999;
-    background: transparent;
+    background: white;
     bottom: 0;
     width: 100%;
     text-align: center;  

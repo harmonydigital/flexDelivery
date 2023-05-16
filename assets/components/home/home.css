@@ -15,8 +15,21 @@
 
 @media(min-width:769px){
     .painelvendas{
-        display: flex;
+        display: none;
         }
+      
+}
+
+
+@media(min-width:1024px){
+    
+        .data_container{
+            display: flex;
+        }
+        .data_container > div {
+            width: 45%;
+            margin: 0 20px;
+        }   
 }
 
 .observacoes {

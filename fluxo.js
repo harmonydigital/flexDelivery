@@ -1,8 +1,8 @@
 // arquivo principal.js
 // import { data} from './api'
 credentials=undefined
-var app=document.getElementById('app')
-    
+bodyDocument=document.getElementsByTagName('body')[0]
+var app=document.getElementById('app') 
 inputMesa=document.getElementById('mesa')
 repeat=false
 
@@ -166,72 +166,83 @@ function getProds(){
 admLogin=false
 
 function login(){
-    credentials=sessionStorage.getItem("credentials");
+    credentials=sessionStorage.getItem("nameValueStorage");
     
-      inputFocus=()=>{
- 
-        var clasFormLogin=document.querySelector('.form')
-        // console.log('inputFocus',clasFormLogin.childNodes[1])
-        clasFormLogin.childNodes[1].style.cssText='height:25px;'
+        inputFocus=()=>{
+            var clasFormLogin=document.querySelector('.form') 
+
+              if (window.matchMedia("(max-width: 700px)").matches==true) {   
+                clasFormLogin.childNodes[1].style.cssText='height:55px;transition:.3s;'
+                // console.log(window.matchMedia("(max-width: 700px)"))
+              }   
         }
          
-    if(credentials===null){
-    app.innerHTML+=`  
-            <div id="login">   
-                <div class="form">
-                <img class="logo" src="assets/img/logo.png">
-                    <div>
-                    <h3>Gerencie seus pedidos</h3>
+        if(credentials===null){
+        bodyDocument.style.cssText='overflow:hidden;'
+        app.innerHTML+=`  
+                <div id="login">   
+                    <div class="form">
+                    <img class="logo" src="assets/img/logo.png">
+                        <div>
+                        <h3>Gerencie seus pedidos</h3>
+                        </div>
+                        <form>
+
+                            <input onfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
+                            <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
+                            <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
+                            <a style="
+                            margin: 10px auto;
+                            text-decoration: none;
+                            font-size: 14px;
+                        " href=''>Esqueci minha senha!</a>
+                        </form>
                     </div>
-                    <form>
-
-                        <input onfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
-                        <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
-                        <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
-                        <a style="
-                        margin: 10px auto;
-                        text-decoration: none;
-                        font-size: 14px;
-                    " href=''>Esqueci minha senha!</a>
-                    </form>
+                    <footer>
+                      harmonyCorp©
+                    </footer>
                 </div>
-            </div>
-    `; 
-   
-    loginContainer=document.getElementById('login')
-  
+        `; 
+    
+        loginContainer=document.getElementById('login')
+    
 
-    validationLogin=(event,nameuser,pass)=>{
-        event.preventDefault()
+        validationLogin=(event,nameuser,pass)=>{
+            event.preventDefault()
 
-        var nameValue=nameuser.value
-        var userPass=pass.value 
+            var nameValue=nameuser.value
+            var userPass=pass.value 
 
-        sessionStorage.setItem("credentials",userPass);
-       
-
-            if(nameValue==='canoas' & userPass==='1234'){
-                // console.log('usuário comum')
-                document.getElementById('login').style.cssText="display:none;"
-
-            }else if(nameValue==='diva' & userPass==='3030'){
-                admLogin=true  
-                document.getElementById('login').style.cssText="display:none;"
-             
-            }else{
-                alert('Dados Incorretos')
-
-            }
-
-
-
-            if(credentials){
         
-                // app.innerHTML=`  `; 
+
+                if(nameValue==='garcom' & userPass==='1010'){
+                    
+                    document.getElementById('login').style.cssText="display:none;"
+                    sessionStorage.setItem("nameValueStorage",nameValue);
+                    bodyDocument.style.cssText='overflow:auto;'
+
+
+                }else if(nameValue==='FlexDelivery' & userPass==='3030'){
+                    
+                    admLogin=true  
+                    document.getElementById('login').style.cssText="display:none;"
+                    sessionStorage.setItem("nameValueStorage",nameValue);
+                    bodyDocument.style.cssText='overflow:auto;'
+                    
+                }else{
+                    alert('Dados Incorretos')
+
+                }
+
+
+
+                if(credentials){
+            
+                    // app.innerHTML=`  `; 
+                }
             }
-        }
-   
-    }    
+    
+        }    
         
 
     
@@ -422,8 +433,7 @@ function  fluxo(){
              
        `;
        
-         
-       console.log('key',key)
+          
 
         if(tipo==='mesa'){
             // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
@@ -604,15 +614,31 @@ function  fluxo(){
 
 
     }
-
+     fullScreen=()=>{
+        var element = document.documentElement;
+        
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
     // HOME FRONT PAGE
     app.innerHTML+=` 
             <div class="header">
 
                 <div class="user" id="user">  
-                    <div> 
-                    <img src="assets/images/user.png" alt="">
-                        Olá <strong>Thais </strong> Seja Bem-vindo!
+                    <div>   
+                    <button onclick="fullScreen()">Full Screen</button>
+
+ 
+
+                        <i class="fa-regular fa-user" style="color:red;"></i>
+                        Olá <strong>`+sessionStorage.getItem("nameValueStorage")+`</strong>, bem-vindo!
                     </div>
                     <h2>Administre seus pedidos aqui.</h2>
                 </div>
@@ -623,7 +649,7 @@ function  fluxo(){
 
                     </div>
                     <div id="ftotal">
-                        .. 
+                        R$ 0,00 
                     
                     </div>
                     <div id=" ">
@@ -665,7 +691,7 @@ function  fluxo(){
                 <div class="data_container">
 
                  <div>
-                    <h5 class="tittle">Novos Pedidos.</h5> 
+                    <h5 class="tittle">Fluxo de pedidos.</h5> 
                         <div class="flx">
                             <div class="card"> 
                                 <span id="nOrdersTables" class="tooltip">..</span>
@@ -684,17 +710,15 @@ function  fluxo(){
 
 
                 <div> 
+                <div> 
                     <div id="containerTables" class="flx wrap"> </div>    
                 </div>
+
                 <div> 
                     <div id="containerDel" class="flx wrap"> </div>    
                 </div> 
-                
-                
-
-
-
-
+                </div> 
+                 
 
                 </div>
                 <div id="relogio" hidden></div>
@@ -779,6 +803,8 @@ function  fluxo(){
                      </div> 
                 </div>
                 
+
+               
 
 
         `;      

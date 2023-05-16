@@ -1,18 +1,20 @@
-// pedidosAll=[]   
+pedidosAll=[]   
 pedidosContainer=document.getElementById("mesas")
 containerTables=document.getElementById("containerTables")
 
 dataTable=[]
-
+totalBuy=0
 function innerDataTotalPrice(idData){ 
  
     var totalBuy=0
+    var multiPLBuy=0
     var idCardData='cardHome'+idData  
-
+ 
     idt=document.getElementById(idCardData)
-    idt.innerHTML=""
-    dataTable.map((pedidosMap)=>{
+    idt.innerHTML="" 
 
+    dataTable.map((pedidosMap)=>{
+ 
         if(idData===pedidosMap.mesa){ 
 
             pedidosMap.orders.map((pedidosOrderMap)=>{ 
@@ -25,12 +27,13 @@ function innerDataTotalPrice(idData){
                         // console.log(pedidosItensMap.name)
                             
                         }else{
-                            totalBuy+=pedidosItensMap.quantidade*pedidosItensMap.price
+                            multiPLBuy=pedidosItensMap.quantidade*pedidosItensMap.price
+                            totalBuy+=multiPLBuy
 
+                       
                            
                             if(idt){
                                 idt.innerHTML=totalBuy.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-                                totalBuy=0
                             }
 
                         }
@@ -42,10 +45,11 @@ function innerDataTotalPrice(idData){
         }
 
     })
+    
     // console.log("total",totalBuy)
    
 }
-
+//
 
 function getData(bddata){
 pedidosContainer.innerHTML="<h3>Controle de Mesas:</h3>"
@@ -62,7 +66,7 @@ containerTables.innerHTML=" <h5 class='tittle' style='width:100%;'>Controle de M
             
                     <div key='`+pedidosMap.mesa+`' id='`+pedidosMap.mesa+`' 
                     onclick="tabledetails(`+pedidosMap.mesa+`,'mesa')" class="card"> 
-                        <h6> `+pedidosMap.mesa+`</h6>   
+                        <h6> Mesa `+pedidosMap.mesa+`</h6>   
                         <span id=cardHome`+pedidosMap.mesa+` class="price">..</span>
                     </div>
 

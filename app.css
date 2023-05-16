@@ -21,11 +21,11 @@ body{
 }
 
 @media (max-width:768px) {
-div#containerTables {
+/* div#containerTables {
     max-height: 290px;
     overflow-x: auto;
     align-items: flex-start;
-}
+} */
 }
 .flx{
     display: flex;
@@ -109,4 +109,18 @@ h5 {
     top: -10px;
     color: white !important;
     border-radius: 50px;
+}
+
+footer {
+    position: fixed;
+    z-index: 99999;
+    background: transparent;
+    width: 100%;
+    left: 0;
+    height: 20px;
+    display: flex;
+    bottom: 0;
+    padding: 20px 0;
+    justify-content: center;
+    color: #bad;
 }

@@ -23,9 +23,9 @@ div#notifications img {
     top: 0;
     left: -20px;
 }
-span#notQtd {
-    display: none !important;
-    background: #ff5201;
+ 
+span#notQtd span{
+    background: #ff0000;
     width: 23px;
     height: 34px;
     display: flex;
@@ -39,7 +39,6 @@ span#notQtd {
     right: -17px;
     font-size: 11px;
 }
-
 .notificationView {
     position: fixed;
     background: #ff5201;

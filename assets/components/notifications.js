@@ -17,14 +17,17 @@ vendasareceber=document.getElementById('vendasareceber')
 // console.log(vendasareceber)
 
 
-toogleNot=(id)=>{
-  console.log(id)
-
+toogleNot=(id)=>{ 
   document.getElementById(id).classList.toggle('show')  
 }
+
 innerSequenceOrders=(notDataBase)=>{
  
-  notificacoesData=notDataBase
+  notificacoesData=notDataBase 
+
+  notificacoesData.length>0?  notQtd.innerHTML=`<span>`+notificacoesData.length+`</span>` : console.log('')
+
+
   notificacao.innerHTML=`
     <div class="controls">
       <button onclick="toogleNot('notificacao')">
@@ -35,9 +38,15 @@ innerSequenceOrders=(notDataBase)=>{
       </button>    
     </div>
     
+    
     <div>
       <h2>Notificações</h2>
     </div>
+    
+    <div>
+      <button class="closeAll btn" style="color: white; margin: 0 auto; display: block;">Fechar todas</button>
+    </div>
+
 
     <div id='notification_content'>
     
@@ -104,8 +113,8 @@ innerSequenceOrders=(notDataBase)=>{
     
   })
 }
+
 appNotification=(todosPedidos,tipo)=>{  
- 
  
 
 if(todosPedidos.length>0){

@@ -149,7 +149,9 @@
 
         db.collection('fechamentos').doc(currencyData).set({
             "name":"fechamentos",
-            "contasFechadas":unifechamentos,  
+            "contasFechadas":unifechamentos, 
+            "data":currencyData
+              
         })
 
      
@@ -160,6 +162,10 @@
                 db.collection("mesasOpen").doc(idConta).delete().then(() => {
                     console.log("Document successfully deleted!");
                     alert('Conta encerrada com sucesso!') 
+                    // setTimeout(function(){ 
+
+
+                    //  , 3000)}
 
                 }).catch((error) => {
                     console.error("Error removing document: ", error);
