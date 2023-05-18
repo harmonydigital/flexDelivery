@@ -4,23 +4,23 @@ containerTables=document.getElementById("containerTables")
 
 dataTable=[]
 totalBuy=0
-function innerDataTotalPrice(idData){ 
+function innerDataTotalPrice(idData,bddata){ 
  
     var totalBuy=0
     var multiPLBuy=0
     var idCardData='cardHome'+idData  
  
     idt=document.getElementById(idCardData)
-    idt.innerHTML="" 
-
-    dataTable.map((pedidosMap)=>{
+    idt.innerHTML=""  
+    
+    bddata.map((pedidosMap)=>{
  
         if(idData===pedidosMap.mesa){ 
 
             pedidosMap.orders.map((pedidosOrderMap)=>{ 
         
                     pedidosOrderMap.itens.map((pedidosItensMap)=>{
-
+                   
 
                  
                         if(pedidosItensMap.price===undefined) {
@@ -71,7 +71,7 @@ containerTables.innerHTML=" <h5 class='tittle' style='width:100%;'>Controle de M
                     </div>
 
                 ` 
-                innerDataTotalPrice(pedidosMap.mesa)
+                innerDataTotalPrice(pedidosMap.mesa,bddata)
 
               
         }
