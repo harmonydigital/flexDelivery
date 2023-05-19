@@ -229,6 +229,13 @@ function login(){
                     sessionStorage.setItem("nameValueStorage",nameValue);
                     bodyDocument.style.cssText='overflow:auto;'
                     
+                }else if(nameValue==='canoasubatuba' & userPass==='181818'){ 
+                    
+                    admLogin=true  
+                    document.getElementById('login').style.cssText="display:none;"
+                    sessionStorage.setItem("nameValueStorage",nameValue);
+                    bodyDocument.style.cssText='overflow:auto;'
+
                 }else{
                     alert('Dados Incorretos')
 
@@ -627,16 +634,14 @@ function  fluxo(){
             element.msRequestFullscreen();
         }
     }
+
+    
     // HOME FRONT PAGE
     app.innerHTML+=` 
             <div class="header">
 
                 <div class="user" id="user">  
                     <div>   
-                    <button onclick="fullScreen()">Full Screen</button>
-
- 
-
                         <i class="fa-regular fa-user" style="color:red;"></i>
                         Olá <strong>`+sessionStorage.getItem("nameValueStorage")+`</strong>, bem-vindo!
                     </div>
@@ -675,14 +680,28 @@ function  fluxo(){
 
                     </ul>
                 </div>
-
-                <div onclick="toogleNot('notificacao')" style=" position: absolute; right: 30px;  top: 30px;">
+                
+                <div onclick="toogleNot('notificacao')" style="    position: absolute;
+                right: 30px;
+                top: 30px;
+                display: flex;
+                flex-direction: row-reverse;
+                ">
                 
                     <i style="
                     color: red;
                 " class="fa-solid fa-bell"></i>
                     <span id="notQtd"></span> 
+                    <div style="
+                width: 45%;
+                margin-right: 10px;
+                
+            ">
+                <button id="btnFullScreen" onclick="fullScreen()"><i style="color: red;" class="fa-solid fa-expand"></i></button>
+
                 </div>
+                </div>
+             
 
             </div>
 
