@@ -13,8 +13,7 @@ function innerDataTotalPrice(idData,bddata){
     idt=document.getElementById(idCardData)
     idt.innerHTML=""  
     
-    bddata.map((pedidosMap)=>{
- 
+    bddata.map((pedidosMap)=>{ 
         if(idData===pedidosMap.mesa){ 
 
             pedidosMap.orders.map((pedidosOrderMap)=>{ 

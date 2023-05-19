@@ -26,23 +26,41 @@ function innnerOrderItens(dataKey,tipo){
                     Array.from(ordersContainer).map((containerOnlyOrder)=>{   
                         
                         mOrder.itens.map((myItens)=>{ 
+
                             if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
                                  
                                 Array.from(setores).map((setMap)=>{
                               
                                     if(setMap.getAttribute('id')==myItens.categoria+mOrder.idPedido){
                                              var custoporquantidade=myItens.price*myItens.quantidade
-                                             
                                             document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
+
+                                            console.log(myItens)
+                                          
+                                           
+                                          if(myItens.observacaoPedido!==undefined){
+
+                                            console.log(myItens.observacaoPedido)
+
                                             document.getElementById(setMap.getAttribute('id')).innerHTML+= `
-                                            
+                                                <div class="pedidoResumo">  
+                                                    <div class='quantd'> ` +myItens.quantidade+ `un. </div> 
+                                                    <div class='nomeProd'> ` +myItens.name+ `</div>
+                                                    <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+                                                <div>` +myItens.observacaoPedido+ ` </div>
+                                                </div>
+                                            `; 
+                                        }else{
+                                            document.getElementById(setMap.getAttribute('id')).innerHTML+= `
                                             <div class="pedidoResumo">  
                                                 <div class='quantd'> ` +myItens.quantidade+ `un. </div> 
                                                 <div class='nomeProd'> ` +myItens.name+ `</div>
                                                 <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-        
+                                        
                                             </div>
-                                            `; 
+                                        `; 
+
+                                        }
                                             
                                             //OBTEM DADOS DE FATURAMENTO
                                             QTDITENSMESA+=myItens.quantidade
@@ -80,7 +98,7 @@ function innnerOrderItens(dataKey,tipo){
         
 
        deliveryPedidos.map((delPedMap)=>{
-        console.log(delPedMap.id)
+         
             if(delPedMap.id==key){
              
                 delPedMap.orders.map((orMapDel)=>{
@@ -88,7 +106,7 @@ function innnerOrderItens(dataKey,tipo){
                         Array.from(setores).map((setMap)=>{
                               
                             if(setMap.getAttribute('id')==itmaps.categoria+orMapDel.idPedido){
-                                    
+                                  
                                      document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
                                      var custoporquantidade=itmaps.price*itmaps.quantidade
 
@@ -407,15 +425,12 @@ function  fluxo(){
        
     }
     
-    tabledetails=(datakey, tipo)=>{ //imprime detalhes do pedido
-    //    var key=event.target.getAttribute('key') 
-
-    
+    tabledetails=(datakey, tipo)=>{   
        containerMesaDetails=document.getElementById('openTable')  
        if(datakey){
         var key=datakey.toString()
         }else{
-            console.log("oi")
+            // console.log("else")
         }
 
        containerMesaDetails.classList.toggle("show")
@@ -447,7 +462,7 @@ function  fluxo(){
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
            
             mesasO.map((mesasMap)=>{
-
+                 
                 if(mesasMap.mesa===key){
                     badgeMesa=document.getElementById('badgemesa')
 
@@ -455,7 +470,7 @@ function  fluxo(){
                         <h5>Pedidos Mesa <span> `+key+`</span></h5>
                     `; //Imprime numero da mesa
                     mesasMap.orders.map((mOrder)=>{
-                        // console.log(mOrder)
+                       
                         containerMesaDetails.innerHTML+=`
                         <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#Pedido`+mOrder.idPedido+`  </div>   
 
@@ -474,7 +489,7 @@ function  fluxo(){
 
                     innnerOrderItens(key,'mesa')
                 }else{
-                    console.log('oi',key)
+                    // console.log('else',key)
 
                 }
             })
