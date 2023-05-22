@@ -15,6 +15,7 @@
       <link rel="stylesheet" href="assets/components/login/login.css">
       <link rel="stylesheet" href="assets/components/menu/menu.css">
       <link rel="stylesheet" href="assets/components/delivery/deliveryorder.css">
+      <link rel="stylesheet" href="assets/components/fiscal/fiscal.css">
       
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -210,6 +211,7 @@
             let storegeProds=JSON.stringify(pedidosAll) 
             
             getData(pedidosAll)
+            // dataTableExport(pedidosAll)
             appNotification(pedidosAll,'mesa')
 
         }); 

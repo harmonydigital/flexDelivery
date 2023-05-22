@@ -1,16 +1,28 @@
-// arquivo principal.js
-// import { data} from './api'
+ 
 credentials=undefined
 bodyDocument=document.getElementsByTagName('body')[0]
 var app=document.getElementById('app') 
 inputMesa=document.getElementById('mesa')
 repeat=false
-
-
-function innnerOrderItens(dataKey,tipo){
  
+fullScreen=()=>{
+    var element = document.documentElement;
+    
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    }
+} 
+function innnerOrderItens(dataKey,tipo){
+   
     ordersContainer=document.querySelectorAll('.card')
-    setores=document.querySelectorAll('.setor')
+    getsetores=document.querySelectorAll('.setor')
+    setores=Array.from(getsetores)
     let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
     let key=dataKey
     
@@ -23,69 +35,45 @@ function innnerOrderItens(dataKey,tipo){
 
             if(mesasMap.mesa===key){ 
                 mesasMap.orders.map((mOrder)=>{ 
-                    Array.from(ordersContainer).map((containerOnlyOrder)=>{   
-                        
-                        mOrder.itens.map((myItens)=>{ 
+                        var tabslss= Array.from(document.getElementsByTagName('table'))
 
-                            if(containerOnlyOrder.getAttribute("id")==mOrder.idPedido){
-                                 
-                                Array.from(setores).map((setMap)=>{
-                              
-                                    if(setMap.getAttribute('id')==myItens.categoria+mOrder.idPedido){
-                                             var custoporquantidade=myItens.price*myItens.quantidade
-                                            document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
+                       
+                            tabslss.forEach(element => {
+                                idTable=element.getAttribute('id')
+                                if(idTable==mOrder.idPedido){
 
-                                            console.log(myItens)
-                                          
-                                           
-                                          if(myItens.observacaoPedido!==undefined){
-
-                                            console.log(myItens.observacaoPedido)
-
-                                            document.getElementById(setMap.getAttribute('id')).innerHTML+= `
-                                                <div class="pedidoResumo">  
-                                                    <div class='quantd'> ` +myItens.quantidade+ `un. </div> 
-                                                    <div class='nomeProd'> ` +myItens.name+ `</div>
-                                                    <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-                                                <div>` +myItens.observacaoPedido+ ` </div>
-                                                </div>
-                                            `; 
-                                        }else{
-                                            document.getElementById(setMap.getAttribute('id')).innerHTML+= `
-                                            <div class="pedidoResumo">  
-                                                <div class='quantd'> ` +myItens.quantidade+ `un. </div> 
-                                                <div class='nomeProd'> ` +myItens.name+ `</div>
-                                                <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
+                                    mOrder.itens.forEach(itensFor => {
                                         
-                                            </div>
-                                        `; 
+                                    console.log(document.getElementById(idTable),itensFor.name)
 
-                                        }
-                                            
-                                            //OBTEM DADOS DE FATURAMENTO
-                                            QTDITENSMESA+=myItens.quantidade
-                                            TOTALDAMESA+=custoporquantidade
-                                            
-                                    }
-                                     
+                                    containerTable=document.getElementById(idTable)
 
-                                    
-                                }) 
+                                    containerTable.innerHTML+=`
+                                        <tr>
+                                            <th>`+itensFor.name+`</th> 
+                                            <th>001</th> 
+                                            <th>225</th> 
+                                            <th>`+itensFor.price+`</th> 
+                                        </tr>
 
- 
-                              
-        
-        
-        
-                            }                                    
-                        })
-                        
-        
-                     
-                            
-                    })
-                })
-    
+                                    `
+                                        
+
+                                    // document.getElementById(idTable).innerHTML+=`
+                                    //     <tr>
+                                    //         <th>`+itensFor.name+`</th> 
+                                    //         <th>001</th> 
+                                    //         <th>225</th> 
+                                    //         <th>150.0</th> 
+                                    //     </tr>
+
+                                    // `
+                                        
+                                    });
+                                }
+                                
+                            });
+                }) 
                 
             }
         })
@@ -127,44 +115,25 @@ function innnerOrderItens(dataKey,tipo){
 
                             
                         }) 
-
-
-
-                        // document.getElementById(delPedMap.name).innerHTML+=`
-                        // <div class="pedidoResumo">
-                        //         <div class='quantd'> ` +itmaps.quantidade+ `</div>
-                        //         <div class='nomeProd'> ` +itmaps.name+ `</div>
-                        //         <div> ` +itmaps.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-
-
-                        // </div>
-                        // `; 
+ 
+ 
                     })
                 })
             }
        })
    
    
-    }
+    } 
 
+    // COLETA DADOS FINANCEIRO
+    totalMesaContainer=document.getElementById('subTotal')
 
-
-
-  // COLETA DADOS FINANCEIRO
-       totalMesaContainer=document.getElementById('subTotal')
-    //    console.log('QUANTIDADE DE ITENS NA MESA',QTDITENSMESA)
-    //    console.log('TOTAL DA MESA',TOTALDAMESA.toString())
-
-       if(totalMesaContainer){
-        totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
-       }
-
-   
-    
-    
-   
+    if(totalMesaContainer){
+    totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
+    } 
    
 }
+
 function getProds(){
 
     var allProds=[] 
@@ -181,6 +150,7 @@ function getProds(){
     return allProds
 }
 
+console.log(getProds())
 admLogin=false
 
 function login(){
@@ -198,15 +168,15 @@ function login(){
         if(credentials===null){
         bodyDocument.style.cssText='overflow:hidden;'
         app.innerHTML+=`  
-                <div id="login">   
+                <div id="login">    
                     <div class="form">
-                    <img class="logo" src="assets/img/logo.png">
+                        <img class="logo" src="assets/img/logo.png">
                         <div>
-                        <h3>Gerencie seus pedidos</h3>
+                            <h3>Gerencie seus pedidos</h3>
                         </div>
                         <form>
 
-                            <input onfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
+                            <input autofocusonfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
                             <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
                             <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
                             <a style="
@@ -222,27 +192,33 @@ function login(){
                 </div>
         `; 
     
-        loginContainer=document.getElementById('login')
-    
+        loginContainer=document.getElementById('login')  
 
         validationLogin=(event,nameuser,pass)=>{
             event.preventDefault()
-
+            welcome=document.getElementById('user')
             var nameValue=nameuser.value
-            var userPass=pass.value 
+            var userPass=pass.value  
 
-        
 
                 if(nameValue==='garcom' & userPass==='1010'){
                     
                     document.getElementById('login').style.cssText="display:none;"
                     sessionStorage.setItem("nameValueStorage",nameValue);
                     bodyDocument.style.cssText='overflow:auto;'
+                    welcome.innerHTML=` 
+                    <i class="fa-regular fa-user" style="color:red;"></i>
+                    Olá <strong>`+nameValue+`</strong>, bem-vindo!
+                `
 
 
                 }else if(nameValue==='FlexDelivery' & userPass==='3030'){
                     
                     admLogin=true  
+                    welcome.innerHTML=` 
+                        <i class="fa-regular fa-user" style="color:red;"></i>
+                        Olá <strong>`+nameValue+`</strong>, bem-vindo!
+                    `
                     document.getElementById('login').style.cssText="display:none;"
                     sessionStorage.setItem("nameValueStorage",nameValue);
                     bodyDocument.style.cssText='overflow:auto;'
@@ -253,6 +229,10 @@ function login(){
                     document.getElementById('login').style.cssText="display:none;"
                     sessionStorage.setItem("nameValueStorage",nameValue);
                     bodyDocument.style.cssText='overflow:auto;'
+                    welcome.innerHTML=` 
+                    <i class="fa-regular fa-user" style="color:red;"></i>
+                    Olá <strong>`+nameValue+`</strong>, bem-vindo!
+                `
 
                 }else{
                     alert('Dados Incorretos')
@@ -284,7 +264,7 @@ function  fluxo(){
  
     prodSelected=[] //Array de Produtos selecionados 
     mesaNumber=0
- 
+      
     tableValidation=()=>{
         inputMesa=document.getElementById('mesa')
         
@@ -424,19 +404,18 @@ function  fluxo(){
     }) 
        
     }
-    
-    tabledetails=(datakey, tipo)=>{   
+
+
+
+    // FUNÇÃO OBTEM LISTA DE CUPONS FISCAIS DA MESA
+          
+    tabledetails=(datakey, tipo)=>{    
+       
        containerMesaDetails=document.getElementById('openTable')  
-       if(datakey){
-        var key=datakey.toString()
-        }else{
-            // console.log("else")
-        }
-
-       containerMesaDetails.classList.toggle("show")
-
-    
-
+       containerMesaDetails.classList.toggle("show") 
+      
+       if(datakey){ var key=datakey.toString()}  
+       
        containerMesaDetails.innerHTML=`
             <div class="controls">
                 <button onclick="tabledetails()">
@@ -447,47 +426,95 @@ function  fluxo(){
                 </button>    
             </div> 
             <div id="badgemesa"></div>
+            
+
+            <!--HEAD CUPOM FISCAL -->
+            <div id="CFData"> 
+                <div class="card">
+                    <h5> Canoas Praia bar ltda </h5>
+                    <p> rua praia da lagoinha nº  999 / ubatuba  - sp </p>
+
+                    <table>
+                        <tr>
+                            <th>CNPJ: 89.455.000/003-00</th>
+                            <th>06/01/2023</th> 
+                        </tr>
+                        <tr>
+                            <th>IE: 10.458.648-1</th>
+                            <th>12:12:39</th> 
+                        </tr>
+                        <tr>
+                            <th>IM: 08641569</th>
+                            <th>ccf:120289</th> 
+                        </tr> 
+                    </table>
+
+                    <span class="line"></span>
+
+                    <div id="cuponsContainer"></div>
+
+                </div>
+            </div>
+
+
+
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
                 <button key='`+key+`' onclick="closeOrder(event)" class="closeOrder">Fechar Conta</button>
-            </div>
+            </div> 
+       `;
+
+        //CONTAINER DE NOVAS COMPRAS
+         var cupomContainer=document.getElementById('cuponsContainer')
+
+         console.log(cupomContainer)
+        if(tipo==='mesa'){
 
              
-       `;
-       
-          
-
-        if(tipo==='mesa'){
-            // console.log(JSON.parse(localStorage.getItem("mesasOpen")))    
             let mesasO=JSON.parse(localStorage.getItem("mesasOpen"))
            
-            mesasO.map((mesasMap)=>{
-                 
-                if(mesasMap.mesa===key){
-                    badgeMesa=document.getElementById('badgemesa')
+            mesasO.map((mesasMap)=>{ 
 
+                if(mesasMap.mesa===key){
+
+                    badgeMesa=document.getElementById('badgemesa') 
                     badgeMesa.innerHTML=`
                         <h5>Pedidos Mesa <span> `+key+`</span></h5>
-                    `; //Imprime numero da mesa
-                    mesasMap.orders.map((mOrder)=>{
-                       
-                        containerMesaDetails.innerHTML+=`
-                        <div id="`+mOrder.idPedido+`" class="card"><div class="idpedido">#Pedido`+mOrder.idPedido+`  </div>   
+                    `;  
 
-                            <div onclick="getPrint(this)"  class="setor" id="porcoes`+mOrder.idPedido+`">
-                                <h4 >Setor Porções<img src="assets/img/printer.png" ></h4>
-                            </div>
-                            <div onclick="getPrint(this)"  class="setor" id="tapiocas`+mOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                            <div onclick="getPrint(this)"  class="setor" id="pasteis`+mOrder.idPedido+`"><h4>Setor Pasteis<img src="assets/img/printer.png" ></h4></div>
-                            <div onclick="getPrint(this,`+mOrder.idPedido+`)"  class="setor" id="bebidas`+mOrder.idPedido+`"><h4>Setor Bebidas<img src="assets/img/printer.png" ></h4></div>
-                           
-                        </div> 
+
+
+                    mesasMap.orders.map((mOrder)=>{
+                                console.log(mOrder.idPedido)
+                       if(cupomContainer){
+                        idTabelCupom=mOrder.idPedido
+                        cupomContainer.innerHTML+=` 
+                            
+                                <table id=`+mOrder.idPedido+`>
+                                    <tr>
+                                        <th><h5>CUPOM FISCAL  </h5></th> 
+                                        <th> </th> 
+
+                                    </tr>
+                                    <tr>
+                                        <th>DATA: 21/05/2023 / HORA 21:09</th> 
+                                        <th> </th> 
+                                    </tr>  
+                                    <tr class="headtable">
+                                        <th>DESCRIÇÃO</th> 
+                                        <th>ITEM</th> 
+                                        <th>COD.</th> 
+                                        <th>VALOR</th> 
+                                    </tr>
+                                </table>
+                                <span class="line"></span> 
                         
-                        
-                        `;
+                        `
+                       }  
+
                     })
 
-                    innnerOrderItens(key,'mesa')
+                    innnerOrderItens(key,'mesa',idTabelCupom)
                 }else{
                     // console.log('else',key)
 
@@ -547,15 +574,8 @@ function  fluxo(){
 
     tableOptions=()=>{
         tableButton=document.querySelectorAll('.mesabutton')
-        var btnsArr = Array.prototype.slice.call(tableButton);
-
-            // btnsArr.forEach(element => {
-        
-            //     element.addEventListener('click',tabledetails(event))
-                
-            // });
-    } 
-     
+        var btnsArr = Array.prototype.slice.call(tableButton); 
+    }  
  
     includOrder=(event, id)=>{ 
         if(event!=false){
@@ -612,17 +632,14 @@ function  fluxo(){
             mesaValue.orders.push(newOrder)            
             var lastOrder=mesaValue.orders[mesaValue.orders.length-1].idPedido.toString
 
-            console.log(mesaValue)
-            console.log(newOrder)
+          
             // renderItensOrder(lastOrder)
             
         } 
         relatorio()
         saved()
          
-    }
-
-
+    }  
     // ABRE MODAL INPUTS
     getModal=(id)=>{          
         id.classList.toggle("show");
@@ -636,63 +653,40 @@ function  fluxo(){
 
 
     }
-     fullScreen=()=>{
-        var element = document.documentElement;
-        
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.mozRequestFullScreen) {
-            element.mozRequestFullScreen();
-        } else if (element.webkitRequestFullscreen) {
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) {
-            element.msRequestFullscreen();
-        }
-    }
-
-    
+ 
+  
     // HOME FRONT PAGE
     app.innerHTML+=` 
-            <div class="header">
-
-                <div class="user" id="user">  
-                    <div>   
+            <div class="header"> 
+                <div>  
+                    <div class="user" id="user"> 
                         <i class="fa-regular fa-user" style="color:red;"></i>
-                        Olá <strong>`+sessionStorage.getItem("nameValueStorage")+`</strong>, bem-vindo!
-                    </div>
+                        Olá <strong>`+credentials+`</strong>, bem-vindo! 
+                    </div> 
                     <h2>Administre seus pedidos aqui.</h2>
                 </div>
 
                 <div id="menu">
                     <div  onclick='menuToggle()'>
-                        <i class="fa-solid fa-bars"></i>    
-
+                        <i class="fa-solid fa-bars"></i>      
                     </div>
-                    <div id="ftotal">
-                        R$ 0,00 
-                    
-                    </div>
-                    <div id=" ">
-                        ..
-                    </div>
+                    <div id="ftotal"> R$ 0,00   </div>
+                    <div id=" ">..</div>
                 </div>
 
                 <div id="menu-nav" class="menu-nav">
-                <div class="controls">
-                    <button onclick="menuToggle(event)">
-                        <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
-                    </button>
-                    <button onclick="menuToggle(event)"> 
-                        <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com --> 
-                    </button>    
-                </div>
-
-
+                    <div class="controls">
+                        <button onclick="menuToggle(event)">
+                            <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
+                        </button>
+                        <button onclick="menuToggle(event)"> 
+                            <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com --> 
+                        </button>    
+                    </div>  
                     <ul>
-                    <li><a href="">Inicio</a></li>
-                    <li><a href="closeds.html">Fechamentos</a></li>
-                    <li><a href="https://harmonydigital.github.io/updateFlexDelivery/">Alterar Cardápio</a></li>
-
+                        <li><a href="">Inicio</a></li>
+                        <li><a href="closeds.html">Fechamentos</a></li>
+                        <li><a href="https://harmonydigital.github.io/updateFlexDelivery/">Alterar Cardápio</a></li>
                     </ul>
                 </div>
                 
