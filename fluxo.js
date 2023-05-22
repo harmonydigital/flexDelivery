@@ -42,32 +42,20 @@ function innnerOrderItens(dataKey,tipo){
                                 idTable=element.getAttribute('id')
                                 if(idTable==mOrder.idPedido){
 
-                                    mOrder.itens.forEach(itensFor => {
-                                        
-                                    console.log(document.getElementById(idTable),itensFor.name)
-
-                                    containerTable=document.getElementById(idTable)
-
+                                    mOrder.itens.forEach(itensFor => { 
+                                    containerTable=document.getElementById(idTable) 
+                                    // thisprice=itensFor.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                                    thisprice=itensFor.price 
                                     containerTable.innerHTML+=`
                                         <tr>
                                             <th>`+itensFor.name+`</th> 
                                             <th>001</th> 
-                                            <th>225</th> 
-                                            <th>`+itensFor.price+`</th> 
+                                            <th>00`+itensFor.quantidade+`</th> 
+                                            <th>`+thisprice+`.00</th> 
                                         </tr>
 
-                                    `
-                                        
-
-                                    // document.getElementById(idTable).innerHTML+=`
-                                    //     <tr>
-                                    //         <th>`+itensFor.name+`</th> 
-                                    //         <th>001</th> 
-                                    //         <th>225</th> 
-                                    //         <th>150.0</th> 
-                                    //     </tr>
-
-                                    // `
+                                    ` 
+ 
                                         
                                     });
                                 }
@@ -503,7 +491,7 @@ function  fluxo(){
                                     <tr class="headtable">
                                         <th>DESCRIÇÃO</th> 
                                         <th>ITEM</th> 
-                                        <th>COD.</th> 
+                                        <th>QTD.</th> 
                                         <th>VALOR</th> 
                                     </tr>
                                 </table>
