@@ -31,6 +31,8 @@ function innnerOrderItens(dataKey,tipo){
     TOTALDAMESA=0
 
     if(tipo==='mesa'){
+
+       var itensQtd=0
         mesasO.map((mesasMap)=>{
 
             if(mesasMap.mesa===key){ 
@@ -43,25 +45,31 @@ function innnerOrderItens(dataKey,tipo){
                                 if(idTable==mOrder.idPedido){
 
                                     mOrder.itens.forEach(itensFor => { 
-                                    containerTable=document.getElementById(idTable) 
-                                    // thisprice=itensFor.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-                                    thisprice=itensFor.price 
-                                    containerTable.innerHTML+=`
-                                        <tr>
-                                            <th>`+itensFor.name+`</th> 
-                                            <th>001</th> 
-                                            <th>00`+itensFor.quantidade+`</th> 
-                                            <th>`+thisprice+`.00</th> 
-                                        </tr>
 
-                                    ` 
- 
+                                        containerTable=document.getElementById(idTable)  
+                                        thisprice=itensFor.price 
+                                        itensQtd+=1
                                         
+
+                                        console.log(mOrder)
+                                        if(itensFor.name!=undefined){
+                                            containerTable.innerHTML+=`
+                                                    <tr>
+                                                        <th>`+itensFor.name+`</th> 
+                                                        <th>00`+itensQtd+`</th> 
+                                                        <th>00`+itensFor.quantidade+`</th> 
+                                                        <th>`+thisprice+`.00</th> 
+                                                    </tr>
+
+                                                ` 
+                                        }
+
                                     });
                                 }
                                 
                             });
                 }) 
+                itensQtd=0
                 
             }
         })
