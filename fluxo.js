@@ -30,12 +30,7 @@ function innnerOrderItens(dataKey,tipo,obs){
     QTDITENSMESA=0
     TOTALDAMESA=0
 
-    if(tipo==='mesa'){
-
-
-
-
-
+    if(tipo==='mesa'){ 
 
        var itensQtd=0
        var totalTicket=0
@@ -69,7 +64,7 @@ function innnerOrderItens(dataKey,tipo,obs){
                                                         <th>`+itensFor.name+`</th> 
                                                         <th>00`+itensQtd+`</th> 
                                                         <th>00`+itensFor.quantidade+`</th> 
-                                                        <th>`+calctotalprod+`.00</th> 
+                                                        <th style="text-align: right;">`+calctotalprod+`</th> 
                                                     </tr>
                                                    
                                                     
@@ -94,7 +89,7 @@ function innnerOrderItens(dataKey,tipo,obs){
                 <table>
                     <tr>
                         <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
-                        <th><h5>TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+                        <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
                     </tr>
                     
                      
@@ -118,31 +113,7 @@ function innnerOrderItens(dataKey,tipo,obs){
              
                 delPedMap.orders.map((orMapDel)=>{
                     orMapDel.itens.map((itmaps)=>{ 
-                        Array.from(setores).map((setMap)=>{
-                              
-                            if(setMap.getAttribute('id')==itmaps.categoria+orMapDel.idPedido){
-                                  
-                                     document.getElementById(setMap.getAttribute('id')).style.cssText="display:block"
-                                     var custoporquantidade=itmaps.price*itmaps.quantidade
-
-                                     document.getElementById(setMap.getAttribute('id')).innerHTML+= ` 
-                                        <div class="pedidoResumo">  
-                                            <div class='quantd'> ` +itmaps.quantidade+ `un. </div> 
-                                            <div class='nomeProd'> ` +itmaps.name+ `</div>
-                                            <div class="priceresumo"> ` +custoporquantidade.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+ `</div>
-                                            
-                                        </div>
-                                     `;
-
-                                   //OBTEM DADOS DE FATURAMENTO
-                                   QTDITENSMESA+=itmaps.quantidade
-                                   TOTALDAMESA+=custoporquantidade
-                            }
-                             
-
-                            
-                        }) 
- 
+                       
  
                     })
                 })
@@ -464,15 +435,15 @@ function  fluxo(){
                     <table>
                         <tr>
                             <th>CNPJ: 89.455.000/003-00</th>
-                            <th>06/01/2023</th> 
+                            <th style="text-align: right;">06/01/2023</th> 
                         </tr>
                         <tr>
                             <th>IE: 10.458.648-1</th>
-                            <th>12:12:39</th> 
+                            <th style="text-align: right;">12:12:39</th> 
                         </tr>
                         <tr>
                             <th>IM: 08641569</th>
-                            <th>ccf:120289</th> 
+                            <th style="text-align: right;">ccf:120289</th> 
                         </tr> 
                     </table>
 
@@ -534,7 +505,7 @@ function  fluxo(){
                                         <th>DESCRIÇÃO</th> 
                                         <th>ITEM</th> 
                                         <th>QTD.</th> 
-                                        <th>VALOR</th> 
+                                        <th style="text-align: right;">VALOR</th> 
                                     </tr>
                                 </table>
                                 <span class="line"></span> 

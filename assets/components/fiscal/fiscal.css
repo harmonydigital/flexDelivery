@@ -13,6 +13,11 @@ div#CFData .card p {
     font-size: .8rem;
     font-weight: 900;
 }
+
+.totalCupom{
+  display: flex;
+  justify-content: flex-end;
+}
 div#CFData table{
     margin: 10px auto;
 }
