@@ -32,7 +32,13 @@ function innnerOrderItens(dataKey,tipo,obs){
 
     if(tipo==='mesa'){
 
+
+
+
+
+
        var itensQtd=0
+       var totalTicket=0
         mesasO.map((mesasMap)=>{
 
             if(mesasMap.mesa===key){ 
@@ -53,14 +59,20 @@ function innnerOrderItens(dataKey,tipo,obs){
 
                                         console.log(mOrder)
                                         if(itensFor.name!=undefined){
+
+
+                                            calctotalprod=thisprice*itensFor.quantidade
+                                            totalTicket+=calctotalprod
+
                                             containerTable.innerHTML+=`
                                                     <tr>
                                                         <th>`+itensFor.name+`</th> 
                                                         <th>00`+itensQtd+`</th> 
                                                         <th>00`+itensFor.quantidade+`</th> 
-                                                        <th>`+thisprice+`.00</th> 
+                                                        <th>`+calctotalprod+`.00</th> 
                                                     </tr>
                                                    
+                                                    
 
                                                 ` 
                                         }
@@ -71,7 +83,9 @@ function innnerOrderItens(dataKey,tipo,obs){
                             });
                 }) 
                 itensQtd=0
-                
+                document.getElementById('subTotal').innerHTML=`
+                Total da compra `+totalTicket.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                                            
             }
         })
 
@@ -126,7 +140,7 @@ function innnerOrderItens(dataKey,tipo,obs){
     totalMesaContainer=document.getElementById('subTotal')
 
     if(totalMesaContainer){
-    totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
+    // totalMesaContainer.innerHTML+=` ` +TOTALDAMESA.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}).toString()+ ` `;
     } 
    
 }
@@ -491,16 +505,14 @@ function  fluxo(){
                                 <table id=`+mOrder.idPedido+`>
                                     <tr>
                                         <th><h5>CUPOM FISCAL  </h5></th> 
-                                        <th> </th> 
-
+                                        <th> </th>  
                                     </tr>
                                     <tr>
                                         <th>DATA: 21/05/2023 / HORA 21:09</th> 
                                         <th> </th> 
                                     </tr> 
                                     <tr>
-                                    <th>Obs:`+obs+` </th>
-                                        
+                                        <th>Obs:`+obs+` </th> 
                                     </tr> 
                                     <tr class="headtable">
                                         <th>DESCRIÇÃO</th> 
