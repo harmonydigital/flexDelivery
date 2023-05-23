@@ -18,7 +18,7 @@ fullScreen=()=>{
         element.msRequestFullscreen();
     }
 } 
-function innnerOrderItens(dataKey,tipo){
+function innnerOrderItens(dataKey,tipo,obs){
    
     ordersContainer=document.querySelectorAll('.card')
     getsetores=document.querySelectorAll('.setor')
@@ -60,6 +60,7 @@ function innnerOrderItens(dataKey,tipo){
                                                         <th>00`+itensFor.quantidade+`</th> 
                                                         <th>`+thisprice+`.00</th> 
                                                     </tr>
+                                                   
 
                                                 ` 
                                         }
@@ -481,9 +482,10 @@ function  fluxo(){
 
 
                     mesasMap.orders.map((mOrder)=>{
-                                console.log(mOrder.idPedido)
                        if(cupomContainer){
                         idTabelCupom=mOrder.idPedido
+                        obs=mOrder.observacao
+
                         cupomContainer.innerHTML+=` 
                             
                                 <table id=`+mOrder.idPedido+`>
@@ -495,7 +497,11 @@ function  fluxo(){
                                     <tr>
                                         <th>DATA: 21/05/2023 / HORA 21:09</th> 
                                         <th> </th> 
-                                    </tr>  
+                                    </tr> 
+                                    <tr>
+                                    <th>Obs:`+obs+` </th>
+                                        
+                                    </tr> 
                                     <tr class="headtable">
                                         <th>DESCRIÇÃO</th> 
                                         <th>ITEM</th> 
@@ -510,7 +516,7 @@ function  fluxo(){
 
                     })
 
-                    innnerOrderItens(key,'mesa',idTabelCupom)
+                    innnerOrderItens(key,'mesa',obs)
                 }else{
                     // console.log('else',key)
 
