@@ -82,10 +82,26 @@ function innnerOrderItens(dataKey,tipo,obs){
                                 
                             });
                 }) 
+
                 itensQtd=0
+                ios=0.5
+
+                totalbruto=ios+totalTicket
                 document.getElementById('subTotal').innerHTML=`
-                Total da compra `+totalTicket.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-                                            
+                Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                        
+                cupomContainer.innerHTML+=`
+                <table>
+                    <tr>
+                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                        <th><h5>TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+                    </tr>
+                    
+                     
+                </table>
+                `
+
+                
             }
         })
 
@@ -443,7 +459,7 @@ function  fluxo(){
             <div id="CFData"> 
                 <div class="card">
                     <h5> Canoas Praia bar ltda </h5>
-                    <p> rua praia da lagoinha nº  999 / ubatuba  - sp </p>
+                    <p> rua praia da lagoinha nº  999 /<br> ubatuba  - sp </p>
 
                     <table>
                         <tr>
@@ -476,9 +492,9 @@ function  fluxo(){
        `;
 
         //CONTAINER DE NOVAS COMPRAS
-         var cupomContainer=document.getElementById('cuponsContainer')
+         cupomContainer=document.getElementById('cuponsContainer')
 
-         console.log(cupomContainer)
+         
         if(tipo==='mesa'){
 
              
