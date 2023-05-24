@@ -109,13 +109,13 @@ function innnerOrderItens(dataKey,tipo,obs){
        deliveryPedidos.map((delPedMap)=>{ 
                 if(delPedMap.id==key){
                     delPedMap.orders.map((mOrder)=>{ 
+                     
                         var tabslss= Array.from(document.getElementsByTagName('table')) 
                             tabslss.forEach(element => {
                             
                                 idTableDel=element.getAttribute('id')
                                 if(idTableDel==mOrder.idPedido){
                                     mOrder.itens.forEach(itensFor => { 
-                                        console.log(itensFor)
                                         var containerTable=document.getElementById(idTableDel)  
                                         var thisprice=itensFor.price 
                                         itensQtd+=1 
@@ -528,7 +528,7 @@ function  fluxo(){
                        if(cupomContainer){
                         var idTabelCupom=mOrder.idPedido
                         obs=mOrder.observacao
-
+                        
                         cupomContainer.innerHTML+=` 
                             
                                 <table id=`+mOrder.idPedido+`>
@@ -584,7 +584,7 @@ function  fluxo(){
                 
                 if(deliMap.id==key){ 
                     deliMap.orders.map((dOrder)=>{
-
+console.log(dOrder.hora)
 
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
@@ -598,7 +598,7 @@ function  fluxo(){
                                             <th> </th>  
                                         </tr>
                                         <tr>
-                                            <th>DATA: 21/05/2023 / HORA 21:09</th> 
+                                            <th>DATA:`+dOrder.data+`/ HR `+dOrder.hora+`</th> 
                                             <th> </th> 
                                         </tr> 
                                         <tr>
