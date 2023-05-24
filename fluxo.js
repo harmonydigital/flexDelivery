@@ -585,7 +585,7 @@ function  fluxo(){
                 
                 if(deliMap.id==key){ 
                     deliMap.orders.map((dOrder)=>{
-console.log(dOrder.hora)
+ 
 
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
