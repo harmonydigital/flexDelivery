@@ -536,12 +536,13 @@ function  fluxo(){
                                         <th><h5>CUPOM FISCAL  </h5></th> 
                                         <th> </th>  
                                     </tr>
-                                    <tr>
-                                        <th>DATA: 21/05/2023 / HORA 21:09</th> 
+                                    <tr> 
+                                        <th>DATA:`+mOrder.data+`/ HORA `+mOrder.hora+`</th> 
+
                                         <th> </th> 
                                     </tr> 
                                     <tr>
-                                        <th>Obs:`+obs+` </th> 
+                                        <th>OBS:`+obs+` </th> 
                                     </tr> 
                                     <tr class="headtable">
                                         <th>DESCRIÇÃO</th> 
@@ -588,7 +589,7 @@ console.log(dOrder.hora)
 
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
-                            // obs=dOrder.observacao
+                            obs=dOrder.observacao
     
                             cupomContainer.innerHTML+=` 
                                 
@@ -598,11 +599,11 @@ console.log(dOrder.hora)
                                             <th> </th>  
                                         </tr>
                                         <tr>
-                                            <th>DATA:`+dOrder.data+`/ HR `+dOrder.hora+`</th> 
+                                            <th>DATA:`+dOrder.data+`/ HORA `+dOrder.hora+`</th> 
                                             <th> </th> 
                                         </tr> 
                                         <tr>
-                                            <th>Obs:  </th> 
+                                            <th>Obs:`+dOrder.observacao+`</th> 
                                         </tr> 
                                         <tr class="headtable">
                                             <th>DESCRIÇÃO</th> 
