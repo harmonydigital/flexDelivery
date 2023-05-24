@@ -32,8 +32,9 @@ function innnerOrderItens(dataKey,tipo,obs){
 
     if(tipo==='mesa'){ 
 
-       var itensQtd=0
-       var totalTicket=0
+        var itensQtd=0
+        var totalTicket=0
+
         mesasO.map((mesasMap)=>{
 
             if(mesasMap.mesa===key){ 
@@ -46,13 +47,11 @@ function innnerOrderItens(dataKey,tipo,obs){
                                 if(idTable==mOrder.idPedido){
 
                                     mOrder.itens.forEach(itensFor => { 
-
+                                        console.log(itensFor)
                                         containerTable=document.getElementById(idTable)  
                                         thisprice=itensFor.price 
-                                        itensQtd+=1
-                                        
+                                        itensQtd+=1 
 
-                                        console.log(mOrder)
                                         if(itensFor.name!=undefined){
 
 
@@ -65,9 +64,7 @@ function innnerOrderItens(dataKey,tipo,obs){
                                                         <th>00`+itensQtd+`</th> 
                                                         <th>00`+itensFor.quantidade+`</th> 
                                                         <th style="text-align: right;">`+calctotalprod+`</th> 
-                                                    </tr>
-                                                   
-                                                    
+                                                    </tr> 
 
                                                 ` 
                                         }
@@ -106,17 +103,62 @@ function innnerOrderItens(dataKey,tipo,obs){
     }else if(tipo==='delivery'){
        let deliveryPedidos=JSON.parse(localStorage.getItem("pedidosDelivery"))
         
+       var itensQtd=0
+       var totalTicket=0
 
-       deliveryPedidos.map((delPedMap)=>{
-         
-            if(delPedMap.id==key){
-             
-                delPedMap.orders.map((orMapDel)=>{
-                    orMapDel.itens.map((itmaps)=>{ 
-                       
- 
-                    })
+       deliveryPedidos.map((delPedMap)=>{ 
+                if(delPedMap.id==key){
+                    delPedMap.orders.map((mOrder)=>{ 
+                        var tabslss= Array.from(document.getElementsByTagName('table')) 
+                            tabslss.forEach(element => {
+                            
+                                idTableDel=element.getAttribute('id')
+                                if(idTableDel==mOrder.idPedido){
+                                    mOrder.itens.forEach(itensFor => { 
+                                        console.log(itensFor)
+                                        var containerTable=document.getElementById(idTableDel)  
+                                        var thisprice=itensFor.price 
+                                        itensQtd+=1 
+
+                                        if(itensFor.name!=undefined){
+
+
+                                            calctotalprod=thisprice*itensFor.quantidade
+                                            totalTicket+=calctotalprod
+
+                                            containerTable.innerHTML+=`
+                                                    <tr>
+                                                        <th>`+itensFor.name+`</th> 
+                                                        <th>00`+itensQtd+`</th> 
+                                                        <th>00`+itensFor.quantidade+`</th> 
+                                                        <th style="text-align: right;">`+calctotalprod+`</th> 
+                                                    </tr> 
+
+                                                ` 
+                                        }
+
+                                    });
+                                }
+                            });
                 })
+                
+                itensQtd=0
+                ios=0.5
+
+                totalbruto=ios+totalTicket
+                document.getElementById('subTotal').innerHTML=`
+                Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                        
+                cupomContainer.innerHTML+=`
+                <table>
+                    <tr>
+                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                        <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+                    </tr>
+                    
+                     
+                </table>
+                `
             }
        })
    
@@ -484,7 +526,7 @@ function  fluxo(){
 
                     mesasMap.orders.map((mOrder)=>{
                        if(cupomContainer){
-                        idTabelCupom=mOrder.idPedido
+                        var idTabelCupom=mOrder.idPedido
                         obs=mOrder.observacao
 
                         cupomContainer.innerHTML+=` 
@@ -534,28 +576,58 @@ function  fluxo(){
                 </div>
             `
 
-        }else if(tipo==='delivery'){
-            // console.log(JSON.parse(localStorage.getItem("pedidosDelivery")))   
+        }else if(tipo==='delivery'){ 
+
+
             deliveryO=JSON.parse(localStorage.getItem("pedidosDelivery"))
             deliveryO.map((deliMap)=>{
                 
-                if(deliMap.id==key){
-                   
+                if(deliMap.id==key){ 
                     deliMap.orders.map((dOrder)=>{
-                        containerMesaDetails.innerHTML+=`
-                        <div id="`+deliMap.name+`" class="card"><div class="idpedido">#Pedido `+dOrder.idPedido+`</div>   
-                        <div onclick="getPrint(this)"  class="setor" id="porcoes`+dOrder.idPedido+`"><h4> Porções<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="tapiocas`+dOrder.idPedido+`"><h4> Tapiocas<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="pasteis`+dOrder.idPedido+`"><h4> Pasteis<img src="assets/img/printer.png" ></h4></div>
-                        <div onclick="getPrint(this)"  class="setor" id="bebidas`+dOrder.idPedido+`"><h4> Bebidas<img src="assets/img/printer.png" ></h4></div>
-                        </div>  
-                        `;
+
+
+                        if(cupomContainer){
+                            var idTabelCupom=dOrder.idPedido
+                            // obs=dOrder.observacao
+    
+                            cupomContainer.innerHTML+=` 
+                                
+                                    <table id=`+dOrder.idPedido+`>
+                                        <tr>
+                                            <th><h5>CUPOM FISCAL  </h5></th> 
+                                            <th> </th>  
+                                        </tr>
+                                        <tr>
+                                            <th>DATA: 21/05/2023 / HORA 21:09</th> 
+                                            <th> </th> 
+                                        </tr> 
+                                        <tr>
+                                            <th>Obs:  </th> 
+                                        </tr> 
+                                        <tr class="headtable">
+                                            <th>DESCRIÇÃO</th> 
+                                            <th>ITEM</th> 
+                                            <th>QTD.</th> 
+                                            <th style="text-align: right;">VALOR</th> 
+                                        </tr>
+                                    </table>
+                                    <span class="line"></span> 
+                            
+                            `
+                           }  
+
+
+
+
+                         
                     })
+
                     innnerOrderItens(key,'delivery')
 
  
                 }
             })
+
             containerMesaDetails.innerHTML+=`
             <button class="printAll" onclick="getPrint(this)">
                 <img src="assets/img/printer.png" > Imprimir tudo 
