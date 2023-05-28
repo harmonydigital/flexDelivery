@@ -5,7 +5,7 @@ div#notificacao {
     width: 100%;
     position: fixed;
     top: 0;
-    background: white;
+    background: #FBFBFB;
     padding: 0 0;
     overflow: auto;
     height: 100%;
@@ -15,6 +15,7 @@ div#notificacao {
     display: none;
  
 }
+
 div#notifications.show {
     display: block !important;
 }
@@ -23,7 +24,12 @@ div#notifications img {
     top: 0;
     left: -20px;
 }
- 
+.buttons_controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
 span#notQtd span{
     background: #ff0000;
     width: 23px;
@@ -51,7 +57,7 @@ div#notification_content .card:last-child {
     background: red;
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 0;
     border-radius: 20px;
 }
 
@@ -198,6 +204,8 @@ button.recusa {
         flex-wrap: wrap;
         color: yellow;
         flex-direction: column-reverse;
+        width: 400px;
+        margin: 0 auto;
     }
     div#notificacao > div > button {
         color: #ff0000;
@@ -235,15 +243,18 @@ button.recusa {
     }
     div#notification_content .card {
         background: white;
-        margin: 10px ;
+        margin: 10px 0;
         width: inherit;
-        padding: 5px 10px;
+        padding: 0;
         box-shadow: 2px 2px 10px #eeee;
         justify-content: space-between;
         align-items: center;
      
     }
-
+    
+    div#notification_content  .card_content {
+        margin: 20px;
+    }
     div#notification_content h6 {
         color: red;
         font-size: 16px;

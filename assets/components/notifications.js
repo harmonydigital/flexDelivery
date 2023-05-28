@@ -72,17 +72,22 @@ innerSequenceOrders=(notDataBase)=>{
                   
           <div  class='flx card'>
 
-          <div class="flx">
-           <span><i class="fa-regular fa-bell"></i> </span>
+            <div class="flx"> 
+              <span><i class="fa-regular fa-bell"></i> </span>
 
-            <div>
-            <h6>Novo pedido Mesa (`+notMap.name+`) </h6>
-            <p>Hora do Pedido: `+notMap.hora+`</p>
-            </div
-          </div>
-          <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
-          <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver pedido</button>
-         
+              <div class='card_content'>
+                <h6>Novo pedido Mesa (`+notMap.name+`) </h6>
+                <p>Hora do Pedido: `+notMap.hora+`</p>
+              </div>
+
+            </div>
+            <div class='buttons_controls'>
+            <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver </button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> Aceitar </button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> Recusar </button>
+            </div>
+          
         </div>
             `;
           }else if(notMap.mesa!=undefined){
@@ -93,7 +98,7 @@ innerSequenceOrders=(notDataBase)=>{
             <div class='flx' >
               <span><i class="fa-regular fa-bell"></i> </span>
 
-              <div>
+              <div class='card_content'>
                 <h6>Novo pedido Mesa (`+notMap.mesa+`) </h6>
                 <p>Hora do Pedido: `+notMap.hora+`</p>
               </div>

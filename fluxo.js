@@ -763,26 +763,18 @@ function  fluxo(){
                         <li><a href="https://harmonydigital.github.io/updateFlexDelivery/">Alterar Cardápio</a></li>
                     </ul>
                 </div>
-                
-                <div onclick="toogleNot('notificacao')" style="    position: absolute;
-                right: 30px;
-                top: 30px;
-                display: flex;
-                flex-direction: row-reverse;
-                ">
-                
-                    <i style="
-                    color: red;
-                " class="fa-solid fa-bell"></i>
-                    <span id="notQtd"></span> 
-                    <div style="
-                width: 45%;
-                margin-right: 10px;
-                
-            ">
-                <button id="btnFullScreen" onclick="fullScreen()"><i style="color: red;" class="fa-solid fa-expand"></i></button>
+
+                <div style=" margin-right: 60px; margin-top: 11px; ">
+                    <button id="btnFullScreen" onclick="fullScreen()"><i style="color: red;" class="fa-solid fa-expand"></i></button>
 
                 </div>
+
+                <div onclick="toogleNot('notificacao')" style="position: absolute;  right: 30px; top: 30px; display: flex;  flex-direction: row-reverse; ">
+                
+                    <i style="  color: red;  " class="fa-solid fa-bell"></i>
+                        <span id="notQtd"></span> 
+                  
+
                 </div>
              
 
