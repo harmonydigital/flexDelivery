@@ -263,7 +263,7 @@ function login(){
                     sessionStorage.setItem("nameValueStorage",nameValue);
                     bodyDocument.style.cssText='overflow:auto;'
                     
-                }else if(nameValue==='canoasubatuba' & userPass==='181818'){ 
+                }else if(nameValue==='goodvibes' & userPass==='1832#'){ 
                     
                     admLogin=true  
                     document.getElementById('login').style.cssText="display:none;"
@@ -471,12 +471,12 @@ function  fluxo(){
             <!--HEAD CUPOM FISCAL -->
             <div id="CFData"> 
                 <div class="card">
-                    <h5> Canoas Praia bar ltda </h5>
-                    <p> rua praia da lagoinha nº  999 /<br> ubatuba  - sp </p>
+                    <h5> Adega Good Vibes </h5>
+                    <p> BR/101 Marafunda nº  999 /<br> ubatuba  - sp </p>
 
                     <table>
                         <tr>
-                            <th>CNPJ: 89.455.000/003-00</th>
+                            <th>CNPJ: 00.000.000/003-00</th>
                             <th style="text-align: right;">06/01/2023</th> 
                         </tr>
                         <tr>
@@ -528,7 +528,7 @@ function  fluxo(){
                        if(cupomContainer){
                         var idTabelCupom=mOrder.idPedido
                         obs=mOrder.observacao
-                        
+                            console.log(mOrder.data)
                         cupomContainer.innerHTML+=` 
                             
                                 <table id=`+mOrder.idPedido+`>
@@ -542,6 +542,7 @@ function  fluxo(){
                                         <th> </th> 
                                     </tr> 
                                     <tr>
+                                        
                                         <th>OBS:`+obs+` </th> 
                                     </tr> 
                                     <tr class="headtable">
@@ -602,9 +603,13 @@ function  fluxo(){
                                             <th>DATA:`+dOrder.data+`/ HORA `+dOrder.hora+`</th> 
                                             <th> </th> 
                                         </tr> 
-                                        <tr>
+                                        
+                                         <tr>
+                                            <th>END:`+dOrder.location+` </th> 
+                                         </tr> 
+                                         <tr>
                                             <th>Obs:`+dOrder.observacao+`</th> 
-                                        </tr> 
+                                        </tr>
                                         <tr class="headtable">
                                             <th>DESCRIÇÃO</th> 
                                             <th>ITEM</th> 
