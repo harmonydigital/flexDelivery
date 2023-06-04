@@ -1,35 +1,28 @@
- 
-
 
 function accoutsCloseds(closedData){
-    let closeddb=closedData
-    console.log(closeddb)
+    let closeddb=closedData 
+    let containerCloseds=document.getElementById('closedsContainer') 
 
-    var app=document.getElementById('app')
-    app.innerHTML='Ola'
 
-    closeddb.map((accoutsClmap)=>{
-     
+    containerCloseds.innerHTML=`
 
-    app.innerHTML=`
-    
-    <div class="data_container"> 
-        <div class="card" style=" display: flex; align-items: center; color: red; justify-content: space-between;"> 
-            <div>
-                <h6>`+accoutsClmap.data+`</h6>   
-                <span id="nSalesTables" class="price">Total de vendas dia: R$ 2,000,00 </span>
-            </div>
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <div>
+            <a class="btnhome" href="index.html"><i class="fa-solid fa-house"></i></a>
+            <h5>Relatório de Contas</h5>
         </div>
-    </div>
+    
+    `;
+   
+    closeddb.map((acountsMap)=>{
+        console.log(acountsMap)
+        containerCloseds.innerHTML+=`
+
+            <div class='card'>
+                <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
         
-    `
-
-        accoutsClmap.contasFechadas.map((CFMap)=>{
-            // console.log(CFMap)
-
-        })
+        `;
     })
-
 }
 

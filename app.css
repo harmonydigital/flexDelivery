@@ -12,6 +12,20 @@ body{
 .xs-hidden{
     display: none;
 }
+.closeAccounts {
+    margin: 30px auto;
+}
+div#closedsContainer > div {
+    margin: 20px auto;
+}
+.btnhome{
+font-size: 20px;
+margin: 20px;
+color: red;
+}
+.closeAccounts .mylabel {
+    margin: 10px auto;
+}
 @media (min-width:768px) {
     .sm-hidden{
         display: none;
@@ -89,14 +103,16 @@ h5 {
 }
 
 
-    .data_container .card h6 {
+      .card h6 {
         color: red;
         font-size: 1.0rem;
         margin: 0;
         
     text-transform: capitalize;
 }
-
+.card strong {
+    color: #818f9b;
+}
 .data_container .card span {
     color: black;
     font-size: 13px;

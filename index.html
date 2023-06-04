@@ -33,31 +33,29 @@
                 <button onclick="closeOrder(false)"><i class="fa-solid fa-chevron-left"></i></button>
                 <button onclick="closeOrder(false)"><i class="fa-solid fa-xmark"></i></button>    
             </div>
-            <form class="closeForm" action="">
-                <div class="mylabel select">
 
-                    <label style="
-                    top: 0px;
-                    height: 46px;
-                ">
-                        <i style="color:red; " class="fa-solid fa-file-invoice-dollar"></i>
-                    </label>   
-
-                    <select onchange="getPay()" id="paymentCheck">   
-                            <option value="1">Selecione a forma de Pagamento</option>
-                            <option value="dinheiro">Dinheiro</option>
-                            <option value="pix">Pix</option>
-                            <option value="debito">Debido Cartão</option>
-                            <option value="credito">Crédito Cartão</option>  
-                    </select>
-
-            </div>
-            <div class="placeCheckout">
-                <button onclick="loseOrder(false)" class="btn cancel" type="button" hidden>cancelar</button>
-                <button type="submit" class="btn closeOrders">Fechar conta</button>
-            </div>
-            </form>  
-       </div> 
+            <div class="closeAccounts"> 
+                <h5>Forma de Pagamento</h5>
+                <form class="closeForm" action=""> 
+                    <div class="mylabel select"> 
+                        <label>
+                            <i style="color:red; " class="fa-solid fa-file-invoice-dollar"></i>
+                        </label>    
+                        <select onchange="getPay()" id="paymentCheck">   
+                                <option value="1">Selecione a forma de Pagamento</option>
+                                <option value="dinheiro">Dinheiro</option>
+                                <option value="pix">Pix</option>
+                                <option value="debito">Debido Cartão</option>
+                                <option value="credito">Crédito Cartão</option>  
+                        </select> 
+                    </div>
+                    <div class="placeCheckout">
+                        <button onclick="loseOrder(false)" class="btn cancel" type="button" hidden>cancelar</button>
+                        <button type="submit" class="btn closeOrders">Fechar conta</button>
+                    </div>
+                </form>  
+            </div> 
+    </div> 
 
 
        <!-- MODAL PREVIEW  -->
