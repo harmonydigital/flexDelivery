@@ -19,7 +19,7 @@
       
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -137,9 +137,16 @@
     formClose.addEventListener('submit', function(e){
         e.preventDefault() 
         // 
-        let btnSubmit=document.querySelector('.btn.closeOrders')
 
-        console.log(btnSubmit)
+        
+        let btnSubmit=document.querySelector('.btn.closeOrders')
+        // LOAD
+        let load=document.getElementById('msgLoad') 
+        load.style.cssText='display:flex;'
+
+        
+
+
         btnSubmit.setAttribute('disabled', true)
         contasClosedb.map((clc)=>{  
             clc.contasFechadas.map((cf)=>{ 
@@ -165,10 +172,12 @@
                 db.collection("mesasOpen").doc(idConta).delete().then(() => {
                     console.log("Document successfully deleted!");
                     alert('Conta encerrada com sucesso!') 
-                    // setTimeout(function(){ 
-
-
-                    //  , 3000)}
+                    
+                    setTimeout(function(){ 
+                      location.reload() 
+                    }, 1000)
+        
+ 
 
                 }).catch((error) => {
                     console.error("Error removing document: ", error);

@@ -114,7 +114,7 @@ h5 {
     position: fixed;
     background: #f1f2f3;
     color: #ff253a;
-    display: flex;
+    display: none;
     z-index: 999;
     height: 100%;
     width: 100%;
