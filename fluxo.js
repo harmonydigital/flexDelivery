@@ -528,7 +528,7 @@ function  fluxo(){
                        if(cupomContainer){
                         var idTabelCupom=mOrder.idPedido
                         obs=mOrder.observacao
-                            console.log(mOrder.data)
+                            
                         cupomContainer.innerHTML+=` 
                             
                                 <table id=`+mOrder.idPedido+`>
@@ -591,7 +591,7 @@ function  fluxo(){
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
                             obs=dOrder.observacao
-    
+                            console.log(deliMap)
                             cupomContainer.innerHTML+=` 
                                 
                                     <table id=`+dOrder.idPedido+`>
@@ -601,7 +601,7 @@ function  fluxo(){
                                         </tr>
                                         <tr>
                                             <th>DATA:`+dOrder.data+`/ HORA `+dOrder.hora+`</th> 
-                                            <th> </th> 
+                                            <th> Nome:`+deliMap.name.toUpperCase()+`</th> 
                                         </tr> 
                                         
                                          <tr>
