@@ -190,7 +190,8 @@ function getProds(){
     return allProds
 }
 
-console.log(getProds())
+// VAR TODOS OS PRODUTOS console.log(getProds())
+
 admLogin=false
 
 function login(){

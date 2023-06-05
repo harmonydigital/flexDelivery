@@ -48,8 +48,7 @@ function innerDataTotalPrice(idData,bddata){
     // console.log("total",totalBuy)
    
 }
-//
-
+ 
 function getData(bddata){
 pedidosContainer.innerHTML="<h3>Controle de Mesas:</h3>"
 containerTables.innerHTML=" <h5 class='tittle' style='width:100%;'>Controle de Mesas. </h5>"
@@ -100,7 +99,7 @@ function deliveryData(deliveryAll){
         idd=document.getElementById(idCardData)
         ios=0.5
 
-        console.log(idd)
+        
         
         if(idd){ 
             idd.innerHTML='' 
@@ -124,9 +123,7 @@ function deliveryData(deliveryAll){
 
     deliveryAll.map((deliveryMap)=>{
 
-            // TODOS OS DELIVERYS NO MOMENTO 
-            
-            console.log('deliveryMap',deliveryMap.id) 
+            // TODOS OS DELIVERYS NO MOMENTO console.log('deliveryMap',deliveryMap) 
 
          
 
