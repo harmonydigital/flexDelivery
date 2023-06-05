@@ -20,22 +20,26 @@ var paymentCheck=document.getElementById('paymentCheck')
  
 closeOrder=(event)=>{ 
 
+  // ABRE FORMA DE PAGAMENTO
   closeForm=document.getElementById('closeForm')
   closeForm.classList.toggle('show')
+
+
+
   hfechamento=relogio()
 
   if(event!=false){
   idConta=event.target.getAttribute('key')
   todospedidos=[] 
 
-
+    console.log('idConta',idConta)
   
 
   if(VENDASOPENOW){
     VENDASOPENOW.map((vendasMap)=>{ 
 
         if(vendasMap.data){
-
+          console.log(vendasMap)
           vendasMap.data.map((tipoMap)=>{ 
   
              if(tipoMap.mesa==idConta){ 
@@ -46,7 +50,12 @@ closeOrder=(event)=>{
                 })
 
               }else if(tipoMap.name==idConta){
-             
+
+                
+                console.log('Deliverys')
+
+
+
                 tipoMap.orders.map((dOrders)=>{  
                     todospedidos.push(dOrders)
                     plataforma='Deliverys'    
@@ -60,7 +69,7 @@ closeOrder=(event)=>{
       
     })
 
-    // console.log(contaFechada)
+    console.log(plataforma)
   }
 }
 }

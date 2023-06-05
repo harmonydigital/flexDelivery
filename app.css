@@ -103,12 +103,34 @@ h5 {
 }
 
 
-      .card h6 {
+.card h6 {
         color: red;
         font-size: 1.0rem;
         margin: 0;
         
     text-transform: capitalize;
+}
+.card svg{
+    color: red;
+}
+div#detailsAccounts {
+    position: fixed;
+    top: 0;
+    background: white;
+    z-index: 999;
+    width: 100%;
+    display: none;
+    height: 100%;
+}
+div#closedsContainer .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button.getDatails {
+    width: 130px;
+    height: 40px;
+    text-align: right;
 }
 .msgLoad {
     position: fixed;

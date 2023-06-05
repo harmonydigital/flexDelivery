@@ -186,12 +186,14 @@
                 });
             
             }else if(plataforma=='Deliverys'){ 
+
+                console.log(idConta)
                 
-                db.collection("delivery").doc(idConta).delete().then(() => {
-                    console.log("Document successfully deleted!");
-                }).catch((error) => {
-                    console.error("Error removing document: ", error);
-                });
+                // db.collection("delivery").doc(idConta).delete().then(() => {
+                //     console.log("Document successfully deleted!");
+                // }).catch((error) => {
+                //     console.error("Error removing document: ", error);
+                // });
 
             }
         }, 3000)
