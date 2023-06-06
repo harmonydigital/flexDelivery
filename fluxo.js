@@ -501,7 +501,7 @@ function  fluxo(){
 
             <div id="dataOrder"> 
                 <div id="subTotal">Total da Compra</div>
-                <button key='`+key+`' onclick="closeOrder(event)" class="closeOrder">Fechar Conta</button>
+                <button key='`+key+`' type='`+tipo+`' onclick="closeOrder(event)" class="closeOrder">Fechar Conta</button>
             </div> 
        `;
 
@@ -592,7 +592,7 @@ function  fluxo(){
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
                             obs=dOrder.observacao
-                            console.log(deliMap)
+                        
                             cupomContainer.innerHTML+=` 
                                 
                                     <table id=`+dOrder.idPedido+`>

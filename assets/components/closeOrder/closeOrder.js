@@ -1,75 +1,103 @@
 contasClosedb=[]
 unifechamentos=[] 
-platatorma=0
+platatorma=false
 valuepaymentCheck=''
-// Pay
-function getPay(){ 
-var paymentCheck=document.getElementById('paymentCheck') 
- valuepaymentCheck=paymentCheck.options[paymentCheck.selectedIndex].text  
- console.log(valuepaymentCheck)
-   // Pay  
-   contaFechada={
-    "idConta":idConta,
-    "fechamento":hfechamento,
-    "pedidosfeitos":todospedidos,
-    "formadePagamento":valuepaymentCheck, 
 
+
+  // Pay
+  function getPay(){  
+    var paymentCheck=document.getElementById('paymentCheck') 
+    valuepaymentCheck=paymentCheck.options[paymentCheck.selectedIndex].text   
+      contaFechada={
+        "idConta":idConta,
+        "fechamento":hfechamento,
+        "pedidosfeitos":todospedidos,
+        "formadePagamento":valuepaymentCheck, 
+
+      }
   }
-}
 
  
 closeOrder=(event)=>{ 
 
   // ABRE FORMA DE PAGAMENTO
+  
   closeForm=document.getElementById('closeForm')
   closeForm.classList.toggle('show')
 
 
-
   hfechamento=relogio()
 
-  if(event!=false){
-  idConta=event.target.getAttribute('key')
-  todospedidos=[] 
+  if(event){
+ 
 
-    console.log('idConta',idConta)
-  
-
-  if(VENDASOPENOW){
-    VENDASOPENOW.map((vendasMap)=>{ 
-
-        if(vendasMap.data){
-          console.log(vendasMap)
-          vendasMap.data.map((tipoMap)=>{ 
-  
-             if(tipoMap.mesa==idConta){ 
-
-                tipoMap.orders.map((mOrders)=>{
-                     todospedidos.push(mOrders)
-                     plataforma='Mesas'
-                })
-
-              }else if(tipoMap.name==idConta){
-
-                
-                console.log('Deliverys')
-
-
-
-                tipoMap.orders.map((dOrders)=>{  
-                    todospedidos.push(dOrders)
-                    plataforma='Deliverys'    
-                })
-  
-             }
-          })
-
-
-        }
+      idConta=event.target.getAttribute('key')
+      type=event.target.getAttribute('type')
+      todospedidos=[]  
       
-    })
+      //TODAS AS VENDAS EM ABERTO console.log(VENDASOPENOW)
+      closeTable=()=>{
+        VENDASOPENOW.map((vendasMap)=>{
+          vendasMap.data.map((typeMap)=>{   
+            if(typeMap.mesa==idConta.toString()){ 
+              console.log(typeMap)
+              typeMap.orders.map((mOrders)=>{
+                  todospedidos.push(mOrders)
+                  plataforma='Mesas'
+              })
+            }
+          })
+        })
+      } 
 
-    console.log(plataforma)
+      closeDelivery=()=>{
+        console.log('fechar Delivery')
+        VENDASOPENOW.map((vendasMap)=>{
+    
+
+          if(vendasMap.data!=undefined){
+              vendasMap.data.map((allMap)=>{ 
+                if(allMap.id==idConta.toString()){ 
+                  console.log(allMap)
+
+                  
+                  allMap.orders.map((mOrders)=>{
+                          todospedidos.push(mOrders)
+                          plataforma='Deliverys'
+                      })
+
+                }
+
+
+              })
+          }
+          // vendasMap.data.map((allMap)=>{ 
+          //   console.log(allMap)
+
+          // })
+
+           
+          //   if(typeMap.id==idConta.toString()){ 
+
+          //     typeMap.orders.map((mOrders)=>{
+          //       todospedidos.push(mOrders)
+          //       plataforma='Deliverys'
+          //   })
+          //   }
+          // })
+        })
+      } 
+
+       type=='mesa' ? closeTable()  :  closeDelivery() 
+
+
+
+
+
+
+
+     
   }
-}
+
+
 }
