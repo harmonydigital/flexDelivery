@@ -71,20 +71,7 @@ closeOrder=(event)=>{
 
               })
           }
-          // vendasMap.data.map((allMap)=>{ 
-          //   console.log(allMap)
-
-          // })
-
            
-          //   if(typeMap.id==idConta.toString()){ 
-
-          //     typeMap.orders.map((mOrders)=>{
-          //       todospedidos.push(mOrders)
-          //       plataforma='Deliverys'
-          //   })
-          //   }
-          // })
         })
       } 
 

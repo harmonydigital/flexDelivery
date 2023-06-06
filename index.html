@@ -185,15 +185,17 @@
 
                 });
             
-            }else if(plataforma=='Deliverys'){ 
-
-                console.log(idConta)
+            }else if(plataforma=='Deliverys'){  
+            
                 
-                // db.collection("delivery").doc(idConta).delete().then(() => {
-                //     console.log("Document successfully deleted!");
-                // }).catch((error) => {
-                //     console.error("Error removing document: ", error);
-                // });
+                db.collection("delivery").doc(idConta).delete().then(() => {
+                    console.log("Document successfully deleted!");
+                    setTimeout(function(){ 
+                      location.reload() 
+                    }, 1000)
+                }).catch((error) => {
+                    console.error("Error removing document: ", error);
+                });
 
             }
         }, 3000)
