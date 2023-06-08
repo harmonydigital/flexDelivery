@@ -178,3 +178,39 @@ footer {
     justify-content: center;
     color: #bad;
 }
+
+
+
+div#addOrdersContainer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background: white;
+    top: 0;
+    height: 100%;
+    z-index: 999;
+    
+}
+div#addOrdersContainer h2 {
+    padding: 20px;
+    margin: 0;
+}
+
+ 
+label {
+    width: 100%;
+    height: 48px;
+    color: #73859E;
+    font-size: 1.1rem;
+    font-weight: 300;
+   
+    align-items: center;
+    display: flex;
+    background: white;
+   
+    border-radius: 40px 0 0 40px;
+    margin: 0;
+    padding: 2px;
+    position: relative;
+    bottom: 3px;
+}
