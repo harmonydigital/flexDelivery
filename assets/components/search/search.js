@@ -1,6 +1,4 @@
  
-console.log('search')
- 
     
     containerSearch = document.getElementById('contentSearch')  
     serchInput = document.getElementById('serchInput')   
@@ -21,6 +19,7 @@ console.log('search')
         
       }
       
+console.log('search',data)
       
     data.map((apiData)=>{  
         apiData.itens.map((itensMap)=>{  
