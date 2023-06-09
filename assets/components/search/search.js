@@ -39,7 +39,7 @@ console.log('search',data)
         })  
     }
     resetUI=()=>{
-        document.querySelector('div#addOrdersContainer h2').style.cssText='display:block;'
+        document.querySelector('div#addOrdersContainer h6').style.cssText='display:block;'
         document.querySelector('div#addOrdersContainer form label').style.cssText='display:block;'
         console.log('oi')
     }
@@ -51,7 +51,7 @@ console.log('search',data)
     function render(productFound){   
         
         if (window.matchMedia("(max-width: 700px)").matches){
-            document.querySelector('div#addOrdersContainer h2').style.cssText='display:none;'
+            document.querySelector('div#addOrdersContainer h6').style.cssText='display:none;'
             document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'
         }
         productFound.map((prodFoundMap)=>{  

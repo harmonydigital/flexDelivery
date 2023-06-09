@@ -6,21 +6,34 @@
 }
 .produto {
     display: flex;
-    background-color: #fff;
+    background-color: #fbfbfb;
     border-radius: 10px;
-    padding: 0 5px;
+    padding:10px;
     font-family: 'Lexend Deca', sans-serif;
     align-items: center;
     height: auto;
     margin: 10px 10px;
     font-family: 'Quicksand', sans-serif;
     justify-content: space-between;
+    
 }
 
 .produto .prod-val .valor {
     color: #545454;
     font-weight: 400;
     font-size: 14px;
+}
+h6 {
+    color: red;
+    font-size: 1.7rem;
+    margin: 10px 25px 0;
+    padding: 0;
+    text-align: left;
+}
+div#contentSearch form > label {
+    margin: 35px auto 5px;
+    display: flex;
+    height: 0;
 }
 .produto img {
     display: none;
@@ -57,6 +70,8 @@
 div#searchResult { 
 
 max-height: 55vh;
+
+margin: 20px auto;
 }
  @media (min-width:768px){
     div#searchResult { 

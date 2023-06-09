@@ -757,7 +757,7 @@ function  fluxo(){
                         </button>    
                     </div>
 
-                    <h2>Adicione pedidos.</h2>
+                    <h6>Adicionar pedido.</h6>
 
 
 
