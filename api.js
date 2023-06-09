@@ -978,8 +978,7 @@ requestMenuRest=(dataMenuRes)=>{
             data.push(mapDataProd)
         })
 
-    })
-    console.log(data)
+    })  
         
     data.map((apiData)=>{  
         apiData.itens.map((itensMap)=>{  
@@ -991,6 +990,7 @@ requestMenuRest=(dataMenuRes)=>{
 
     }) 
 
+    console.log(prodsArray)
     
 } 
 

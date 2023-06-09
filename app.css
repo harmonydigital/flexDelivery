@@ -189,11 +189,19 @@ div#addOrdersContainer {
     top: 0;
     height: 100%;
     z-index: 999;
+    display: none;
     
 }
 div#addOrdersContainer h2 {
     padding: 20px;
     margin: 0;
+}
+.card.red {
+    background: red;
+}
+
+.card.red span,.card.red h6 {
+  color: white;
 }
 
  

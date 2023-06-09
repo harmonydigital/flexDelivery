@@ -782,12 +782,23 @@ function  fluxo(){
 
 
                 <div id="menu">
+
                     <div  onclick='menuToggle()'>
                         <i class="fa-solid fa-bars"></i>      
                     </div>
+
                     <div id="ftotal"> R$ 0,00   </div>
-                    <div id=" ">..</div>
+
+                    <div >
+                        <button>
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>novo</span>
+                        </button>
+
+                    </div>
                 </div>
+
+
 
                 <div id="menu-nav" class="menu-nav">
                     <div class="controls">
@@ -846,7 +857,18 @@ function  fluxo(){
                                 <h6>Delivery</h6>   
                                 <span id="nSalesDeliverys" class="price">..</span>
                             </div>    
-                    </div>    
+                        </div>   
+                        <div class="flx">
+                            <div class="card red"> 
+                                <span id="" class="tooltip">..</span>
+
+                                <h6>Contas Fechadas hoje</h6>   
+                                <span id="" class="price">..</span>
+                            </div>
+                            <div class="card"> 
+                              
+                            </div>    
+                        </div>     
                 </div>    
 
 

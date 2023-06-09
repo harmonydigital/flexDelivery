@@ -13,9 +13,25 @@
     justify-content: space-between;
 }
 div#menu > div {
-    margin: 35px auto;
+    margin: 20px auto;
+    width: 30%;
+    display: flex;
+    justify-content: center;
 }
+div#menu button {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
+}
+div#menu button svg {
+    font-size: 1.2rem;
+    margin: 5px;
 
+    
+}
 .menu-nav {
     background: red;
     left: 0;
