@@ -21,6 +21,8 @@
       
 console.log('search',data)
       
+
+
     data.map((apiData)=>{  
         apiData.itens.map((itensMap)=>{  
             itensMap.products.map((productsMap)=>{  
@@ -36,13 +38,22 @@ console.log('search',data)
             return p.name.toLowerCase().includes(searched.toLowerCase())  
         })  
     }
+    resetUI=()=>{
+        document.querySelector('div#addOrdersContainer h2').style.cssText='display:block;'
+        document.querySelector('div#addOrdersContainer form label').style.cssText='display:block;'
+        console.log('oi')
+    }
 
     serchInput.addEventListener('keyup', _.debounce(submitSearch, 500))
+    // serchInput.addEventListener('focusout',  resetUI())
  
 
     function render(productFound){   
         
-
+        if (window.matchMedia("(max-width: 700px)").matches){
+            document.querySelector('div#addOrdersContainer h2').style.cssText='display:none;'
+            document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'
+        }
         productFound.map((prodFoundMap)=>{  
         
 
