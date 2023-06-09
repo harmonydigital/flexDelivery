@@ -13,6 +13,8 @@
     align-items: center;
     height: auto;
     margin: 10px 10px;
+    font-family: 'Quicksand', sans-serif;
+    justify-content: space-between;
 }
 
 .produto .prod-val .valor {
@@ -20,7 +22,9 @@
     font-weight: 400;
     font-size: 14px;
 }
-
+.produto img {
+    display: none;
+}
 .quantidade {
     display: flex;
     flex-direction: column;
@@ -33,7 +37,7 @@
     border: 0px;
     border-radius: 12px;
     color: white;
-    background-color: #ff5400;
+    background-color: #E5040E;
     margin: 5px;
     font-size: 15px;
 }
@@ -42,10 +46,22 @@
     height: 25px;
     border: 0px;
     border-radius: 9px;
-    padding-left: 3px;
+    padding: 0 !important;
     font-size: 1.1rem;
     text-align: center;
+    margin: 0 auto;
 }
 .quantidade input {
     pointer-events: none;
 }
+div#searchResult { 
+
+max-height: 55vh;
+}
+ @media (min-width:768px){
+    div#searchResult { 
+        width: 80%;
+        margin: 0 auto;
+       
+    }
+ }
