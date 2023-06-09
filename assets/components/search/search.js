@@ -5,7 +5,6 @@
     searchResult = document.getElementById('searchResult')   
     containerSearch.classList.toggle("showSearch");
     searchResult.classList.toggle("show");
-    prodsArray=[]
    
     submitSearch=(event)=>{
         let searched=event.target.value  
@@ -19,19 +18,8 @@
         
       }
       
-console.log('search',data)
       
-
-
-    data.map((apiData)=>{  
-        apiData.itens.map((itensMap)=>{  
-            itensMap.products.map((productsMap)=>{  
-                prodsArray.push(productsMap)
-
-            }) 
-        }) 
-
-    }) 
+      console.log(prodsArray)
          
     ProductsFilter=(searched)=>{
         return prodsArray.filter(p=>{

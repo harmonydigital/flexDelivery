@@ -294,6 +294,20 @@
         // ...
     });
 
+    //REQUEST CARDAPIO 
+    const cardapio=db.collection('cardapio')  
+    cardapio.onSnapshot((snapshot) => { 
+        let arrCardapio=[]
+        snapshot.forEach((doc) => { 
+            arrCardapio.push(doc.data()) 
+        }); 
+  
+        requestMenuRest(arrCardapio)
+
+    }, (error) => {
+        // ...
+    });
+
 
  
   </script>
