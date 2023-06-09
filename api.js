@@ -1124,8 +1124,9 @@ ii=0
     event.preventDefault
     var key=ProdThis.getAttribute('key')
      
-      input=document.getElementById(inputProd)
-      inputSearch=document.getElementById(inputProd+'search')
+
+      input=document.getElementById(key)
+      inputSearch=document.getElementById(key+'search')
       
  
     data.map((apiData)=>{   
@@ -1133,9 +1134,12 @@ ii=0
              itensMap.products.map((productsMap)=>{ 
         
               if(productsMap.id===key ){
+
                 productsMap.quantidade++
                 value=productsMap.quantidade 
-                input.setAttribute('value',value)
+  
+
+                document.getElementById(key+'search').setAttribute('value',key)
                 if(inputSearch){
                     inputSearch.setAttribute('value',value)
 
@@ -1156,8 +1160,9 @@ ii=0
  refrashCart=(inputProd)=>{ 
      
 
-  var cartContainer = document.getElementById('cart')
-  var cartPreview = document.getElementById('cartPreview')
+  var cartContainer = document.getElementById('cartList')
+  cartContainer.innerHTML=''
+//   var cartPreview = document.getElementById('cartList')
   input =document.getElementById(inputProd)
 
   cartQtd=0
@@ -1165,8 +1170,45 @@ ii=0
   itensTotal=0
   list=null
 
-   cartPreview.innerHTML= `<div><button id="cartPreview" onclick="showCart()"><img src="assets/images/shopping-cart.png" alt=""></button>      </div>`;  
-   cartContainer.innerHTML= `<div class="content"><h2>Pedido</h2><p ><span id="itensTotal"></span>  Itens na Cesta</p></div>`;  
+  data.map((apiData)=>{   
+    apiData.itens.map((itensMap)=>{     
+         itensMap.products.map((productsMap)=>{ 
+           
+
+          if(productsMap.quantidade>0){
+            cartQtd+=productsMap.quantidade
+            itensTotal+=productsMap.quantidade
+            prodMultiply=productsMap.price*productsMap.quantidade
+            totalCart+=prodMultiply
+            list+=productsMap.name 
+           
+     
+              cartContainer.innerHTML+= `  
+                <div class='listprod'>
+                    <div class="qtd-prod"> `+productsMap.quantidade +` </div>   
+                    <div class="title-prod"> `+productsMap.name +` </div>   
+                    <div class="title-prod"> `+productsMap.price +` </div>   
+                </div>  
+
+                             
+                `;  
+                
+
+
+         }
+        
+         
+         }) 
+
+        
+    }) 
+
+ }) 
+
+//    cartPreview.innerHTML= `<div><button id="cartPreview" onclick="showCart()"><img src="assets/images/shopping-cart.png" alt=""></button>      </div>`;  
+//    cartContainer.innerHTML= `<div class="content"><h2>Pedido</h2><p ><span id="itensTotal"></span>  Itens na Cesta</p></div>`; 
+   
+   
    msg="Olá, Pedido via APP Canoas" + "%0a" + "Nome: "+inputUserName
    retirada="";
 
@@ -1179,54 +1221,7 @@ ii=0
    + "*Itens Pedidos*" + "%0a" // Mensagem personalizada
    + "%0a" // Quebra de linhas
 
-    data.map((apiData)=>{   
-        apiData.itens.map((itensMap)=>{     
-             itensMap.products.map((productsMap)=>{ 
-               
   
-              if(productsMap.quantidade>0){
-                cartQtd+=productsMap.quantidade
-                itensTotal+=productsMap.quantidade
-                prodMultiply=productsMap.price*productsMap.quantidade
-                totalCart+=prodMultiply
-                list+=productsMap.name 
-               
-         
-                cartPreview.innerHTML= `    <div >     <button id="cartPreview" onclick="showCart()"><img src="assets/images/shopping-cart.png" alt=""></button> <span class="qtdIcon">`+cartQtd +` </span>   </div>  `;  
-                cartContainer.innerHTML+= `  
-                
-                <div class="produto">
-                                <img src="`+productsMap.img +`" alt="">
-                            <div class="prod-val">
-                                <h3 class="title-prod"> `+productsMap.name +` </h3> 
-                                <span class="valor">`+prodMultiply.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +` </span>
-                            </div>
-                            <div class="quantidade">
-                                     <button key="`+productsMap.id +`" onclick="addProd(this,`+productsMap.id +`); ">+</button>
-                                <input  id="`+productsMap.id +`Cart" value="`+productsMap.quantidade +`" type="text" placeholder="0">
-                                <button key="`+productsMap.id +`" onclick="removeProd(this,`+productsMap.id +`); ">-</button>
-              
-                            </div>
-                            <button><img src="assets/images/trash.png" style="width: 20px; height: 21px;"></button>
-
-                        </div>
-                        
-                `;  
-                // msg+=``+productsMap.quantidade +`,`+productsMap.name +`,`+prodMultiply.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +`` 
-              
-                url+=""+productsMap.quantidade+"un. / *"+productsMap.name+"* / " + prodMultiply.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
-                +"%0a" // Dados do formulário
-
-
-             }
-            
-             
-             }) 
-
-            
-        }) 
-
-     }) 
      
      url+="%0a" + "%0a"
         +"*Total da compra *"

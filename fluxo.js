@@ -771,6 +771,7 @@ function  fluxo(){
                             </form> 
 
                             <div id='searchResult'>  </div>
+                            <div id='cartList'>  </div>
                     </div>
 
                 </div>

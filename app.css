@@ -178,9 +178,22 @@ footer {
     justify-content: center;
     color: #bad;
 }
+.listprod {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
 
+.listprod > div {
+    width: 15%;
+    font-weight: bold;
+    font-size: 1.2rem;
 
-
+}
 div#addOrdersContainer {
     position: fixed;
     left: 0;
