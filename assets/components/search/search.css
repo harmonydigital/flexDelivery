@@ -67,11 +67,12 @@ div#contentSearch form > label {
 .quantidade input {
     pointer-events: none;
 }
+
 div#searchResult { 
 
 max-height: 55vh;
 
-margin: 20px auto;
+margin: 0px auto;
 }
  @media (min-width:768px){
     div#searchResult { 

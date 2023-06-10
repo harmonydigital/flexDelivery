@@ -764,17 +764,13 @@ function  fluxo(){
                     <div id='contentSearch'>
                             <form>
 
-                                <div>
-                                    <label>
-                                        Encontre Produtos..
-                                    </label>
+                                <div style="width:100%;">
+                                    
+                                    <input id='serchInput' placeholder='Busque produtos..'>
+                                    <div id='searchResult'>  </div>
 
-                                    <input id='serchInput' placeholder='Digite sua busca..'>
                                 </div>
-
-                                <label>
-                                    Forma de retirada:
-                                </label> 
+                               
                                 <div class="mylabel select">
                                     
                                     <select onchange="formaRetirada()" id="selectCheckout">
@@ -784,13 +780,14 @@ function  fluxo(){
                                         <option value="delivery">Delivery</option>
                                     </select>
                                 </div>
+                                <div id='cartList'>  </div>
+                                
 
                                
 
                             </form> 
 
-                            <div id='searchResult'>  </div>
-                            <div id='cartList'>  </div>
+                            
 
                             <button class='sendOrder'>
                             Enviar pedido

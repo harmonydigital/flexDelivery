@@ -1126,7 +1126,7 @@ ii=0
     event.preventDefault
     var key=ProdThis.getAttribute('key')
      
-
+    console.log(ProdThis)
       input=document.getElementById(key)
       inputSearch=document.getElementById(key+'search')
       

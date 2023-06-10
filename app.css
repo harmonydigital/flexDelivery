@@ -198,7 +198,7 @@ div#addOrdersContainer {
     position: fixed;
     left: 0;
     width: 100%;
-    background: white;
+    background: #FBFBFB;
     top: 0;
     height: 100%;
     z-index: 999;
