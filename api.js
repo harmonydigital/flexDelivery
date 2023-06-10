@@ -1104,8 +1104,10 @@ ii=0
 
          
                 productsMap.quantidade-- 
-                value=productsMap.quantidade 
-                input.setAttribute('value',value)
+                value=productsMap.quantidade  
+    
+                document.getElementById(key+'search').setAttribute('value',value)
+                
                 refrashCart(inputProd)
 
               }
@@ -1209,25 +1211,8 @@ ii=0
 //    cartContainer.innerHTML= `<div class="content"><h2>Pedido</h2><p ><span id="itensTotal"></span>  Itens na Cesta</p></div>`; 
    
    
-   msg="Olá, Pedido via APP Canoas" + "%0a" + "Nome: "+inputUserName
-   retirada="";
-
-    //  url = "https://wa.me/5512982969703?text=" // Seu numero test
-     url = "https://wa.me/551296218661?text=" // Seu numero Produção
-   + "*Pedido via APP* <3" + "%0a" // Mensagem personalizada
-   + "%0a" // Quebra de linhas
-   + "*Nome*: " + inputUserName + "%0a" // Dados do formulário
-   + "%0a" // Quebra de linhas
-   + "*Itens Pedidos*" + "%0a" // Mensagem personalizada
-   + "%0a" // Quebra de linhas
-
+ 
   
-     
-     url+="%0a" + "%0a"
-        +"*Total da compra *"
-        + "%0a" // Quebra de linhas
-        +"*"+totalCart.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+"*" 
-        + "%0a"+ "%0a" // Quebra de linhas
 
         document.getElementById("itensTotal").innerHTML+=  itensTotal
         cartContainer.innerHTML+= ` 

@@ -763,15 +763,38 @@ function  fluxo(){
 
                     <div id='contentSearch'>
                             <form>
-                                <label>
-                                    Encontre Produtos..
-                                </label>
 
-                                <input id='serchInput' placeholder='Digite sua busca..'>
+                                <div>
+                                    <label>
+                                        Encontre Produtos..
+                                    </label>
+
+                                    <input id='serchInput' placeholder='Digite sua busca..'>
+                                </div>
+
+                                <label>
+                                    Forma de retirada:
+                                </label> 
+                                <div class="mylabel select">
+                                    
+                                    <select onchange="formaRetirada()" id="selectCheckout">
+                                        <option value="1">Forma de retirada</option>
+                                        <option value="balcao">Balcão</option>
+                                        <option value="mesa">Mesa</option>
+                                        <option value="delivery">Delivery</option>
+                                    </select>
+                                </div>
+
+                               
+
                             </form> 
 
                             <div id='searchResult'>  </div>
                             <div id='cartList'>  </div>
+
+                            <button class='sendOrder'>
+                            Enviar pedido
+                            </button>
                     </div>
 
                 </div>
@@ -785,7 +808,11 @@ function  fluxo(){
                 <div id="menu">
 
                     <div  onclick='menuToggle()'>
-                        <i class="fa-solid fa-bars"></i>      
+                          
+                        <button>
+                        <i class="fa-solid fa-bars"></i>
+                        <span>menu</span>
+                        </button>
                     </div>
 
                     <div id="ftotal"> R$ 0,00   </div>
