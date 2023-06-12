@@ -6,13 +6,18 @@
     containerSearch.classList.toggle("showSearch");
     searchResult.classList.toggle("show");
    
+
+
+    formNorder=document.getElementById('formOrderNew')
+    formNorder.addEventListener('submit',(event)=>{
+        event.preventDefault()
+    })
+    
     submitSearch=(event)=>{
         let searched=event.target.value  
         const productFound=ProductsFilter(searched)  
         searchResult.innerHTML=`   `;   
-      
-            console.log('searched',searched)
-           
+       
             searched.length > 3 ?  render(productFound) :  searchResult.innerHTML="<div>Produto não encontrado</div>"
 
         
@@ -23,26 +28,19 @@
     ProductsFilter=(searched)=>{
 
         return prodsArray.filter(p=>{
-            // console.log('>>',p)
-            console.log('searched', p.name.toLowerCase())
-            // console.log('searched', searched.toLowerCase())
-            console.log('searched', p.name.toLowerCase().includes(searched.toLowerCase()))
-
+           
             return p.name.toLowerCase().includes(searched.toLowerCase())  
         })  
     }
     resetUI=()=>{
         document.querySelector('div#addOrdersContainer h6').style.cssText='display:block;'
-        // document.querySelector('div#addOrdersContainer form label').style.cssText='display:block;'
-        console.log('oi')
+       
     }
 
     serchInput.addEventListener('keyup', _.debounce(submitSearch, 500))
-    // serchInput.addEventListener('focusout',  resetUI())
- 
+  
 
-    function render(productFound){   
-            console.log(productFound)
+    function render(productFound){    
         if (window.matchMedia("(max-width: 700px)").matches){
             document.querySelector('div#addOrdersContainer h6').style.cssText='display:none;'
             // document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'

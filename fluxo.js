@@ -211,7 +211,7 @@ function login(){
         app.innerHTML+=`  
                 <div id="login">    
                     <div class="form">
-                        <img class="logo" src="assets/img/logo.png">
+                        <img class="logo" src="assets/images/logo.png">
                         <div>
                             <h3>Gerencie seus pedidos</h3>
                         </div>
@@ -569,7 +569,7 @@ function  fluxo(){
 
             containerMesaDetails.innerHTML+=`
                 <button class="printAll" onclick="getPrint(this)">
-                    <img src="assets/img/printer.png" > Imprimir tudo 
+                    <img src="assets/images/printer.png" > Imprimir tudo 
                 </button> 
                 
                 <div class="qr">  
@@ -637,7 +637,7 @@ function  fluxo(){
 
             containerMesaDetails.innerHTML+=`
             <button class="printAll" onclick="getPrint(this)">
-                <img src="assets/img/printer.png" > Imprimir tudo 
+                <img src="assets/images/printer.png" > Imprimir tudo 
             </button> 
             
             <div class="qr">  
@@ -762,8 +762,7 @@ function  fluxo(){
 
 
                     <div id='contentSearch'>
-                            <form>
-
+                            <form id='formOrderNew'> 
                                 <div style="width:100%;">
                                     
                                     <input id='serchInput' placeholder='Busque produtos..'>
@@ -780,10 +779,7 @@ function  fluxo(){
                                         <option value="delivery">Delivery</option>
                                     </select>
                                 </div>
-                                <div id='cartList'>  </div>
-                                
-
-                               
+                                <div id='cartList'>  </div> 
 
                             </form> 
 
@@ -858,10 +854,10 @@ function  fluxo(){
             </div>
 
             <div id="msgLoad" class="msgLoad">
-            <img src="assets/img/logo.png">
+            <img src="assets/images/logo.png">
             <h3>Aguarde </h3>
             <p>Fechando conta ..</p>
-            <img src="assets/img/loading.gif">
+            <img src="assets/images/loading.gif">
             <!-- <button>Cancelar</button>  -->
           </div>
                 <!--Container de dados -->
@@ -968,7 +964,7 @@ function  fluxo(){
                         <h5 id="titleAdd">Adicione Pedidos</h5> 
                         <div id="innerMesaNumber"></div> 
 
-                        <form>
+                        <form id='formNewOrder'>
                             <input id='mesa' onclick='tableValidation()' type='number' placeholder='Numero da Mesa'>
                             <input id='searchInput' onfocus="searched(event, searchInput)" onclick='searched(event, searchInput)' type='name' placeholder='Busque Produtos'>
                             

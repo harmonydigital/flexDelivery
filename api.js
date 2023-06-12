@@ -990,7 +990,7 @@ requestMenuRest=(dataMenuRes)=>{
 
     }) 
 
-    console.log(prodsArray)
+    // console.log(prodsArray)
     
 } 
 
@@ -1123,10 +1123,9 @@ ii=0
 
     
  addProd=(ProdThis, inputProd)=>{ 
-    event.preventDefault
+  
     var key=ProdThis.getAttribute('key')
-     
-    console.log(ProdThis)
+      
       input=document.getElementById(key)
       inputSearch=document.getElementById(key+'search')
       
@@ -1214,7 +1213,7 @@ ii=0
  
   
 
-        document.getElementById("itensTotal").innerHTML+=  itensTotal
+        // document.getElementById("itensTotal").innerHTML+=  itensTotal
         cartContainer.innerHTML+= ` 
 
             <div class="controls"  > 
