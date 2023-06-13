@@ -1,58 +1,104 @@
+let containerCloseds=document.getElementById('closedsContainer') 
 
-getDetailsCloseAccounts=()=>{
-    console.log('getDetailsCloseAccounts')
-
+getDetailsCloseAccounts=()=>{ 
     var containerDetails=document.getElementById('detailsAccounts')
     if(containerDetails){
         containerDetails.classList.toggle('show')
     }
 }
+
 function accoutsCloseds(closedData){
     let closeddb=closedData 
-    let containerCloseds=document.getElementById('closedsContainer') 
+    let containerReports=document.getElementById('containerReportsCloseds')
+    containerReports.innerHTML='<p>Nenhum relatório encontrado..</p>'
+    console.log(containerReports)
+    // closeddb.map((acountsMap)=>{
+         
+    //     containerReports.innerHTML+=`
 
+    //         <div class='card'>
+    //             <div>
+    //             <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
+    //             </div>
 
-    containerCloseds.innerHTML=`
+    //             <button class="getDatails" onclick='getDetailsCloseAccounts()'>
+    //                 <i class="fa-solid fa-arrow-right"></i> 
+    //             </button>
+    //         </div>
         
-        <div>
-            <a class="btnhome" href="index.html"><i class="fa-solid fa-house"></i></a>
-            <h5>Relatório de contas</h5>
-        </div>
+    //     `;
+    // })
+
+    // containerCloseds.innerHTML=`
+        
+    //     <div>
+    //         <a class="btnhome" href="index.html"><i class="fa-solid fa-house"></i></a>
+    //         <h5>Relatório de contas</h5>
+    //     </div>
 
 
-        <!-- VIEW DETAILS ACCOUTNS -->
+    //     <!-- VIEW DETAILS ACCOUTNS -->
 
-        <div id='detailsAccounts' class="view detailsAccounts"> 
-            <div class="controls">
-                <button onclick='getDetailsCloseAccounts()'>
-                    <i class="fa-solid fa-chevron-left"></i>  
-                </button>
-                <button onclick='getDetailsCloseAccounts()'>
-                    <i class="fa-solid fa-xmark"></i>  
-                </button>
-            </div>
-            <h5>Detalhe de contas</h5>
-        </div>
+    //     <div id='detailsAccounts' class="view detailsAccounts"> 
+    //         <div class="controls">
+    //             <button onclick='getDetailsCloseAccounts()'>
+    //                 <i class="fa-solid fa-chevron-left"></i>  
+    //             </button>
+    //             <button onclick='getDetailsCloseAccounts()'>
+    //                 <i class="fa-solid fa-xmark"></i>  
+    //             </button>
+    //         </div>
+    //         <h5>Detalhe de contas</h5>
+    //     </div>
     
-    `;
+    // `;
    
-    closeddb.map((acountsMap)=>{
-        console.log(acountsMap)
-        containerCloseds.innerHTML+=`
+    // closeddb.map((acountsMap)=>{
+    //     console.log(acountsMap)
+    //     containerCloseds.innerHTML+=`
 
-            <div class='card'>
-                <div>
-                <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
-                </div>
+    //         <div class='card'>
+    //             <div>
+    //             <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
+    //             </div>
 
-                <button class="getDatails" onclick='getDetailsCloseAccounts()'>
-                    <i class="fa-solid fa-arrow-right"></i> 
-                </button>
-            </div>
+    //             <button class="getDatails" onclick='getDetailsCloseAccounts()'>
+    //                 <i class="fa-solid fa-arrow-right"></i> 
+    //             </button>
+    //         </div>
         
-        `;
-    })
+    //     `;
+    // })
 
     
 }
 
+
+
+containerCloseds.innerHTML=`
+        
+<div>
+    <a class="btnhome" href="index.html"><i class="fa-solid fa-house"></i></a>
+    <h5>Relatório de contas</h5>
+</div>
+
+
+<!-- VIEW DETAILS ACCOUTNS -->
+
+<div id='detailsAccounts' class="view detailsAccounts"> 
+    <div class="controls">
+        <button onclick='getDetailsCloseAccounts()'>
+            <i class="fa-solid fa-chevron-left"></i>  
+        </button>
+        <button onclick='getDetailsCloseAccounts()'>
+            <i class="fa-solid fa-xmark"></i>  
+        </button>
+    </div>
+    <h5>Detalhe de contas</h5>
+</div>
+
+<div id='containerReportsCloseds'>
+<p>Nenhum relatório encontrado..</p>
+<div>
+
+`;

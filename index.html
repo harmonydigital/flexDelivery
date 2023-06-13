@@ -28,6 +28,8 @@
   <body> 
       <div id="app"></div> 
 
+      
+
       <!-- // fechar conta form -->
       <div id="closeForm" style="display: none;">
             <div class="controls">
@@ -136,10 +138,24 @@
         });
     })
 
+    document.onload=function(){
+
+        let formOrderNew=document.querySelector('formOrderNew')
+    console.log(formOrderNew)
+    
+    }
+
+    // formOrderNew.addEventListener('submit', function(e){
+
+    //     console.log('oi')
+    // })
+    
+
     //FECHAR CONTAS
     formClose.addEventListener('submit', function(e){
         e.preventDefault() 
         // 
+        
 
         
         let btnSubmit=document.querySelector('.btn.closeOrders')
