@@ -14,25 +14,28 @@ getDetailsCloseAccounts=(dataid)=>{
 
             if(parseInt(acountsMap.id)===dataid){ 
                 acountsMap.contasFechadas.map((closedMap)=>{ 
-                        
+
                         contentdata.innerHTML+=`
                         
-                            <table>
-                                <tr>
-                                    <th>DATA</th>
+                            <table class="card">
+                                <tr> 
+                                    <th>HORA</th>
                                     <th>ID</th>
-                                    <th>PAGAMENTO</th>
+                                    <th>TOTAL</th>
                                 </tr>
                                 <tr>
                                     <th>`+closedMap.fechamento+`</th>
                                     <th>`+closedMap.idConta+`</th>
                                     <th>`+closedMap.formadePagamento+`</th>
                                 </tr>
+                                
                             </table>
                         
                         `
-                        
+                        console.log(closedMap.pedidosfeitos)
                 })
+
+
             }
         })
 
