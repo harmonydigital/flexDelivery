@@ -179,14 +179,12 @@
 
         db.collection('fechamentos').doc(currencyData).set({
             "name":"fechamentos",
+            "id":currencyData,
             "contasFechadas":unifechamentos, 
             "data":dataHoraFormat()
               
         })
-
-
-
-
+ 
         
         setTimeout(function(){ 
                 if(plataforma=='Mesas'){ 

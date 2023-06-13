@@ -1,21 +1,55 @@
 let containerCloseds=document.getElementById('closedsContainer') 
+let closeddb; 
 
-getDetailsCloseAccounts=()=>{ 
-    var containerDetails=document.getElementById('detailsAccounts')
+getDetailsCloseAccounts=(dataid)=>{ 
+
+    var containerDetails=document.getElementById('detailsAccounts') 
+    var contentdata=document.getElementById('contentdata')
+       
     if(containerDetails){
+
         containerDetails.classList.toggle('show')
+
+        closeddb.map((acountsMap)=>{  
+
+            if(parseInt(acountsMap.id)===dataid){ 
+                acountsMap.contasFechadas.map((closedMap)=>{ 
+                        
+                        contentdata.innerHTML+=`
+                        
+                            <table>
+                                <tr>
+                                    <th>DATA</th>
+                                    <th>ID</th>
+                                    <th>PAGAMENTO</th>
+                                </tr>
+                                <tr>
+                                    <th>`+closedMap.fechamento+`</th>
+                                    <th>`+closedMap.idConta+`</th>
+                                    <th>`+closedMap.formadePagamento+`</th>
+                                </tr>
+                            </table>
+                        
+                        `
+                        
+                })
+            }
+        })
+
+        
+
     }
 }
 
 function accoutsCloseds(closedData){
-    let closeddb=closedData 
+    closeddb=closedData 
     let containerReports=document.getElementById('containerReportsCloseds')
     containerReports.innerHTML=' '
 
     console.log(containerReports)
 
     closeddb.map((acountsMap)=>{
-         
+       
         containerReports.innerHTML+=`
 
             <div class='card'>
@@ -23,7 +57,7 @@ function accoutsCloseds(closedData){
                 <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
                 </div>
 
-                <button class="getDatails" onclick='getDetailsCloseAccounts()'>
+                <button class="getDatails" onclick='getDetailsCloseAccounts(`+acountsMap.id+`)'>
                     <i class="fa-solid fa-arrow-right"></i> 
                 </button>
             </div>
@@ -96,11 +130,16 @@ containerCloseds.innerHTML=`
             <i class="fa-solid fa-xmark"></i>  
         </button>
     </div>
-    <h5>Detalhe de contas</h5>
+    <h6>Detalhe de contas fechadas</h6>
+    
+    <div id='contentdata'></div>
+
+    
 </div>
 
 <div id='containerReportsCloseds'>
 <p>Nenhum relatório encontrado..</p>
+ 
 <div>
 
 `;
