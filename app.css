@@ -101,7 +101,15 @@ h5 {
 .data_container .card:last-child {
     margin-bottom: 20px !important;
 }
+form.closeForm .mylabel.select {
+    margin: 5vh auto;
+}
 
+form.closeForm label {
+    background: transparent;
+    width: auto;
+    padding: 10px;
+}
 
 .card h6 {
         color: red;

@@ -47,7 +47,6 @@ function innnerOrderItens(dataKey,tipo,obs){
                                 if(idTable==mOrder.idPedido){
 
                                     mOrder.itens.forEach(itensFor => { 
-                                        console.log(itensFor)
                                         containerTable=document.getElementById(idTable)  
                                         thisprice=itensFor.price 
                                         itensQtd+=1 

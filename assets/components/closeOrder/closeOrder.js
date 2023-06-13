@@ -2,12 +2,20 @@ contasClosedb=[]
 unifechamentos=[] 
 platatorma=false
 valuepaymentCheck=''
-
+valueindex=0
 
   // Pay
   function getPay(){  
     var paymentCheck=document.getElementById('paymentCheck') 
     valuepaymentCheck=paymentCheck.options[paymentCheck.selectedIndex].text   
+    valueindex=paymentCheck.options[paymentCheck.selectedIndex].value  
+
+
+
+    if(valueindex==='1'){
+      alert('Selecione a forma de pagamento do cliente.')
+      
+    }else{
       contaFechada={
         "idConta":idConta,
         "fechamento":hfechamento,
@@ -15,6 +23,7 @@ valuepaymentCheck=''
         "formadePagamento":valuepaymentCheck, 
 
       }
+    }
   }
 
  
@@ -27,7 +36,7 @@ closeOrder=(event)=>{
 
 
   hfechamento=relogio()
-
+  console.log(dataHoraFormat())
   if(event){
  
 
