@@ -103,11 +103,18 @@ div#contentdata tr {
 div#contentdata table tr th {
     padding: 10px 5px;
 }
+
 .data_container .card  {
     background-color: white;
     box-shadow: 2px 6px 10px #d7d4d4a3;
     margin: 20px 5px;
 
+}
+button.btn-inline-datails {
+    color: cornflowerblue;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 40px;
 }
 .data_container .card:last-child {
     margin-bottom: 20px !important;

@@ -1,6 +1,33 @@
 let containerCloseds=document.getElementById('closedsContainer') 
 let closeddb; 
 
+
+innerMoreDatails=(event)=>{
+    console.log(event.target.getAttribute('key'))
+    var key=event.target.getAttribute('key')
+
+    //imprime total
+    var totalOrders=document.getElementById('totaltable'+key)
+    var detailsOrders=document.getElementById(''+key)
+
+    var idTotalCloused=document.getElementById()
+    closeddb.map((acountsMap)=>{  
+
+
+         
+            acountsMap.contasFechadas.map((closedMap)=>{ 
+                if(closedMap.idConta==key){
+                    console.log(closedMap.idConta)
+ 
+                }
+
+            })
+
+    
+
+    })
+}
+
 getDetailsCloseAccounts=(dataid)=>{ 
 
     var containerDetails=document.getElementById('detailsAccounts') 
@@ -26,9 +53,23 @@ getDetailsCloseAccounts=(dataid)=>{
                                 <tr>
                                     <th>`+closedMap.fechamento+`</th>
                                     <th>`+closedMap.idConta+`</th>
-                                    <th>`+closedMap.formadePagamento+`</th>
+                                    <th><div id='totaltable`+closedMap.idConta+`'></div></th>
                                 </tr>
-                                
+                                <tr> 
+                                    <th> 
+                                        <div>
+                                            <button key='`+closedMap.idConta+`' class='btn-inline-datails' onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   Detalhe de pedidos </button>
+                                        </div>
+                                    </th> 
+                                    
+                                </tr>
+                                <tr> 
+                                    <th> 
+                                       <div id='detailsOrders`+closedMap.idConta+`'></div>
+                                    </th> 
+                                    
+                                </tr>
+
                             </table>
                         
                         `
