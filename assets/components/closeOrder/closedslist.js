@@ -8,16 +8,43 @@ innerMoreDatails=(event)=>{
 
     //imprime total
     var totalOrders=document.getElementById('totaltable'+key)
-    var detailsOrders=document.getElementById(''+key)
+    var viewDetails=document.getElementById('detailsOrders'+key)
 
-    var idTotalCloused=document.getElementById()
+    viewDetails.classList.toggle('show')
+    
+    // var idTotalCloused=document.getElementById()
     closeddb.map((acountsMap)=>{  
 
 
          
             acountsMap.contasFechadas.map((closedMap)=>{ 
                 if(closedMap.idConta==key){
-                    console.log(closedMap.idConta)
+
+                    // console.log('>',closedMap.idConta)
+                    // console.log('viewDetails',viewDetails)
+                    // console.log('data',closedMap.pedidosfeitos)
+
+                    closedMap.pedidosfeitos.map((pedidosMap)=>{
+                        console.log(pedidosMap)
+
+                        viewDetails.innerHTML=`
+                        
+                                    
+                                <table>
+                                    <tr> 
+                                        <th>ID</th>
+                                        <th>HORA</th> 
+                                    </tr>
+                                    <tr> 
+                                        <th>`+pedidosMap.idPedido+`</th>
+                                        <th>`+pedidosMap.hora+`</th>
+
+                                        
+                                    </tr>
+                                </table>
+                        
+                        `
+                    })
  
                 }
 
@@ -43,8 +70,11 @@ getDetailsCloseAccounts=(dataid)=>{
                 acountsMap.contasFechadas.map((closedMap)=>{ 
 
                         contentdata.innerHTML+=`
-                        
-                            <table class="card">
+                    
+                        <div class="card">
+
+                            <div>
+                            <table >
                                 <tr> 
                                     <th>HORA</th>
                                     <th>ID</th>
@@ -55,25 +85,20 @@ getDetailsCloseAccounts=(dataid)=>{
                                     <th>`+closedMap.idConta+`</th>
                                     <th><div id='totaltable`+closedMap.idConta+`'></div></th>
                                 </tr>
-                                <tr> 
-                                    <th> 
-                                        <div>
-                                            <button key='`+closedMap.idConta+`' class='btn-inline-datails' onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   Detalhe de pedidos </button>
-                                        </div>
-                                    </th> 
-                                    
-                                </tr>
-                                <tr> 
-                                    <th> 
-                                       <div id='detailsOrders`+closedMap.idConta+`'></div>
-                                    </th> 
-                                    
-                                </tr>
+                               
+                                
 
                             </table>
-                        
+                            <div/>
+                            
+                            <button key='`+closedMap.idConta+`' class='btn-inline-datails' onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   Detalhe de pedidos </button>
+
+                            <div class="viewDetails" id='detailsOrders`+closedMap.idConta+`'></div>
+                       
+
+                        </div>
                         `
-                        console.log(closedMap.pedidosfeitos)
+                       
                 })
 
 
