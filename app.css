@@ -101,7 +101,16 @@ div#contentdata tr {
     text-align: left;
 }
 div#contentdata table tr th {
-    padding: 10px 5px;
+    padding:5px;
+}
+.down {
+    transform: rotate(85deg);
+    display: inline-flex;
+    margin: 0 5px;
+}
+.down svg {
+    color: white !important;
+    font-size: 11px;
 }
 div#contentdata {
     overflow: auto;
@@ -113,6 +122,10 @@ div#contentdata {
     border-radius: 15px;
 }
  
+
+.viewDetails  table tr th {
+    padding: 2px !important;
+}
 .data_container .card  {
     background-color: white;
     box-shadow: 2px 6px 10px #dbdbdbeb;
@@ -131,7 +144,11 @@ button.btn-inline-datails {
     background: blue;
     width: 240px; 
 border-radius: 15px;
-
+    display:flex;
+justify-content: space-between;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    padding: 0 15px;
 }
 .data_container .card:last-child {
     margin-bottom: 20px !important;
