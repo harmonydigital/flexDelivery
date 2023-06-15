@@ -132,6 +132,8 @@ function deliveryData(deliveryAll){
                     <div key='`+deliveryMap.id+`'    onclick="tabledetails(`+deliveryMap.id+`,'delivery')" class="card">
                         <h6>`+deliveryMap.name+`</h6>   
                         <span id='cardDel`+deliveryMap.id+`'class="price">..</span>
+                         <button class="whatsbutton" onclick="" >fale<i class="fa-brands fa-whatsapp"></i></button>
+
                     </div>    
             `;
 
