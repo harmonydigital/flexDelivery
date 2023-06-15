@@ -906,6 +906,7 @@ function  fluxo(){
                                 <span id="" class="price">..</span>
                             </div>
                             <div class="card"> 
+                                <h6>Acessos:</h6>   
                               
                             </div>    
                         </div>     

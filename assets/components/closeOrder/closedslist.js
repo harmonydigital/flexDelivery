@@ -20,12 +20,12 @@ innerMoreDatails=(event)=>{
          
             acountsMap.contasFechadas.map((closedMap)=>{ 
                 if(closedMap.idConta==key){
- 
+                    console.log(closedMap.idConta)
+                   
 
                     closedMap.pedidosfeitos.map((pedidosMap)=>{
                       
                         pedidosMap.itens.map((itensMap)=>{
-                            console.log(itensMap.name)
                             viewDetails.innerHTML=`
                         
                                     
@@ -76,13 +76,21 @@ getDetailsCloseAccounts=(dataid)=>{
         closeddb.map((acountsMap)=>{  
 
             if(parseInt(acountsMap.id)===dataid){ 
+
+                // console.log(dataid)
+                // console.log(parseInt(acountsMap.id))
+                // console.log(acountsMap.contasFechadas)
+
                 acountsMap.contasFechadas.map((closedMap)=>{ 
+                // console.log(closedMap)
 
                         contentdata.innerHTML+=`
                     
                         <div class="card">
 
-                            <div>
+                            <div style="
+                            width: 100%;
+                        ">
                             <table >
                                 <tr> 
                                     <th>HORA</th>
@@ -100,18 +108,18 @@ getDetailsCloseAccounts=(dataid)=>{
                             </table>
                             <div/>
                             
-                            <button key='`+closedMap.idConta+`' 
-                            class='btn-inline-datails' 
-                            onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   
-                            Detalhe de pedidos 
-                            <span id="icon`+closedMap.idConta+`" class="down">
-                            <i class="fa-solid fa-chevron-right"></i>
-                            </span>
+                                    <button key='`+closedMap.idConta+`'  class='btn-inline-datails'  onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   
+                                        
+                                        Detalhe de pedidos 
 
-                            </button>
+                                        <span id="icon`+closedMap.idConta+`" class="down">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
 
-                            <div class="viewDetails" id='detailsOrders`+closedMap.idConta+`'></div>
-                       
+                                    </button>
+
+                                    <div class="viewDetails" id='detailsOrders`+closedMap.idConta+`'></div>
+                            
 
                         </div>
                         `
@@ -132,7 +140,7 @@ function accoutsCloseds(closedData){
     let containerReports=document.getElementById('containerReportsCloseds')
     containerReports.innerHTML=' '
 
-    console.log(containerReports)
+    
 
     closeddb.map((acountsMap)=>{
        

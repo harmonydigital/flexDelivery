@@ -142,13 +142,15 @@ button.btn-inline-datails {
     font-weight: bold;
     height: 40px;
     background: blue;
-    width: 240px; 
+    width: 100%; 
 border-radius: 15px;
     display:flex;
 justify-content: space-between;
     align-items: center;
     font-family: 'Quicksand', sans-serif;
     padding: 0 15px;
+    margin: 0 auto;
+    
 }
 .data_container .card:last-child {
     margin-bottom: 20px !important;
