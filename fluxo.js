@@ -778,6 +778,26 @@ function  fluxo(){
                                         <option value="delivery">Delivery</option>
                                     </select>
                                 </div>
+                                
+                                <div id="setMesa" class="mylabel"  style="display:none">
+                                    
+                                    <input id="inputMesa"  type="number" placeholder="Digite o numero da mesa">
+                                </div>
+                                
+                                <div id="whatsappId"  style="display: none; ">
+                                     
+                                    <div id="setPhone" class="mylabel" >
+                                        
+                                        <input id="inputLocation"  type="text" placeholder="Endereço de entrega..."  >
+                                    </div>
+
+                                    <div id="setEnd" class="mylabel" >
+                                        
+                                        <input id="inputMesa"  type="number" placeholder="Numero celular whatsapp">
+                                    </div>
+                                </div>
+
+
                                 <div id='cartList'>  </div> 
 
                             </form> 

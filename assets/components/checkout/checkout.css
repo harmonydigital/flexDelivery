@@ -1,0 +1,105 @@
+div#checkout {
+    background: #ffffff;
+    position: fixed;
+    z-index: 999;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top:0;
+    padding: 60px 0;
+}
+div#checkout select, div#checkout input[type="number"], div#checkout input[type="text"] {
+    border: 1px solid #73859E;
+    border-left: 0px;
+}
+div#checkout textarea {
+    border: 1px solid #73859E;
+ 
+}
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 15px;
+    /* padding-left: 38px; */
+    padding-top: 10px;
+    color: #73859E;
+    margin: 6px auto;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight:300;
+
+}
+textarea::-webkit-input-placeholder { /* Edge */
+  color: #73859E;
+  padding: 20px ;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight:300;
+
+}
+
+textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #73859E;
+  padding: 20px 10px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight:300;
+
+
+}
+
+textarea::placeholder {
+  color: #73859E;
+  padding: 20px 10px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight:300;
+
+
+}
+.checkout.hide {
+    display: none !important;
+}
+label {
+    color: #73859E;
+    font-size: 1.1rem;
+    font-weight: 300;
+    top:0;
+    bottom:0;
+    height: 46px;
+    align-items: center;
+}
+div#checkout form {
+    width: 80%;
+    margin: 0 auto;
+}
+div#checkout form div {
+    margin: 5px auto;
+}
+div#checkout .select {
+    position: relative;
+}
+
+form#checkoutform .mylabel label {
+    border: 1px solid;
+    border-right: 0;
+       height: 44px;
+    align-items: center;
+}
+
+form#checkoutform .mylabel label svg {
+    margin: 15px;
+}
+div#rrcode {
+    background: white;
+    border-radius: 10px;
+    height: auto;
+    padding: 0 3px;
+    flex-direction: column !important;
+ 
+    color: #948f8f;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto !important;
+    
+}
+
+#clickpague{
+    display: none;
+}

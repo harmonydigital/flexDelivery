@@ -163,6 +163,14 @@ form.closeForm label {
     padding: 10px;
 }
 
+form#formOrderNew .mylabel {
+    margin: 3px;
+    background: white;
+}
+div#whatsappId {
+    width: 100%;
+    background: transparent;
+}
 .card h6 {
         color: red;
         font-size: 1.0rem;
@@ -268,6 +276,7 @@ div#addOrdersContainer {
     height: 100%;
     z-index: 999;
     display: none;
+    overflow: auto;
     
 }
 div#addOrdersContainer h2 {
