@@ -45,8 +45,8 @@ div#login {
 z-index: 999;
 }
 .btn-circle-bottom{
-    z-index: 999999;
-    }
+z-index: 999999;
+}
 .show{
     display: block !important;
 }
@@ -57,11 +57,12 @@ input,.mylabel.select {
     width: 100%;
     border: 1px solid #8B9398;
     border-radius: 50px;
-    margin: 5px 0;
+    margin: 5px auto;
     width: 90%;
     padding: 10px 15px;
     height: 30px;
     display: flex;
+    
 }
 
 input:focus-visible {

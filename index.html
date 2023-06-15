@@ -61,6 +61,74 @@
         </div> 
 
 
+        <!-- MODAL ADD ORDER -->
+        
+        <div id="addOrdersContainer">
+
+            <div class="controls">
+                <button onclick="neworders()">
+                    <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
+                </button>
+                <button onclick="neworders()"> 
+                    <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com --> 
+                </button>    
+            </div>
+
+            <h6>Adicionar pedido.</h6>
+
+
+
+            <div id='contentSearch'>
+                    <form class="formOrderNew" id='formOrderNew'> 
+                        <div style="width:100%;">
+                            
+                            <input id='serchInput' placeholder='Busque produtos..'>
+                            <div id='searchResult'>  </div>
+
+                        </div>
+                       
+                        <div class="mylabel select">
+                            
+                            <select onchange="formaRetirada()" id="selectCheckout">
+                                <option value="1">Forma de retirada</option>
+                                <option value="balcao">Balcão</option>
+                                <option value="mesa">Mesa</option>
+                                <option value="delivery">Delivery</option>
+                            </select>
+                        </div>
+                        
+                        <div id="setMesa" class="mylabel"  style="display:none">
+                            
+                            <input id="inputMesa"  type="number" placeholder="Digite o numero da mesa">
+                        </div>
+                        
+                        <div id="whatsappId"  style="display: none; ">
+                             
+                            <div id="setPhone" class="mylabel" >
+                                
+                                <input id="inputLocation"  type="text" placeholder="Endereço de entrega..."  >
+                            </div>
+
+                            <div id="setEnd" class="mylabel" >
+                                
+                                <input id="inputMesa"  type="number" placeholder="Numero celular whatsapp">
+                            </div>
+                        </div>
+
+
+                        <div id='cartList'>  </div> 
+
+                    </form> 
+
+                    
+
+                    <button class='sendOrder'>
+                    Enviar pedido
+                    </button>
+            </div>
+
+        </div>
+
        <!-- MODAL PREVIEW  -->
        <div id="modalApp" >
         <div onclick="modalJs(false)" class="overylay"> </div>
@@ -126,9 +194,12 @@
   const db = firebase.firestore();
   let formClose=document.querySelector('.closeForm')
   let delNotification=document.querySelector('.deleteNotification')
+  let formOrderNew=document.querySelector('.formOrderNew')
   let horaAtual=relogio()
   let currencyData=dataHora()
-  
+
+  formOrderNew.addEventListener('submit', function(e){
+})
     delNotification.addEventListener('submit', function(e){
         e.preventDefault()     
         db.collection("notificacoes").doc(dataDelete).delete().then(() => {
