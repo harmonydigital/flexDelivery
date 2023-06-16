@@ -5,20 +5,27 @@
     searchResult = document.getElementById('searchResult')   
     containerSearch.classList.toggle("showSearch");
     searchResult.classList.toggle("show");
+    closeSearched=document.getElementById('closeSearched') 
    
 
+   
 
     formNorder=document.getElementById('formOrderNew')
     formNorder.addEventListener('submit',(event)=>{
         event.preventDefault()
     })
-    
+
+    closeSearchedfn=()=>{ 
+        serchInput.value=''
+        searchResult.innerHTML=''
+    } 
+
     submitSearch=(event)=>{
         let searched=event.target.value  
         const productFound=ProductsFilter(searched)  
         searchResult.innerHTML=`   `;   
        
-            searched.length > 3 ?  render(productFound) :  searchResult.innerHTML="<div>Produto não encontrado</div>"
+            searched.length > 2 ?  render(productFound) :  searchResult.innerHTML="<div>Produto não encontrado</div>"
 
         
       }
@@ -39,12 +46,15 @@
 
     serchInput.addEventListener('keyup', _.debounce(submitSearch, 500))
   
+    
 
     function render(productFound){    
         if (window.matchMedia("(max-width: 700px)").matches){
             document.querySelector('div#addOrdersContainer h6').style.cssText='display:none;'
             // document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'
         }
+
+        closeSearched.classList.toggle('show')
 
         productFound.map((prodFoundMap)=>{  
         
@@ -71,8 +81,7 @@
             `;  
         }) 
 
-        console.log(searchResult.innerHTML)
-
+        
      }
     
 

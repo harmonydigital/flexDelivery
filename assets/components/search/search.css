@@ -33,6 +33,15 @@ input#serchInput:focus-visible {
    
 
 }
+span#closeSearched {
+    position: absolute;
+    margin: 25px;
+    float: right;
+    right: 0;
+}
+span#closeSearched svg{
+    color:#8B9398; 
+}
 div#searchResult:before {
     content: "Resultado de busca:";
     color: #1d80ff;

@@ -63,7 +63,7 @@ formaRetirada=()=>{
     setMesa=document.getElementById('setMesa') 
     
 
- 
+    
 
     if(retiradavalue=='mesa'){
         setMesa.style.cssText="display:flex"   
@@ -96,21 +96,25 @@ formaRetirada=()=>{
     })
     //Endereço Digitado
     inputLocation.addEventListener('focusout', function(e){
-        console.log(e.target.value)
+        // console.log(e.target.value)
         locationvalue=e.target.value
     })
     
     
-    
+    // CRIA DADOS
     allordersBuy=[{ 
         idPedido:Math.floor(Math.random() * 1000).toString(),
+        type:retiradavalue,
         data:dataHoraFormat(),
         hora:relogio(),
-        itens:prodsSelct,
+        // itens:prodsSelct,
         location:locationvalue, 
-        observacao:obs
+        // observacao:obs
 
     }]
+
+
+    console.log(allordersBuy)
 }
 
 

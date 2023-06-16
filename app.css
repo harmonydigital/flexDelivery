@@ -93,7 +93,7 @@ h5 {
     text-align: left;
     font-weight: 900;
     color: #818f9b;
-    font-size: 17px;
+    font-size: 21px;
     margin: 10px 20px;
     
  
@@ -339,4 +339,23 @@ label {
     padding: 2px;
     position: relative;
     bottom: 3px;
+}
+
+
+@media(min-width:1200px){
+    div#addOrdersContainer {
+     
+        right: 0;
+        left: inherit !important;
+        width: 45%; 
+ 
+        box-shadow: 2px 6px 10px #dbdbdbeb;    
+      
+    
+         
+    }
+    div#contentSearch {
+        width: 90%;
+        margin: 0 auto;
+    }
 }

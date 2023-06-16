@@ -79,8 +79,10 @@
 
             <div id='contentSearch'>
                     <form class="formOrderNew" id='formOrderNew'> 
-                        <div style="width:100%;">
-                            
+                        <div style="width:100%; position: relative;">
+                          <span id="closeSearched" onclick="closeSearchedfn()">
+                          <i class="fa-solid fa-xmark"></i>
+                        </span>
                             <input id='serchInput' placeholder='Busque produtos..'>
                             <div id='searchResult'>  </div>
 
@@ -204,7 +206,7 @@
     let btnSubmitOrder=e.submitter
 
     
-
+serchInput
     allordersBuy=[{ 
         idPedido:Math.floor(Math.random() * 1000).toString(),
         data:dataHoraFormat(),
