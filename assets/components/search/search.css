@@ -17,6 +17,40 @@
     justify-content: space-between;
     
 }
+input#serchInput {
+    height: 40px;
+    font-size: 1.4rem;
+    box-shadow: 0px 3px 10px #ddd;
+    margin: 5px auto 20px;
+    border: 1px solid #d1d1d1;
+    background: white;
+    border-radius: 13px; 
+
+}
+
+input#serchInput:focus-visible {
+    outline:none;
+   
+
+}
+
+input#serchInput::placeholder  {
+    font-weight: bold;
+    opacity: .5;
+    color:#8B9398; 
+    margin-left: 5%;
+    opacity: 1;
+    font-weight: 300;
+    font-family: 'Lexend Deca', sans-serif; 
+    font-style: italic;
+    opacity: .6;
+
+  
+   
+}
+div#addOrdersContainer h6 {
+    margin: 30px;
+}
 
 .produto .prod-val .valor {
     color: #545454;
