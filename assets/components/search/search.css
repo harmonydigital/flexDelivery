@@ -38,6 +38,7 @@ span#closeSearched {
     margin: 25px;
     float: right;
     right: 0;
+    display: none;
 }
 span#closeSearched svg{
     color:#8B9398; 

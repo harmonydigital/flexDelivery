@@ -16,6 +16,8 @@
     })
 
     closeSearchedfn=()=>{ 
+        closeSearched.style.cssText="display:none;"
+
         serchInput.value=''
         searchResult.innerHTML=''
     } 
@@ -54,7 +56,7 @@
             // document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'
         }
 
-        closeSearched.classList.toggle('show')
+        closeSearched.style.cssText="display:flex;"
 
         productFound.map((prodFoundMap)=>{  
         
