@@ -167,7 +167,7 @@ form.closeForm label {
 
 form#formOrderNew .mylabel {
     margin: 3px;
-    background: white;
+    background: transparent;
 }
 div#whatsappId {
     width: 100%;

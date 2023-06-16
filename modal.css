@@ -525,7 +525,7 @@ label {
 button.sendOrder {
     background: red;
     color: white;
-    margin: 0 auto;
+    margin: 10px auto;
     display: block;
     width: 200px;
     height: 50px;

@@ -73,12 +73,14 @@ formaRetirada=()=>{
     }else if(retiradavalue=='delivery'){
 
         setMesa.style.cssText="display:none"  
-        whatsappId.style.cssText="display:block"  
-        clickpague.style.cssText="display:block"   
+        whatsappId.style.cssText="display:block"   
         inpuMVaue=0
     }else if(retiradavalue=='balcao'){
  
         inpuMVaue=0
+        setMesa.style.cssText="display:none" 
+        whatsappId.style.cssText="display:none"  
+
     }
 
 
@@ -97,15 +99,18 @@ formaRetirada=()=>{
         console.log(e.target.value)
         locationvalue=e.target.value
     })
-    allordersBuy=[{ 
-        idPedido:Math.floor(Math.random() * 1000).toString(),
-        data:dataHoraFormat(),
-        hora:relogio(),
-        itens:prodsSelct,
-        location:locationvalue, 
-        observacao:obs
+    
+    
+    
+    // allordersBuy=[{ 
+    //     idPedido:Math.floor(Math.random() * 1000).toString(),
+    //     data:dataHoraFormat(),
+    //     hora:relogio(),
+    //     itens:prodsSelct,
+    //     location:locationvalue, 
+    //     observacao:obs
 
-    }]
+    // }]
 }
 
 
