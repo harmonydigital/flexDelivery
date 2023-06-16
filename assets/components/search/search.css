@@ -33,6 +33,10 @@ input#serchInput:focus-visible {
    
 
 }
+div#searchResult:before {
+    content: "Resultado de busca:";
+    color: #1d80ff;
+}
 
 input#serchInput::placeholder  {
     font-weight: bold;
