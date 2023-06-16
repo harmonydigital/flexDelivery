@@ -45,6 +45,7 @@
             document.querySelector('div#addOrdersContainer h6').style.cssText='display:none;'
             // document.querySelector('div#addOrdersContainer form label').style.cssText='display:none;'
         }
+
         productFound.map((prodFoundMap)=>{  
         
 
@@ -69,6 +70,9 @@
             
             `;  
         }) 
+
+        console.log(searchResult.innerHTML)
+
      }
     
 

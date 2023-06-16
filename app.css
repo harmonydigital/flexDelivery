@@ -54,6 +54,22 @@ div#containerTables .card {
 /* div#containerTables .card {
     width: 18%;
 } */
+.total button {
+    display: none;
+}
+.total {
+    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white !;
+    padding: 32px 0;
+    font-weight: bold;
+}
+
+select:focus-visible {
+    outline: none !important;
+}
 .user {
     color: #818f9b;
     padding: 5px;

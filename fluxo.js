@@ -922,7 +922,6 @@ function  fluxo(){
                                 Adicionar Pedido
                             </button>
                         </form>
-                        <div id="searchResult"></div>
 
                 </div> 
                 

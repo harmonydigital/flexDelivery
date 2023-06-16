@@ -61,9 +61,9 @@ formaRetirada=()=>{
        
     retiradavalue=document.getElementById('selectCheckout').value
     setMesa=document.getElementById('setMesa') 
-    // clickpague=document.getElementById('clickpague')
+    
 
-    console.log('retiradavalue',retiradavalue)
+ 
 
     if(retiradavalue=='mesa'){
         setMesa.style.cssText="display:flex"   
@@ -102,15 +102,15 @@ formaRetirada=()=>{
     
     
     
-    // allordersBuy=[{ 
-    //     idPedido:Math.floor(Math.random() * 1000).toString(),
-    //     data:dataHoraFormat(),
-    //     hora:relogio(),
-    //     itens:prodsSelct,
-    //     location:locationvalue, 
-    //     observacao:obs
+    allordersBuy=[{ 
+        idPedido:Math.floor(Math.random() * 1000).toString(),
+        data:dataHoraFormat(),
+        hora:relogio(),
+        itens:prodsSelct,
+        location:locationvalue, 
+        observacao:obs
 
-    // }]
+    }]
 }
 
 
