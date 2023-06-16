@@ -225,7 +225,7 @@ ii=0
                 <div class='listprod'>
                     <div class="qtd-prod"> `+productsMap.quantidade +` </div>   
                     <div class="title-prod"> `+productsMap.name +` </div>   
-                    <div class="title-prod"> `+productsMap.price +` </div>   
+                    <div class="price-prod"> `+productsMap.price +` </div>   
                 </div>  
 
                              

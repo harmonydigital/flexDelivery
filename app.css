@@ -57,6 +57,9 @@ div#containerTables .card {
 .total button {
     display: none;
 }
+div#cartList .controls {
+    display: none;
+}
 .total {
     background: transparent;
     display: flex;
@@ -279,10 +282,18 @@ p {
     color: #818f9b;
 }
 .listprod > div {
-    width: 15%;
+    width: 100%;
     font-weight: bold;
     font-size: 1.2rem;
 
+}
+
+.qtd-prod{
+    width: 25%!important;
+}
+.price-prod {
+    text-align: right;
+    width: 30% !important;
 }
 .whatsbutton{
     background: red;
