@@ -107,7 +107,7 @@ formaRetirada=()=>{
         type:retiradavalue,
         data:dataHoraFormat(),
         hora:relogio(),
-        // itens:prodsSelct,
+        itens:prodsSelct,
         location:locationvalue, 
         // observacao:obs
 

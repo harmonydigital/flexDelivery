@@ -216,7 +216,7 @@ function login(){
                         </div>
                         <form>
 
-                            <input autofocusonfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de Usuário'>
+                            <input autofocus autofocusonfocus="inputFocus()" outfocus="inputOutFocus()" type='text' id='nameuser' placeholder='Nome de usuário'>
                             <input type="password" id="pass" placeholder='Senha' name="password" minlength="4" required>
                             <button class="btn-bottom" onclick='validationLogin(event, nameuser, pass)'>Entrar</button>
                             <a style="
