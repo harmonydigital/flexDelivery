@@ -15,9 +15,7 @@ pedidosDeliveryAtuais=document.getElementById('pedidosDeliveryAtuais')
 
 relatorioFaturamentoAtual=document.getElementById('relatorioFaturamentoAtual')
 vendasareceber=document.getElementById('vendasareceber')
-// console.log(vendasareceber)
-
-
+ 
 toogleNot=(id)=>{ 
   document.getElementById(id).classList.toggle('show')  
 }
@@ -126,8 +124,7 @@ appNotification=(todosPedidos,tipo)=>{
 if(todosPedidos.length>0){
 
 
-        if(tipo=='balcao'){
-          console.log('todosPedidos',todosPedidos)
+        if(tipo=='balcao'){ 
           balcaoData={
             "tipo":'balcao',
             "data":todosPedidos, 
@@ -295,7 +292,7 @@ if(todosPedidos.length>0){
            
             dataMap.orders.map((pedidoDelMap)=>{
                 pedidoDelMap.itens.map((mapDelI)=>{
-              console.log(mapDelI.name,'mapDelI')
+             
 
                   
                   if(mapDelI.price){

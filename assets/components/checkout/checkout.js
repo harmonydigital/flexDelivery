@@ -9,7 +9,7 @@ locationvalue=""
 whatsappId=document.getElementById('whatsappId')
 inpuMWhats="" 
 retiradavalue=false
-
+var inpuMVaue=0
  
 function showNumber(){  var n=100;  return n+=1 }
 getCheckout=()=>{ 
@@ -57,11 +57,13 @@ getCheckout=()=>{
 
 formaRetirada=()=>{
 
+    
 
-       
+    
     retiradavalue=document.getElementById('selectCheckout').value
     setMesa=document.getElementById('setMesa') 
-    
+    selectCheck=document.getElementById('selectCheckout')
+
 
     
 
@@ -74,16 +76,21 @@ formaRetirada=()=>{
 
         setMesa.style.cssText="display:none"  
         whatsappId.style.cssText="display:block"   
-        inpuMVaue=0
+       
     }else if(retiradavalue=='balcao'){
  
-        inpuMVaue=0
+     
         setMesa.style.cssText="display:none" 
         whatsappId.style.cssText="display:none"  
 
     }
 
 
+
+    selectCheck.addEventListener('focusout', function(e){ 
+       console.log(    retiradavalue=document.getElementById('selectCheckout').value
+       )
+    })
     //Mesa Digitada
     setMesa.addEventListener('focusout', function(e){ 
         inpuMVaue=document.getElementById('inputMesa').value.toString()   

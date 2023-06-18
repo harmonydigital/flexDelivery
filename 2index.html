@@ -485,7 +485,9 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
          let userNameString = inputUserName.toLowerCase().replace(/\s/g, '');
          // let idClient=localStorage.getItem("idClient");
- 
+
+
+         console.log('else', idClient)
          db.collection('delivery').doc(idClient).set({
             "name": userNameString,
             "id": idClient,
@@ -526,18 +528,16 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
       }
 
-   }else if(retiradavalue=='mesa' & inpuMVaue==0){
-
+   }else{
     console.log('balcao')
-    console.log('retiradavalue', retiradavalue)
-      alert('Insira o numero da mesa.')
-         // db.collection('balcao').doc('balcao').set({
-         //    "name": userNameString,
-         //    "id": idClient,
-         //    "whatsapp": inpuMWhats,
-         //    orders: allordersBuy //<==================Pedidos Recebidos
+    console.log('else', idClient)
+         db.collection('balcao').doc('balcao').set({
+            "name": userNameString,
+            "id": idClient,
+            "whatsapp": inpuMWhats,
+            orders: allordersBuy //<==================Pedidos Recebidos
 
-         // })
+         })
 
    }
 
@@ -547,7 +547,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 }
 
 })
-    // DELETA NOTIFICAÇÃO
+// DELETA NOTIFICAÇÃO
   
     delNotification.addEventListener('submit', function(e){
         e.preventDefault()     
@@ -562,11 +562,13 @@ if (retiradavalue != false & prodsSelct.length > 0) {
     document.onload=function(){ 
         let formOrderNew=document.querySelector('formOrderNew') 
     }
-  
+ 
+    
+
     //FECHAR CONTAS
     formClose.addEventListener('submit', function (e) {
-      e.preventDefault()
- 
+   e.preventDefault()
+   //  
 
    if (valueindex != 0) {
       // if(valueindex!=='1' || valueindex!=undefined){
