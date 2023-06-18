@@ -539,17 +539,21 @@ if (retiradavalue != false & prodsSelct.length > 0) {
       }
 
    }else if(retiradavalue=='mesa' & inpuMVaue==0){
-
-    console.log('balcao')
-    console.log('retiradavalue', retiradavalue)
+ 
+    
       alert('Insira o numero da mesa.')
-         // db.collection('balcao').doc('balcao').set({
-         //    "name": userNameString,
-         //    "id": idClient,
-         //    "whatsapp": inpuMWhats,
-         //    orders: allordersBuy //<==================Pedidos Recebidos
+        
 
-         // })
+   }else if(retiradavalue=='balcao'){
+
+
+         db.collection('balcao').doc('balcao').set({
+            "name": userNameString,
+            "id": idClient,
+            "whatsapp": inpuMWhats,
+            orders: allordersBuy   
+
+         })
 
    }
 
