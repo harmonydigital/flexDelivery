@@ -356,7 +356,14 @@ label {
 
 
 @media(min-width:1200px){
+    div#msgLoadSend {
+     
+        width: 46%;
+        right: 0;
+        left: inherit;
+    }
     div#addOrdersContainer {
+        
      
         right: 0;
         left: inherit !important;

@@ -810,13 +810,6 @@ function  fluxo(){
             <!-- <button>Cancelar</button>  -->
           </div>
 
-          <div id="msgLoadSend" class="msgLoad">
-          <img src="assets/images/logo.png">
-          <h3>Aguarde </h3>
-          <p>Enviando seu pedido ..</p>
-          <img src="assets/images/loading.gif">
-          <!-- <button>Cancelar</button>  -->
-        </div>
                 <!--Container de dados -->
                 <div class="data_container">
 

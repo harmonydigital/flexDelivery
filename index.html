@@ -65,6 +65,15 @@
         
         <div id="addOrdersContainer">
 
+         
+         <div id="msgLoadSend" class="msgLoad">
+            <img src="assets/images/logo.png">
+            <h3>Aguarde </h3>
+            <p>Enviando seu pedido ..</p>
+            <img src="assets/images/loading.gif">
+            <!-- <button>Cancelar</button>  -->
+          </div>
+
             <div class="controls">
                 <button onclick="neworders()">
                     <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
@@ -310,6 +319,8 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
          if (entregaPed == true) {
             alert('O restaurante recebeu seu pedido, aguarde!')
+            document.getElementById('msgLoadSend').style.cssText = 'display:none'
+
             setTimeout(function () {
 
                var url = "https://wa.me/5512996048083?text=" // Seu numero
@@ -372,6 +383,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
          function orderSend() {
             setTimeout(function () {
                alert('Seu pedido foi entregue ao restaurante')
+               document.getElementById('msgLoadSend').style.cssText = 'display:none'
 
             }, 2000);
          }
