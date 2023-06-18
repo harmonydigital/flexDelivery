@@ -86,7 +86,7 @@ containerDel=document.getElementById("containerDel")
 
 function deliveryData(deliveryAll){
     deliveryContainer.innerHTML="<h3 >Pedidos Delivery:</h3>"
-    containerDel.innerHTML='<h5 class="tittle" style="width:100%;">Controle de Delivery( 3 )</h5>'
+    containerDel.innerHTML='<h5 class="tittle" style="width:100%;"></h5>'
 
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
     
@@ -160,7 +160,7 @@ containerDel=document.getElementById("containerDel")
 
 function deliveryData(deliveryAll){
     deliveryContainer.innerHTML="<h3 >Pedidos Delivery:</h3>"
-    containerDel.innerHTML='<h5 class="tittle" style="width:100%;">Controle de Delivery( 3 )</h5>'
+    containerDel.innerHTML='<h5 class="tittle" style="width:100%;"> </h5>'
 
     localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
     
