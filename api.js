@@ -1,6 +1,7 @@
 tabledatatest=[]
 data=[]
 prodsArray=[]
+prodsSelct=[]
  
 requestMenuRest=(dataMenuRes)=>{
 
@@ -156,7 +157,7 @@ ii=0
 
     
  addProd=(ProdThis, inputProd)=>{ 
-    console.log('ola  ')
+ 
     var key=ProdThis.getAttribute('key')
       
       input=document.getElementById(key)
@@ -205,7 +206,6 @@ ii=0
   list=null
 
   allordersBuy=[]
-  prodsSelct=[]
   
   data.map((apiData)=>{   
     apiData.itens.map((itensMap)=>{     

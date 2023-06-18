@@ -8,6 +8,7 @@ locationvalue=""
 
 whatsappId=document.getElementById('whatsappId')
 inpuMWhats="" 
+retiradavalue=false
 
  
 function showNumber(){  var n=100;  return n+=1 }
@@ -21,7 +22,6 @@ getCheckout=()=>{
     selectCheck=document.getElementById('selectCheckout')
     optionsCheck=selectCheck.options[selectCheck.selectedIndex].text
     observacaoPedido='Nenhuma observação'
-    retiradavalue=0
 
     
  
@@ -101,20 +101,7 @@ formaRetirada=()=>{
     })
     
     
-    // CRIA DADOS
-    allordersBuy=[{ 
-        idPedido:Math.floor(Math.random() * 1000).toString(),
-        type:retiradavalue,
-        data:dataHoraFormat(),
-        hora:relogio(),
-        itens:prodsSelct,
-        location:locationvalue, 
-        // observacao:obs
 
-    }]
-
-
-    console.log(allordersBuy)
 }
 
 

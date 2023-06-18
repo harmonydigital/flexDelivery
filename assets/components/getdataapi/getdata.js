@@ -153,6 +153,81 @@ function deliveryData(deliveryAll){
  
 }
 
+
+//
+deliveryContainer=document.getElementById("deliveyPedidos")
+containerDel=document.getElementById("containerDel")
+
+function deliveryData(deliveryAll){
+    deliveryContainer.innerHTML="<h3 >Pedidos Delivery:</h3>"
+    containerDel.innerHTML='<h5 class="tittle" style="width:100%;">Controle de Delivery( 3 )</h5>'
+
+    localStorage.setItem("pedidosDelivery", JSON.stringify(deliveryAll));
+    
+
+    innerDataTotalDel=(idDel)=>{
+
+      
+        var totalBuyDel=0 
+        var idCardData='cardDel'+idDel   
+        idd=document.getElementById(idCardData)
+        ios=0.5
+
+        
+        
+        if(idd){ 
+            idd.innerHTML='' 
+            deliveryAll.map((deliveryMap)=>{
+                if(idDel===deliveryMap.id){ 
+                    deliveryMap.orders.map((deliveryMapOrders)=>{
+                        deliveryMapOrders.itens.map((itensMapDel)=>{
+                            totalBuyDel+=itensMapDel.quantidade*itensMapDel.price
+                        
+                            idd.innerHTML=totalBuyDel.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                            
+                        })
+
+                    })
+                }
+            })
+        }
+    }
+
+
+
+    deliveryAll.map((deliveryMap)=>{
+
+            // TODOS OS DELIVERYS NO MOMENTO console.log('deliveryMap',deliveryMap) 
+
+         
+
+            // CARD DE DELIVERY novo 
+            containerDel.innerHTML+=` 
+                    <div key='`+deliveryMap.id+`'    onclick="tabledetails(`+deliveryMap.id+`,'delivery')" class="card">
+                        <h6>`+deliveryMap.name+`</h6>   
+                        <span id='cardDel`+deliveryMap.id+`'class="price">..</span>
+                         <button class="whatsbutton" onclick="" >fale<i class="fa-brands fa-whatsapp"></i></button>
+
+                    </div>    
+            `;
+
+               // CARD DE DELIVERY antigo  
+               deliveryContainer.innerHTML+=` 
+               <div class="deliveryOrder">
+                   <button key='`+deliveryMap.name+`'   >
+                       <img src="assets/img/user.png" style="width: 16px;">`+deliveryMap.name+`
+                   </button>
+                   <button class="avisePronto" key='`+deliveryMap.name+`'   onclick="sendMsgWhats('`+deliveryMap.whatsapp+`')" >
+                       <img src="assets/img/whatswhite.png" style="width: 16px;"> Solicitar pagamento!   </button>
+               </div>        
+           `;
+        innerDataTotalDel(deliveryMap.id)
+
+    })
+ 
+}
+
+
  
 
 window.onload=function(){

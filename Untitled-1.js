@@ -5,7 +5,7 @@
       let btnSubmitOrder=e.submitter
     
      
-     if(inpuMVaue!=0){ 
+      if(inpuMVaue!=0){ 
 
             //Load 
             document.getElementById('msgLoad').style.cssText='display:flex' 
@@ -48,35 +48,8 @@
               // MENSAGEM WHATSAPP PEDIDO MESA
          
               setTimeout(function(){
-                    alert('Seu pedido foi entregue ao restaurante')
-
-                         
-                   var url = "https://wa.me/5512996048083?text=" // Seu numero
-                            + "*Olá, novo pedido pelo APP <3*" + "%0a" // Mensagem personalizada
-                            + "%0a" // Quebra de linha
-                            + "*Tipo*: Mesa" + "%0a" // Dados do formulário
-                            + "*nº mesa*: " +intMesaValue + "%0a" // Dados do formulário
-                            + "*Nome*: " + inputUserName + "%0a"
-                            + "%0a" // Quebra de linha
-                            + "*Pedido itens:*" + "%0a" // Mensagem personalizada
-                             //<==================Pedidos Recebidos
-                            allordersBuy.map((currentOrderMap)=>{
-                                  currentOrderMap.itens.map((currentItensMap)=>{
-                                    url+=""+currentItensMap.quantidade+"un." +currentItensMap.name + "%0a" // Mensagem personalizada
-                                    console.log(totalCart)
-                                  })
-                            })
-                            url+="*Observações do pedido*: " + observacaoPedido + "%0a" 
-                              + "%0a" 
-                              + " *Total da Compra*: " + "%0a"
-                              + totalCart.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + "%0a" // Mensagem personalizada
-                           
-                            window.location.href=url;
-
-
-                    setTimeout(function(){
-                      location.reload() 
-                    }, 3000);
+                    alert('Pedido enviado com sucesso..') 
+ 
 
               }, 2000);
 
@@ -332,6 +305,4 @@
 
         }
      
-      }else{
-        alert('Prencha todos os campos!')
-      } 
+      }  

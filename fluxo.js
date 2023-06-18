@@ -836,7 +836,11 @@ function  fluxo(){
                                 <span id="" class="price">..</span>
                             </div>
                             <div class="card"> 
-                                <h6>Acessos:</h6>   
+                            <span id="nSalesBoard" class="tooltip">21</span>
+
+
+                                <h6>Vendas balcão:</h6>   
+                                <span id="nOrdersBoard" class="price">..</span>
                               
                             </div>    
                         </div>     

@@ -5,6 +5,7 @@ notQtd=document.getElementById('notQtd')
 VENDASOPENOW=[];
 mesasData=0
 deliverysData=0
+balcaoData=0
 
 faturamentoatual=document.getElementById('faturamentoatual')
 ftotal=document.getElementById('ftotal')
@@ -123,7 +124,17 @@ appNotification=(todosPedidos,tipo)=>{
  
 
 if(todosPedidos.length>0){
- 
+
+
+        if(tipo=='balcao'){
+          console.log('todosPedidos',todosPedidos)
+          balcaoData={
+            "tipo":'balcao',
+            "data":todosPedidos, 
+          }
+      }
+
+       
       if(tipo=="mesa"){ 
  
         NUMEROMESASABERTASNOMOMENTO=todosPedidos.length  
@@ -157,10 +168,10 @@ if(todosPedidos.length>0){
     
  
 
-    if(mesasData!=0 || deliverysData!=0){
-    VENDASOPENOW=[mesasData,deliverysData] 
+    if(mesasData!=0 || deliverysData!=0 | balcaoData!=0){
+    VENDASOPENOW=[mesasData,deliverysData,balcaoData] 
     }
-   setTimeout(allData(), 3000);
+   setTimeout(allData(), 2000);
 
   }
 }
@@ -187,6 +198,10 @@ if(todosPedidos.length>0){
    nOrdersDeliverys=document.getElementById('nOrdersDeliverys')
    nSalesDeliverys=document.getElementById('nSalesDeliverys')
 
+   nOrdersBoard=document.getElementById('nOrdersBoard')
+   nSalesBoard=document.getElementById('nSalesBoard')
+
+ 
   
   // console.log("admLogin",admLogin)
   
@@ -234,7 +249,8 @@ if(todosPedidos.length>0){
           })
 
         }else if(vatualMap.tipo=='Deliverys'){
-         
+
+        
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
           nOrders=0
           vatualMap.data.map((dataMap)=>{ 
@@ -268,6 +284,40 @@ if(todosPedidos.length>0){
             // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
           })
 
+        }else if(vatualMap.tipo=='balcao'){
+          
+
+          vatualMap.data.map((dataMap)=>{ 
+
+            nOrders+=dataMap.orders.length
+ 
+           
+           
+            dataMap.orders.map((pedidoDelMap)=>{
+                pedidoDelMap.itens.map((mapDelI)=>{
+              console.log(mapDelI.name,'mapDelI')
+
+                  
+                  if(mapDelI.price){
+                    var custoporquantidade=mapDelI.price*mapDelI.quantidade
+                    totaldaCompra+=custoporquantidade
+                    
+                    somaProdTotalDelivery=totaldaCompra
+
+                    nOrdersBoard.innerHTML=` `+totaldaCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+``;
+                    
+                  }
+               
+                })
+
+              }) 
+
+          
+            pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+nOrders+`)`;
+            nOrdersDeliverys.innerHTML=` `+nOrders+` `;
+            // 
+            // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
+          })
         }
 
       }
