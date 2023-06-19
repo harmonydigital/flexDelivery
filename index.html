@@ -548,24 +548,32 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
          
          document.getElementById('msgLoadSend').style.cssText = 'display:flex'
+         console.log(balcaoAll,'balcaoAll')
 
-         db.collection('balcao').doc('balcao').set({
-            "name": userNameString,
-            "id": idClient,
-            "whatsapp": inpuMWhats,
-            orders: allordersBuy   
+         // databaseBalcaoArr.map((balcaoMap) => {
+         //    // if (balcaoMap.id == idClient) {
+         //       mapDataDelivery.orders.map((ordersMap) => {
+         //          recebePedidos.push(ordersMap)
+         //       })
+         //    // }
+         // })
 
-         })
+         // db.collection('balcao').doc('balcao').set({
+         //    "name": userNameString,
+         //    "id": idClient,
+         //    "whatsapp": inpuMWhats,
+         //    orders: allordersBuy   
 
+         // }) 
 
-         setTimeout(function () {
-               alert('Pedido enviado com sucesso.')
-               document.getElementById('msgLoadSend').style.cssText = 'display:none'
-               allordersBuy=[]
-               prodsSelct=[]
-               console.log(' prodsSelct=[]', prodsSelct=[])
-               resetcart()
-            }, 3000);
+         // setTimeout(function () {
+         //       alert('Pedido enviado com sucesso.')
+         //       document.getElementById('msgLoadSend').style.cssText = 'display:none'
+         //       allordersBuy=[]
+         //       prodsSelct=[]
+         //       console.log(' prodsSelct=[]', prodsSelct=[])
+         //       resetcart()
+         //    }, 3000);
 
    }
 
