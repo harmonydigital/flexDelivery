@@ -546,6 +546,8 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
    }else if(retiradavalue=='balcao'){
 
+         
+         document.getElementById('msgLoadSend').style.cssText = 'display:flex'
 
          db.collection('balcao').doc('balcao').set({
             "name": userNameString,
@@ -554,6 +556,16 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             orders: allordersBuy   
 
          })
+
+
+         setTimeout(function () {
+               alert('Pedido enviado com sucesso.')
+               document.getElementById('msgLoadSend').style.cssText = 'display:none'
+               allordersBuy=[]
+               prodsSelct=[]
+               console.log(' prodsSelct=[]', prodsSelct=[])
+               resetcart()
+            }, 3000);
 
    }
 

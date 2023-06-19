@@ -155,7 +155,33 @@ ii=0
     
   }
 
-    
+  resetcart=()=>{
+    data.map((apiData)=>{   
+        apiData.itens.map((itensMap)=>{     
+             itensMap.products.map((productsMap)=>{ 
+        
+            
+
+                productsMap.quantidade=0
+                console.log(productsMap)
+                
+                // value=productsMap.quantidade 
+  
+
+                // document.getElementById(key+'search').setAttribute('value',key)
+                // if(inputSearch){
+                //     inputSearch.setAttribute('value',value)
+
+                // }
+               
+             }) 
+        }) 
+
+     }) 
+
+     refrashCart( )
+
+  }  
  addProd=(ProdThis, inputProd)=>{ 
  
     var key=ProdThis.getAttribute('key')
@@ -233,6 +259,12 @@ ii=0
                 
 
 
+         }else{
+            cartContainer.innerHTML+= `  
+             
+
+                         
+            `;
          }
         
          

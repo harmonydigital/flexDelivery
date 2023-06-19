@@ -129,7 +129,12 @@ if(todosPedidos.length>0){
             "tipo":'balcao',
             "data":todosPedidos, 
           }
-      }
+        }else if(tipo=='delivery'){
+          deliverysData={
+            "tipo":'Deliverys',
+            "data":todosPedidos, 
+          }  
+        }
 
        
       if(tipo=="mesa"){ 
@@ -155,10 +160,10 @@ if(todosPedidos.length>0){
    
 
         if(todosPedidos.length>0){
-          deliverysData={
-            "tipo":'Deliverys',
-            "data":todosPedidos, 
-          }   
+          // deliverysData={
+          //   "tipo":'Deliverys',
+          //   "data":todosPedidos, 
+          // }   
       
         }
     }
@@ -186,6 +191,7 @@ if(todosPedidos.length>0){
   tpedMesa=0
   somaProdTotalMesas=0
   totaldaCompra=0
+  totaldaCompraBalcao=0
 
 
    // VAR FOR NEW DESIGN PATHERS
@@ -246,7 +252,7 @@ if(todosPedidos.length>0){
           })
 
         }else if(vatualMap.tipo=='Deliverys'){
-
+          console.log('vatualMap.tipo',vatualMap.tipo)
         
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
           nOrders=0
@@ -280,30 +286,31 @@ if(todosPedidos.length>0){
             // 
             // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
           })
-
+          
         }else if(vatualMap.tipo=='balcao'){
           
 
           vatualMap.data.map((dataMap)=>{ 
-
-            nOrders+=dataMap.orders.length
  
            
-           
             dataMap.orders.map((pedidoDelMap)=>{
-                pedidoDelMap.itens.map((mapDelI)=>{
-             
+                pedidoDelMap.itens.map((mapDelI)=>{ 
+                  
+
+                  var custoporquantidade=mapDelI.price*mapDelI.quantidade
+                  totaldaCompraBalcao+=custoporquantidade
+                  
+                  var somaProdTotalbalcao=totaldaCompraBalcao
 
                   
-                  if(mapDelI.price){
-                    var custoporquantidade=mapDelI.price*mapDelI.quantidade
-                    totaldaCompra+=custoporquantidade
-                    
-                    somaProdTotalDelivery=totaldaCompra
+                     
+                  totaldaCompraBalcao
+                    nOrdersBoard.innerHTML=` 
+                    `+somaProdTotalbalcao.toLocaleString('pt-br',
+                    {style: 'currency', currency: 'BRL'})+``;
 
-                    nOrdersBoard.innerHTML=` `+totaldaCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+``;
-                    
-                  }
+
+                    // nOrdersBoard.innerHTML=`oi `
                
                 })
 
