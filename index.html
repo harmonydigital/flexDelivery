@@ -208,8 +208,10 @@
   let currencyData=dataHora()
 
   let recebePedidos=[] 
+  let recebePedidosBalcao=[]
   let databaseMesas=[] 
   let databaseDeliveryArr=[]
+  let databaseBalcao=[]
   let entregaPed=false
   let horaReplace=horaAtual.replace(/[^0-9]/g, '')
   let inputUserName='adm'
@@ -222,9 +224,8 @@
 
 e.preventDefault()
 
-if (retiradavalue != false & prodsSelct.length > 0) {
 
-   allordersBuy = [{
+allordersBuy = [{
       idPedido: Math.floor(Math.random() * 1000).toString(),
       type: retiradavalue,
       data: dataHoraFormat(),
@@ -235,6 +236,10 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
 
    }]
+
+if (retiradavalue != false & prodsSelct.length > 0) {
+
+   
    let idspedidosRecebidos = []
    let pedidoAtual = []
    let btnSubmitOrder = e.submitter
@@ -283,8 +288,11 @@ if (retiradavalue != false & prodsSelct.length > 0) {
       // MENSAGEM WHATSAPP PEDIDO MESA
 
       setTimeout(function () {
-         alert('Pedido enviado com sucesso..')
-      }, 2000);
+            alert('Seu pedido foi entregue ao restaurante')
+            setTimeout(function () {
+               location.reload()
+            }, 3000);
+         }, 2000);
 
 
       setTimeout(function () {
@@ -489,9 +497,9 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             })
          }, 2000);
 
-         if (sendOrder) {
+          
             orderSend()
-         }
+    
 
       } else {
 
@@ -516,7 +524,14 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             hora: horaAtual
          })
 
+         setTimeout(function () {
+            alert('Seu pedido foi entregue ao restaurante')
+            setTimeout(function () {
+               location.reload()
+            }, 3000);
+         }, 2000);
 
+         
          setTimeout(function () {
             databaseDeliveryArr.map((delverymap) => {
                delverymap.orders.map((mapOrdersDelivery) => {
@@ -548,32 +563,44 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
          
          document.getElementById('msgLoadSend').style.cssText = 'display:flex'
-         console.log(balcaoAll,'balcaoAll')
+         
+         //BUSCA NO BANCO VENDAS BALCÃO JÁ LANÇADAS
+         databaseBalcao.map((balcaoMap) => {
+             
+               balcaoMap.orders.map((dataordersMap) => {
+                  recebePedidosBalcao.push(dataordersMap)
+               })
+             
+         }) 
 
-         // databaseBalcaoArr.map((balcaoMap) => {
-         //    // if (balcaoMap.id == idClient) {
-         //       mapDataDelivery.orders.map((ordersMap) => {
-         //          recebePedidos.push(ordersMap)
-         //       })
-         //    // }
-         // })
+         //OBTEM COMPRA ATUAL PRODUTOS 
 
-         // db.collection('balcao').doc('balcao').set({
-         //    "name": userNameString,
-         //    "id": idClient,
-         //    "whatsapp": inpuMWhats,
-         //    orders: allordersBuy   
+         console.log('allordersBuy',allordersBuy)
+         allordersBuy.map((atualOrderMap) => { 
+            recebePedidosBalcao.push(atualOrderMap)  
+         })
 
-         // }) 
+         console.log('recebePedidosBalcao',recebePedidosBalcao)
+    
 
-         // setTimeout(function () {
-         //       alert('Pedido enviado com sucesso.')
-         //       document.getElementById('msgLoadSend').style.cssText = 'display:none'
-         //       allordersBuy=[]
-         //       prodsSelct=[]
-         //       console.log(' prodsSelct=[]', prodsSelct=[])
-         //       resetcart()
-         //    }, 3000);
+         db.collection('balcao').doc('balcao').set({
+            "name": userNameString,
+            "id": idClient,
+            "whatsapp": inpuMWhats,
+            orders: recebePedidosBalcao   
+
+         }) 
+
+         console.log('prodsSelct',prodsSelct)
+         setTimeout(function () {
+               alert('Pedido enviado com sucesso.')
+               document.getElementById('msgLoadSend').style.cssText = 'display:none'
+               allordersBuy=[]
+               prodsSelct=[] 
+               // resetcart()
+
+               location.reload()
+            }, 3000);
 
    }
 
@@ -706,7 +733,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
  
     //REQUEST DELIVERY 
     const ordersDelivery=db.collection('delivery')
-    const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
+   //  const pedidosDeliveryContainer=document.getElementById('pedidosbalcao')
 
     
     ordersDelivery.onSnapshot((snapshot) => { 
@@ -738,6 +765,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
         snapshot.forEach((doc) => { 
             // console.log(doc.data())
             balcaoAll.push(doc.data())  
+            databaseBalcao.push(doc.data())
         }); 
  
             appNotification(balcaoAll,'balcao')

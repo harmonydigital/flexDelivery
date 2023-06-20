@@ -450,6 +450,10 @@ function  fluxo(){
     // FUNÇÃO OBTEM LISTA DE CUPONS FISCAIS DA MESA
           
     tabledetails=(datakey, tipo)=>{    
+
+
+       alert('oi')
+        console.log(datakey, tipo)
        
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show") 
@@ -560,8 +564,8 @@ function  fluxo(){
                     })
 
                     innnerOrderItens(key,'mesa',obs)
-                }else{
-                    // console.log('else',key)
+                }else if(tipo=='balcao'){
+                    console.log('balcao')
 
                 }
             })
@@ -836,7 +840,7 @@ function  fluxo(){
                                 <h6>Contas Fechadas hoje</h6>   
                                 <span id="" class="price">..</span>
                             </div>
-                            <div class="card"> 
+                            <div class="card" onclick="tabledetails('balcao','balcao')" > 
                             <span id="nSalesBoard" class="tooltip">..</span>
 
 

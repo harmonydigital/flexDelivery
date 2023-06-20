@@ -179,7 +179,7 @@ ii=0
 
      }) 
 
-     refrashCart( )
+     refrashCart(inputProd)
 
   }  
  addProd=(ProdThis, inputProd)=>{ 
@@ -232,6 +232,7 @@ ii=0
   list=null
 
   allordersBuy=[]
+  prodsSelct=[]
   
   data.map((apiData)=>{   
     apiData.itens.map((itensMap)=>{     
@@ -244,7 +245,6 @@ ii=0
             prodMultiply=productsMap.price*productsMap.quantidade
             totalCart+=prodMultiply
             list+=productsMap.name 
-            prodsSelct.push(productsMap)
            
      
               cartContainer.innerHTML+= `  
@@ -257,14 +257,9 @@ ii=0
                              
                 `;  
                 
+                prodsSelct.push(productsMap)
 
 
-         }else{
-            cartContainer.innerHTML+= `  
-             
-
-                         
-            `;
          }
         
          
