@@ -4,6 +4,8 @@ bodyDocument=document.getElementsByTagName('body')[0]
 var app=document.getElementById('app') 
 inputMesa=document.getElementById('mesa')
 repeat=false
+
+balcaopedidos=[]
  
 fullScreen=()=>{
     var element = document.documentElement;
@@ -162,7 +164,69 @@ function innnerOrderItens(dataKey,tipo,obs){
        })
    
    
-    } 
+    }else if(tipo==='balcao'){
+
+        balcaopedidos.map((mesasMap)=>{
+
+            // if(mesasMap.mesa===key){ 
+            //     mesasMap.orders.map((mOrder)=>{ 
+            //             var tabslss= Array.from(document.getElementsByTagName('table'))
+
+                       
+            //                 tabslss.forEach(element => {
+            //                     idTable=element.getAttribute('id')
+            //                     if(idTable==mOrder.idPedido){
+
+            //                         mOrder.itens.forEach(itensFor => { 
+            //                             containerTable=document.getElementById(idTable)  
+            //                             thisprice=itensFor.price 
+            //                             itensQtd+=1 
+
+            //                             if(itensFor.name!=undefined){
+
+
+            //                                 calctotalprod=thisprice*itensFor.quantidade
+            //                                 totalTicket+=calctotalprod
+
+            //                                 containerTable.innerHTML+=`
+            //                                         <tr>
+            //                                             <th>`+itensFor.name+`</th> 
+            //                                             <th>00`+itensQtd+`</th> 
+            //                                             <th>00`+itensFor.quantidade+`</th> 
+            //                                             <th style="text-align: right;">`+calctotalprod+`</th> 
+            //                                         </tr> 
+
+            //                                     ` 
+            //                             }
+
+            //                         });
+            //                     }
+                                
+            //                 });
+            //     }) 
+
+            //     itensQtd=0
+            //     ios=0.5
+
+            //     totalbruto=ios+totalTicket
+            //     document.getElementById('subTotal').innerHTML=`
+            //     Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                        
+            //     cupomContainer.innerHTML+=`
+            //     <table>
+            //         <tr>
+            //             <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+            //             <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+            //         </tr>
+                    
+                     
+            //     </table>
+            //     `
+
+                
+            // }
+        })
+    }
 
     // COLETA DADOS FINANCEIRO
     totalMesaContainer=document.getElementById('subTotal')
@@ -452,8 +516,7 @@ function  fluxo(){
     tabledetails=(datakey, tipo)=>{    
 
 
-       alert('oi')
-        console.log(datakey, tipo)
+      
        
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show") 
@@ -564,9 +627,6 @@ function  fluxo(){
                     })
 
                     innnerOrderItens(key,'mesa',obs)
-                }else if(tipo=='balcao'){
-                    console.log('balcao')
-
                 }
             })
 
@@ -649,6 +709,51 @@ function  fluxo(){
                 
             </div>
         `
+        }else if(tipo==='balcao'){
+             
+            balcaopedidos.map((mapBalcao)=>{
+                
+                 
+                mapBalcao.orders.map((mOrder)=>{
+                if(cupomContainer){
+                 var idTabelCupom=mOrder.idPedido
+                 obs=mOrder.observacao
+                     
+                 cupomContainer.innerHTML+=` 
+                     
+                         <table id=`+mOrder.idPedido+`>
+                             <tr>
+                                 <th><h5>CUPOM FISCAL  </h5></th> 
+                                 <th> </th>  
+                             </tr>
+                             <tr> 
+                                 <th>DATA:`+mOrder.data+`/ HORA `+mOrder.hora+`</th> 
+
+                                 <th> </th> 
+                             </tr> 
+                             <tr>
+                                 
+                                 <th>OBS:`+obs+` </th> 
+                             </tr> 
+                             <tr class="headtable">
+                                 <th>DESCRIÇÃO</th> 
+                                 <th>ITEM</th> 
+                                 <th>QTD.</th> 
+                                 <th style="text-align: right;">VALOR</th> 
+                             </tr>
+                         </table>
+                         <span class="line"></span> 
+                 
+                 `
+                }  
+                innnerOrderItens(key,'balcao')
+
+             })
+             
+            })
+           
+
+            
         }
 
  
