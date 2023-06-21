@@ -190,7 +190,7 @@ function innnerOrderItens(dataKey,tipo,obs){
 
                                             calctotalprod=thisprice*itensFor.quantidade
                                             totalTicket+=calctotalprod
-
+                                            console.log('itensFor.name',itensFor.name)
                                             containerTable.innerHTML+=`
                                                     <tr>
                                                         <th>`+itensFor.name+`</th> 
@@ -208,23 +208,23 @@ function innnerOrderItens(dataKey,tipo,obs){
                             });
                 }) 
 
-                // itensQtd=0
-                // ios=0.5
+                itensQtd=0
+                ios=0.5
 
-                // totalbruto=ios+totalTicket
-                // document.getElementById('subTotal').innerHTML=`
-                // Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                totalbruto=ios+totalTicket
+                document.getElementById('subTotal').innerHTML=`
+                Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                         
-                // cupomContainer.innerHTML+=`
-                // <table>
-                //     <tr>
-                //         <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
-                //         <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
-                //     </tr>
+                cupomContainer.innerHTML+=`
+                <table>
+                    <tr>
+                        <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                        <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+                    </tr>
                     
                      
-                // </table>
-                // `
+                </table>
+                `
 
                 
        
