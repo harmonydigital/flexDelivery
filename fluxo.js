@@ -165,66 +165,69 @@ function innnerOrderItens(dataKey,tipo,obs){
    
    
     }else if(tipo==='balcao'){
+        var itensQtd=0
+        var totalTicket=0
+        balcaopedidos.map((balcaomap)=>{
 
-        balcaopedidos.map((mesasMap)=>{
+            console.log(balcaomap.orders)
 
-            // if(mesasMap.mesa===key){ 
-            //     mesasMap.orders.map((mOrder)=>{ 
-            //             var tabslss= Array.from(document.getElementsByTagName('table'))
+        
+                balcaomap.orders.map((mOrder)=>{ 
+                        var tabslss=Array.from(document.getElementsByTagName('table'))
 
                        
-            //                 tabslss.forEach(element => {
-            //                     idTable=element.getAttribute('id')
-            //                     if(idTable==mOrder.idPedido){
+                            tabslss.forEach(element => {
+                                idTable=element.getAttribute('id')
+                                if(idTable==mOrder.idPedido){
 
-            //                         mOrder.itens.forEach(itensFor => { 
-            //                             containerTable=document.getElementById(idTable)  
-            //                             thisprice=itensFor.price 
-            //                             itensQtd+=1 
+                                    mOrder.itens.forEach(itensFor => { 
+                                        containerTable=document.getElementById(idTable)  
+                                        thisprice=itensFor.price 
+                                        itensQtd+=1 
 
-            //                             if(itensFor.name!=undefined){
+                                        if(itensFor.name!=undefined){
 
 
-            //                                 calctotalprod=thisprice*itensFor.quantidade
-            //                                 totalTicket+=calctotalprod
+                                            calctotalprod=thisprice*itensFor.quantidade
+                                            totalTicket+=calctotalprod
 
-            //                                 containerTable.innerHTML+=`
-            //                                         <tr>
-            //                                             <th>`+itensFor.name+`</th> 
-            //                                             <th>00`+itensQtd+`</th> 
-            //                                             <th>00`+itensFor.quantidade+`</th> 
-            //                                             <th style="text-align: right;">`+calctotalprod+`</th> 
-            //                                         </tr> 
+                                            containerTable.innerHTML+=`
+                                                    <tr>
+                                                        <th>`+itensFor.name+`</th> 
+                                                        <th>00`+itensQtd+`</th> 
+                                                        <th>00`+itensFor.quantidade+`</th> 
+                                                        <th style="text-align: right;">`+calctotalprod+`</th> 
+                                                    </tr> 
 
-            //                                     ` 
-            //                             }
+                                                ` 
+                                        }
 
-            //                         });
-            //                     }
+                                    });
+                                }
                                 
-            //                 });
-            //     }) 
+                            });
+                }) 
 
-            //     itensQtd=0
-            //     ios=0.5
+                // itensQtd=0
+                // ios=0.5
 
-            //     totalbruto=ios+totalTicket
-            //     document.getElementById('subTotal').innerHTML=`
-            //     Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+                // totalbruto=ios+totalTicket
+                // document.getElementById('subTotal').innerHTML=`
+                // Total da compra `+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                         
-            //     cupomContainer.innerHTML+=`
-            //     <table>
-            //         <tr>
-            //             <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
-            //             <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
-            //         </tr>
+                // cupomContainer.innerHTML+=`
+                // <table>
+                //     <tr>
+                //         <th>DINHEIRO<br>IMPOSTOS 0.50</br>TROCO</th>
+                //         <th><h5 class="totalCupom">TOTAL`+totalbruto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` </h5></th> 
+                //     </tr>
                     
                      
-            //     </table>
-            //     `
+                // </table>
+                // `
 
                 
-            // }
+       
         })
     }
 
@@ -745,8 +748,9 @@ function  fluxo(){
                          <span class="line"></span> 
                  
                  `
-                }  
-                innnerOrderItens(key,'balcao')
+                }       
+                    console.log(key)
+                    innnerOrderItens(key,'balcao')
 
              })
              
