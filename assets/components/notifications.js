@@ -6,6 +6,7 @@ VENDASOPENOW=[];
 mesasData=0
 deliverysData=0
 balcaoData=0
+somaProdTotalbalcao=0
 
 faturamentoatual=document.getElementById('faturamentoatual')
 ftotal=document.getElementById('ftotal')
@@ -300,7 +301,7 @@ if(todosPedidos.length>0){
                   var custoporquantidade=mapDelI.price*mapDelI.quantidade
                   totaldaCompraBalcao+=custoporquantidade
                   
-                  var somaProdTotalbalcao=totaldaCompraBalcao
+                   somaProdTotalbalcao=totaldaCompraBalcao
 
                   
                      
@@ -328,7 +329,7 @@ if(todosPedidos.length>0){
     })
      
 
-      var FATURAATUAL=somaProdTotalMesas+somaProdTotalDelivery
+      var FATURAATUAL=somaProdTotalMesas+somaProdTotalDelivery+somaProdTotalbalcao
 
       
       ftotal.innerHTML=` Total ` +FATURAATUAL.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) +``;  
