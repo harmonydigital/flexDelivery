@@ -85,30 +85,8 @@ closeOrder=(event)=>{
       } 
 
 
-      // closeBalcao=()=>{
-      //   console.log('fechar Balcao')
-      //   VENDASOPENOW.map((vendasMap)=>{
-    
-
-      //     if(vendasMap.data!=undefined){
-      //         vendasMap.data.map((allMap)=>{ 
-      //           if(allMap.id==idConta.toString()){ 
-      //             console.log(allMap)
-
-                  
-      //             allMap.orders.map((mOrders)=>{
-      //                     todospedidos.push(mOrders)
-      //                     plataforma='Deliverys'
-      //                 })
-
-      //           }
-
-
-      //         })
-      //     }
-           
-      //   })
-      // } 
+     
+       
 
        type=='mesa' ? closeTable()  :  closeDelivery() 
 

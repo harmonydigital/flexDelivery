@@ -169,7 +169,7 @@ function innnerOrderItens(dataKey,tipo,obs){
         var totalTicket=0
         balcaopedidos.map((balcaomap)=>{
 
-            console.log(balcaomap.orders)
+        
 
         
                 balcaomap.orders.map((mOrder)=>{ 
@@ -190,7 +190,7 @@ function innnerOrderItens(dataKey,tipo,obs){
 
                                             calctotalprod=thisprice*itensFor.quantidade
                                             totalTicket+=calctotalprod
-                                            console.log('itensFor.name',itensFor.name)
+                                          
                                             containerTable.innerHTML+=`
                                                     <tr>
                                                         <th>`+itensFor.name+`</th> 
@@ -519,7 +519,7 @@ function  fluxo(){
     tabledetails=(datakey, tipo)=>{    
 
 
-      
+      console.log('datakey',datakey)
        
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show") 
@@ -597,7 +597,7 @@ function  fluxo(){
                     mesasMap.orders.map((mOrder)=>{
                        if(cupomContainer){
                         var idTabelCupom=mOrder.idPedido
-                        obs=mOrder.observacao
+                        obs='Pedido Balcao'
                             
                         cupomContainer.innerHTML+=` 
                             
@@ -657,7 +657,8 @@ function  fluxo(){
 
                         if(cupomContainer){
                             var idTabelCupom=dOrder.idPedido
-                            obs=dOrder.observacao
+                            obs='Pedido Balcao'
+
                         
                             cupomContainer.innerHTML+=` 
                                 
@@ -716,11 +717,12 @@ function  fluxo(){
              
             balcaopedidos.map((mapBalcao)=>{
                 
-                 
+                if(cupomContainer){ 
                 mapBalcao.orders.map((mOrder)=>{
-                if(cupomContainer){
+                
                  var idTabelCupom=mOrder.idPedido
-                 obs=mOrder.observacao
+                 obs='Pedido Balcao'
+
                      
                  cupomContainer.innerHTML+=` 
                      
@@ -748,11 +750,13 @@ function  fluxo(){
                          <span class="line"></span> 
                  
                  `
-                }       
-                    console.log(key)
-                    innnerOrderItens(key,'balcao')
+               
+                  
 
              })
+            }   
+             console.log(key)
+             innnerOrderItens(key,'balcao')
              
             })
            
