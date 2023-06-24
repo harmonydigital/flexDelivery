@@ -632,7 +632,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
  
 
    if (valueindex != 0) {
-      // if(valueindex!=='1' || valueindex!=undefined){
+      
 
       let btnSubmit = document.querySelector('.btn.closeOrders')
       // LOAD
@@ -649,6 +649,14 @@ if (retiradavalue != false & prodsSelct.length > 0) {
       })
 
       unifechamentos.push(contaFechada)
+
+      console.log({
+         "name": "fechamentos",
+         "id": currencyData,
+         "contasFechadas": unifechamentos,
+         "data": dataHoraFormat()
+
+      })
 
       db.collection('fechamentos').doc(currencyData).set({
          "name": "fechamentos",
@@ -682,6 +690,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
             db.collection("delivery").doc(idConta).delete().then(() => {
                console.log("Document successfully deleted!");
+               alert('Vendas balcão fechada com sucesso!')
                setTimeout(function () {
                   location.reload()
                }, 1000)
@@ -694,6 +703,8 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
             db.collection("balcao").doc(idConta).delete().then(() => {
                console.log("Document successfully deleted!");
+               alert('Vendas balcao encerrada com sucesso..')
+
                setTimeout(function () {
                   location.reload()
                }, 1000)
@@ -701,7 +712,8 @@ if (retiradavalue != false & prodsSelct.length > 0) {
                console.error("Error removing document: ", error);
             });
 
-            }
+         }
+
       }, 3000)
 
    } else {

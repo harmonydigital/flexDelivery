@@ -518,8 +518,7 @@ function  fluxo(){
           
     tabledetails=(datakey, tipo)=>{    
 
-
-      console.log('datakey',datakey)
+ 
        
        containerMesaDetails=document.getElementById('openTable')  
        containerMesaDetails.classList.toggle("show") 
@@ -755,7 +754,7 @@ function  fluxo(){
 
              })
             }   
-             console.log(key)
+          
              innnerOrderItens(key,'balcao')
              
             })
@@ -818,7 +817,7 @@ function  fluxo(){
         }else{
 
            // MESA EXISTENTE
-            console.log('Pedido Adicionado com sucesso')
+            // console.log('Pedido Adicionado com sucesso')
             alert('Pedido Adicionado com sucesso')
 
             var newOrder={

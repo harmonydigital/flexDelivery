@@ -3,6 +3,7 @@ relatorioFinanceiro=document.getElementById('relatorioFinanceiro')
 notificacao=document.getElementById('notificacao')
 notQtd=document.getElementById('notQtd')
 VENDASOPENOW=[];
+nOrders=0 
 mesasData=0
 deliverysData=0
 balcaoData=0
@@ -256,7 +257,6 @@ if(todosPedidos.length>0){
           console.log('vatualMap.tipo',vatualMap.tipo)
         
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
-          nOrders=0
           vatualMap.data.map((dataMap)=>{ 
 
             nOrders+=dataMap.orders.length
@@ -282,7 +282,7 @@ if(todosPedidos.length>0){
               }) 
 
           
-            pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+nOrders+`)`;
+            // pedidosDeliveryAtuais.innerHTML=`Pedidos Delivery em curso (`+nOrders+`)`;
             nOrdersDeliverys.innerHTML=` `+nOrders+` `;
             // 
             // totalfaturamentodelivery.innerHTML=`Total Vendas Delivery total()`;
