@@ -10,7 +10,7 @@ valueindex=0
     valuepaymentCheck=paymentCheck.options[paymentCheck.selectedIndex].text   
     valueindex=paymentCheck.options[paymentCheck.selectedIndex].value  
 
-
+    console.log(idConta,'idConta')
 
     if(valueindex==='1'){
       alert('Selecione a forma de pagamento do cliente.')
@@ -36,13 +36,13 @@ closeOrder=(event)=>{
 
 
   hfechamento=relogio()
-  console.log(dataHoraFormat())
   if(event){
  
 
       idConta=event.target.getAttribute('key')
       type=event.target.getAttribute('type')
       todospedidos=[]  
+  console.log(type,'type')
       
       //TODAS AS VENDAS EM ABERTO console.log(VENDASOPENOW)
       closeTable=()=>{
@@ -84,12 +84,43 @@ closeOrder=(event)=>{
         })
       } 
 
+      
+      closeBalcao=()=>{
+        // console.log('fechar Balcao')
+        // console.log('VENDASOPENOW',VENDASOPENOW)
+        VENDASOPENOW.map((vendasMap)=>{
+    
+          console.log('vendasMap',vendasMap)
+
+          if(vendasMap.data!=undefined){
+              vendasMap.data.map((allMap)=>{ 
+ 
+
+                  
+                  allMap.orders.map((mOrders)=>{
+                          todospedidos.push(mOrders)
+                          plataforma='balcao'
+                      })
+ 
+
+
+              })
+          }
+           
+        })
+      } 
+
 
      
        
-
-       type=='mesa' ? closeTable()  :  closeDelivery() 
-
+      if(type=='mesa'){
+        closeTable()
+      }else if(type=='Delivery'){
+        closeDelivery() 
+      }else if(type=='balcao'){
+        closeBalcao() 
+      }
+      
 
 
 

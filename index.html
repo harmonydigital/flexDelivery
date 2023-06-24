@@ -689,7 +689,19 @@ if (retiradavalue != false & prodsSelct.length > 0) {
                console.error("Error removing document: ", error);
             });
 
-         }
+         }else if (plataforma == 'balcao') {
+
+
+            db.collection("balcao").doc(idConta).delete().then(() => {
+               console.log("Document successfully deleted!");
+               setTimeout(function () {
+                  location.reload()
+               }, 1000)
+            }).catch((error) => {
+               console.error("Error removing document: ", error);
+            });
+
+            }
       }, 3000)
 
    } else {
