@@ -690,7 +690,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
             db.collection("delivery").doc(idConta).delete().then(() => {
                console.log("Document successfully deleted!");
-               alert('Vendas balcão fechada com sucesso!')
+               alert('Venda delivery fechada com sucesso!')
                setTimeout(function () {
                   location.reload()
                }, 1000)

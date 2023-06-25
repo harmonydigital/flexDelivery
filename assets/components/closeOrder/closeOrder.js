@@ -43,7 +43,7 @@ closeOrder=(event)=>{
       type=event.target.getAttribute('type')
       todospedidos=[]  
  
-      
+        console.log('type',type)
       //TODAS AS VENDAS EM ABERTO console.log(VENDASOPENOW)
       closeTable=()=>{
         VENDASOPENOW.map((vendasMap)=>{
@@ -60,7 +60,7 @@ closeOrder=(event)=>{
       } 
 
       closeDelivery=()=>{
-        // console.log('fechar Delivery')
+        console.log('fechar Delivery')
         VENDASOPENOW.map((vendasMap)=>{
     
 
@@ -112,7 +112,8 @@ closeOrder=(event)=>{
        
       if(type=='mesa'){
         closeTable()
-      }else if(type=='Delivery'){
+      }else if(type=='delivery'){
+        console.log('type',type)
         closeDelivery() 
       }else if(type=='balcao'){
         closeBalcao() 
