@@ -26,6 +26,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body> 
+   <button class="notbtn">notifique-me</button> 
       <div id="app"></div> 
 
       
@@ -746,7 +747,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             
             getData(pedidosAll)
             // dataTableExport(pedidosAll)
-            appNotification(pedidosAll,'mesa')
+            // appNotification(pedidosAll,'mesa')
 
         }); 
     }, (error) => {
@@ -769,7 +770,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
         if(deliveryAll){
             deliveryData(deliveryAll)
-            appNotification(deliveryAll,'delivery')
+            // appNotification(deliveryAll,'delivery')
         }
         // ..
     }, (error) => {
@@ -793,7 +794,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             balcaopedidos.push(doc.data())
         }); 
  
-            appNotification(balcaoAll,'balcao')
+            // appNotification(balcaoAll,'balcao')
        
         // ..
     }, (error) => {
@@ -812,7 +813,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
         if(deliveryAll!=false){
             deliveryData(deliveryAll)
-            appNotification(deliveryAll,'delivery')
+            // appNotification(deliveryAll,'delivery')
         }
         // ..
     }, (error) => {

@@ -16,63 +16,169 @@ mesasRelatorio=document.getElementById('innerMesas')
 pedidosDeliveryAtuais=document.getElementById('pedidosDeliveryAtuais')
 
 relatorioFaturamentoAtual=document.getElementById('relatorioFaturamentoAtual')
-  vendasareceber=document.getElementById('vendasareceber')
+vendasareceber=document.getElementById('vendasareceber')
  
 toogleNot=(id)=>{ 
   document.getElementById(id).classList.toggle('show')  
 }
 
 innerSequenceOrders=(notDataBase)=>{
- 
+ console.log('not')
   notificacoesData=notDataBase 
- 
-   }
+
+  notificacoesData.length>0?  notQtd.innerHTML=`<span>`+notificacoesData.length+`</span>` : console.log('')
 
 
-
-// (async ()=>{
-//   let granted=false
- 
-
-//   if(Notification.permission==='granted'){
-//     granted=true
-//     // return console.log('notificações',Notification.permission)
-
-//   }else if(Notification.permission!=='denied'){
-//     const permission=await Notification.requestPermission()
-
-//     // return console.log('notificações',Notification.permission)
-
-//   }
-// } )()
-
-(async ()=>{
-  let granted=false
-  notBtn=document.querySelector('.notbtn')
-
-  if(Notification.permission==='granted'){ //notificação aceita
-    granted=true 
-
-  } 
-  
-  if(Notification.permission!=='denied'){//notificação recusa
+  notificacao.innerHTML=`
+    <div class="controls">
+      <button onclick="toogleNot('notificacao')">
+          <i class="fa-solid fa-chevron-left"></i>  
+      </button>
+      <button onclick="toogleNot('notificacao')"> 
+          <i class="fa-solid fa-xmark"></i> 
+      </button>    
+    </div>
     
-    const permission=await Notification.requestPermission();
-
-    granted = permission==='granted' ? true : false
     
-  }
+    <div>
+      <h2>Notificações</h2>
+    </div>
+    
+    <div>
+      <button class="closeAll btn" style="color: white; margin: 0 auto; display: block;">Fechar todas</button>
+    </div>
 
-  notBtn.addEventListener('click', ()=>{
-    console.log('teste',granted)
-    if(granted==true){
-       
-      new Notification('title')
-    }
+
+    <div id='notification_content'>
+    
+    </div>
+   `;  
+
+
+
+    notification_content=document.getElementById('notification_content')
+ 
+  notificacoesData.map((notMap)=>{
+ 
+
+
+    notMap.orders.map((allOrdersMap)=>{  
+ 
+          if(notMap.name!=undefined){
+            notification_content.innerHTML+=` 
+          
+
+
+
+                  
+          <div  class='flx card'>
+
+            <div class="flx"> 
+              <span><i class="fa-regular fa-bell"></i> </span>
+
+              <div class='card_content'>
+                <h6>Novo pedido Mesa (`+notMap.name+`) </h6>
+                <p>Hora do Pedido: `+notMap.hora+`</p>
+              </div>
+
+            </div>
+            <div class='buttons_controls'>
+            <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver </button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> Aceitar </button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> Recusar </button>
+            </div>
+          
+        </div>
+            `;
+          }else if(notMap.mesa!=undefined){
+            notification_content.innerHTML+=`
+            
+          <div  class='flx card'>
+
+            <div class='flx' >
+              <span><i class="fa-regular fa-bell"></i> </span>
+
+              <div class='card_content'>
+                <h6>Novo pedido Mesa (`+notMap.mesa+`) </h6>
+                <p>Hora do Pedido: `+notMap.hora+`</p>
+              </div>
+
+            </div>
+
+
+
+            <button class="sm-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i>+</button>
+            <button class="xs-hidden" onclick="modalJs(`+allOrdersMap.idPedido+`)"><i class="fa-solid fa-magnifying-glass"></i> ver pedido</button>
+           
+          </div>`;
+          
+          }  
+
+    })
+    
   })
 }
+
+appNotification=(todosPedidos,tipo)=>{  
  
-)()
+
+if(todosPedidos.length>0){
+
+
+        if(tipo=='balcao'){ 
+          balcaoData={
+            "tipo":'balcao',
+            "data":todosPedidos, 
+          }
+        }else if(tipo=='delivery'){
+          deliverysData={
+            "tipo":'Deliverys',
+            "data":todosPedidos, 
+          }  
+        }
+
+       
+      if(tipo=="mesa"){ 
+ 
+        NUMEROMESASABERTASNOMOMENTO=todosPedidos.length  
+        let MESASABERTASNOMOMENTO=todosPedidos
+        
+ 
+        if(todosPedidos.length>0){
+
+          mesasData={
+            "tipo":'Mesas',
+            "data":todosPedidos, 
+          }  
+      }   
+     
+         
+ 
+  }else if(todosPedidos.length >0){  
+          
+        NUMERODELIVERYABERTOSMOMENTO=todosPedidos.length 
+        let DELIVERYABERTOSMOMENTO=todosPedidos
+   
+
+        if(todosPedidos.length>0){
+          // deliverysData={
+          //   "tipo":'Deliverys',
+          //   "data":todosPedidos, 
+          // }   
+      
+        }
+    }
+    
+ 
+
+    if(mesasData!=0 || deliverysData!=0 | balcaoData!=0){
+    VENDASOPENOW=[mesasData,deliverysData,balcaoData] 
+    }
+   setTimeout(allData(), 2000);
+
+  }
+}
 
  function allData(){
   deliveryRelatorio=document.getElementById('deliveryRelatorio')
