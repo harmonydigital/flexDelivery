@@ -1,0 +1,25 @@
+table {
+font-family: 'Quicksand', sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+table tbody tr:nth-of-type(odd) {
+background-color: rgba(0,0,0,.05);
+}
+td, th { 
+text-align: left; 
+padding: 0.75rem; 
+vertical-align: top;
+border-top: 1px solid #dee2e6;
+}
+button.btn-inline-details {
+color: blue;
+font-size: 1.3rem;
+}
+
+ 
+ 
+.table thead th {
+vertical-align: bottom;
+border-bottom: 2px solid #dee2e6;
+}

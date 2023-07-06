@@ -67,7 +67,13 @@ innerSequenceOrders=(notDataBase)=>{
     console.log('teste',granted)
     if(granted==true){
        
-      new Notification('title')
+      const greeting = new Notification('Hi, How are you?',{
+        body: 'Have a good day',
+        icon: './img/goodday.png'
+      });
+      
+
+      console.log('greeting',greeting)
     }
   })
 }

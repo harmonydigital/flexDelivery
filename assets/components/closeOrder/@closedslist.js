@@ -73,24 +73,15 @@ getDetailsCloseAccounts=(dataid)=>{
 
         containerDetails.classList.toggle('show')
 
-        closeddb.map((acountsMap)=>{  
-
+        closeddb.map((acountsMap)=>{   
             if(parseInt(acountsMap.id)===dataid){ 
-
-                // console.log(dataid)
-                // console.log(parseInt(acountsMap.id))
-                // console.log(acountsMap.contasFechadas)
-
+ 
                 acountsMap.contasFechadas.map((closedMap)=>{ 
-                // console.log(closedMap)
-
+                
                         contentdata.innerHTML+=`
                     
-                        <div class="card">
-
-                            <div style="
-                            width: 100%;
-                        ">
+                        <div class="card"> 
+                         <div style="  width: 100%;  ">
                             <table >
                                 <tr> 
                                     <th>HORA</th>
@@ -140,40 +131,23 @@ function accoutsCloseds(closedData){
     let containerReports=document.getElementById('containerReportsCloseds')
     containerReports.innerHTML=' '
 
-    containerReports.innerHTML+=`
-        
-                        <table>
-                            <thead>
-                                <tr> 
-                                    <th>DATA FECHAMENTO</th> 
-                                    <th>DETALHE</th>
-                                </tr>
-                            </thead>
-
-                            <tbody id="relatoriosBody"> 
-                               
-                            </tbody>
-
-                        </table>
-      
-        `;  
+    
 
     closeddb.map((acountsMap)=>{
-       console.log(acountsMap)
        
+        containerReports.innerHTML+=`
 
-       var tbody=document.getElementById('relatoriosBody')
+            <div class='card'>
+                <div>
+                <h6>Data: </h6><strong>`+acountsMap.data+`</strong>
+                </div>
 
-       if(tbody){
-            console.log(tbody)
-
-            tbody.innerHTML+=`
-                    <tr> 
-                        <td>`+acountsMap.data+`</td> 
-                        <td><button class="btn-inline-details"><i class="fa-solid fa-right-to-bracket"></i></button></td>  
-                    </tr> 
-            `
-       }
+                <button class="getDatails" onclick='getDetailsCloseAccounts(`+acountsMap.id+`)'>
+                    <i class="fa-solid fa-arrow-right"></i> 
+                </button>
+            </div>
+        
+        `;
     })
 
     // containerCloseds.innerHTML=`
