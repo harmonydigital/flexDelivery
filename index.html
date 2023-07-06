@@ -25,8 +25,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
-  <body> 
-   <button class="notbtn">notifique-me</button> 
+  <body>  
       <div id="app"></div> 
 
       
@@ -669,6 +668,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
 
       setTimeout(function () {
+          
          if (plataforma == 'Mesas') {
 
             db.collection("mesasOpen").doc(idConta).delete().then(() => {
@@ -747,7 +747,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
             
             getData(pedidosAll)
             // dataTableExport(pedidosAll)
-            // appNotification(pedidosAll,'mesa')
+            appNotificationfp(pedidosAll,'mesa')
 
         }); 
     }, (error) => {
@@ -770,7 +770,7 @@ if (retiradavalue != false & prodsSelct.length > 0) {
 
         if(deliveryAll){
             deliveryData(deliveryAll)
-            // appNotification(deliveryAll,'delivery')
+            appNotification(deliveryAll,'delivery')
         }
         // ..
     }, (error) => {
@@ -788,13 +788,13 @@ if (retiradavalue != false & prodsSelct.length > 0) {
    ordersBalcao.onSnapshot((snapshot) => { 
         let balcaoAll=[]
         snapshot.forEach((doc) => { 
-            // console.log(doc.data())
+            console.log(doc.data())
             balcaoAll.push(doc.data())  
             databaseBalcao.push(doc.data())
             balcaopedidos.push(doc.data())
         }); 
  
-            // appNotification(balcaoAll,'balcao')
+            appNotification(balcaoAll,'balcao')
        
         // ..
     }, (error) => {

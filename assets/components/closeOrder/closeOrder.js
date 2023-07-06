@@ -3,7 +3,8 @@ unifechamentos=[]
 platatorma=false
 valuepaymentCheck=''
 valueindex=0
-
+plataforma=false
+ 
   // Pay
   function getPay(){  
     var paymentCheck=document.getElementById('paymentCheck') 
