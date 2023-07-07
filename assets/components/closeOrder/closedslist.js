@@ -170,7 +170,12 @@ function accoutsCloseds(closedData){
             tbody.innerHTML+=`
                     <tr> 
                         <td>`+acountsMap.data+`</td> 
-                        <td><button class="btn-inline-details"><i class="fa-solid fa-right-to-bracket"></i></button></td>  
+                        <td>
+                            <button class="btn-inline-details" onclick='getDetailsCloseAccounts(`+acountsMap.id+`)'>
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                
+                            </button>
+                        </td>  
                     </tr> 
             `
        }
