@@ -2,8 +2,7 @@ let containerCloseds=document.getElementById('closedsContainer')
 let closeddb; 
 
 
-innerMoreDatails=(event)=>{
-    console.log(event.target.getAttribute('key'))
+innerMoreDatails=(event)=>{ 
     var key=event.target.getAttribute('key')
 
     //imprime total
@@ -20,7 +19,7 @@ innerMoreDatails=(event)=>{
          
             acountsMap.contasFechadas.map((closedMap)=>{ 
                 if(closedMap.idConta==key){
-                    console.log(closedMap.idConta)
+                  
                    
 
                     closedMap.pedidosfeitos.map((pedidosMap)=>{
@@ -73,58 +72,61 @@ getDetailsCloseAccounts=(dataid)=>{
 
         containerDetails.classList.toggle('show')
 
+        // console.log(closeddb,dataid)
+
         closeddb.map((acountsMap)=>{  
 
             if(parseInt(acountsMap.id)===dataid){ 
 
-                // console.log(dataid)
+                console.log(dataid)
+                console.log(parseInt(acountsMap.id))
                 // console.log(parseInt(acountsMap.id))
-                // console.log(acountsMap.contasFechadas)
+                console.log(acountsMap.contasFechadas)
 
-                acountsMap.contasFechadas.map((closedMap)=>{ 
-                // console.log(closedMap)
+                // acountsMap.contasFechadas.map((closedMap)=>{ 
+                // // console.log(closedMap)
 
-                        contentdata.innerHTML+=`
+                //         contentdata.innerHTML+=`
                     
-                        <div class="card">
+                //         <div class="card">
 
-                            <div style="
-                            width: 100%;
-                        ">
-                            <table >
-                                <tr> 
-                                    <th>HORA</th>
-                                    <th>ID</th>
-                                    <th>TOTAL</th>
-                                </tr>
-                                <tr>
-                                    <th>`+closedMap.fechamento+`</th>
-                                    <th>`+closedMap.idConta+`</th>
-                                    <th><div id='totaltable`+closedMap.idConta+`'></div></th>
-                                </tr>
+                //             <div style="
+                //             width: 100%;
+                //         ">
+                //             <table >
+                //                 <tr> 
+                //                     <th>HORA</th>
+                //                     <th>ID</th>
+                //                     <th>TOTAL</th>
+                //                 </tr>
+                //                 <tr>
+                //                     <th>`+closedMap.fechamento+`</th>
+                //                     <th>`+closedMap.idConta+`</th>
+                //                     <th><div id='totaltable`+closedMap.idConta+`'></div></th>
+                //                 </tr>
                                
                                 
 
-                            </table>
-                            <div/>
+                //             </table>
+                //             <div/>
                             
-                                    <button key='`+closedMap.idConta+`'  class='btn-inline-datails'  onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   
+                //                     <button key='`+closedMap.idConta+`'  class='btn-inline-datails'  onclick='innerMoreDatails(event, `+closedMap.idConta+`)'>   
                                         
-                                        Detalhe de pedidos 
+                //                         Detalhe de pedidos 
 
-                                        <span id="icon`+closedMap.idConta+`" class="down">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </span>
+                //                         <span id="icon`+closedMap.idConta+`" class="down">
+                //                             <i class="fa-solid fa-chevron-right"></i>
+                //                         </span>
 
-                                    </button>
+                //                     </button>
 
-                                    <div class="viewDetails" id='detailsOrders`+closedMap.idConta+`'></div>
+                //                     <div class="viewDetails" id='detailsOrders`+closedMap.idConta+`'></div>
                             
 
-                        </div>
-                        `
+                //         </div>
+                //         `
                        
-                })
+                // })
 
 
             }
@@ -159,13 +161,13 @@ function accoutsCloseds(closedData){
         `;  
 
     closeddb.map((acountsMap)=>{
-       console.log(acountsMap)
+     
        
 
        var tbody=document.getElementById('relatoriosBody')
 
        if(tbody){
-            console.log(tbody)
+           
 
             tbody.innerHTML+=`
                     <tr> 

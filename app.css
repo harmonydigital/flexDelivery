@@ -210,8 +210,14 @@ div#detailsAccounts {
     background: white;
     z-index: 999;
     width: 100%;
-    display: none;
+    display: flex;
     height: 100%;
+    left: -100%;
+    transition: .2s;
+}
+.detailsAccounts.show {
+    left: 0 !important;
+    transition: .3s;
 }
 div#closedsContainer .card {
     display: flex;
