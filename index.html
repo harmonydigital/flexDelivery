@@ -147,12 +147,7 @@
       </div>
       </div>
    </body>
-  <script type="module">
-      import {notfyapp} from './assets/components/backstage/backstage.js'
-
-
-      notfyapp.start()
-   </script>
+  
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
   <script src="api.js"></script>
@@ -175,7 +170,9 @@
   <script src="assets/js/all.js"></script>
 
   <script type="module">
-   
+   import {notfyapp} from './assets/components/backstage/backstage.js'
+
+
   const firebaseConfig = {
    apiKey: "AIzaSyAYSvpmlqPW18SzMTd3zSik1WVzDwdGxaA",
     authDomain: "harmonybuild-8872b.firebaseapp.com",
@@ -837,6 +834,28 @@ if (retiradavalue != false & prodsSelct.length > 0) {
     }, (error) => {
         // ...
     });
+
+
+
+    //REQUEST CARDAPIO 
+    const backstage=db.collection('backstage')  
+    backstage.onSnapshot((snapshot) => { 
+        let arrBackstage=[]
+        snapshot.forEach((doc) => { 
+         arrBackstage.push(doc.data()) 
+        }); 
+  
+      //   console.log(arrBackstage)
+        notfyapp.start()
+
+    }, (error) => {
+        // ...
+    });
+
+
+
+
+    
 
     
 
