@@ -23,7 +23,7 @@ toogleNot=(id)=>{
 }
 
 innerSequenceOrders=(notDataBase)=>{
- console.log('not')
+ 
   notificacoesData=notDataBase 
 
   notificacoesData.length>0?  notQtd.innerHTML=`<span>`+notificacoesData.length+`</span>` : console.log('')
@@ -214,7 +214,7 @@ if(todosPedidos.length>0){
     relatorioFinanceiro.innerHTML=''  
     // console.log(relatorioFinanceiro)
   }
- console.log(VENDASOPENOW)
+ 
   if(VENDASOPENOW.length>0){
 
     VENDASOPENOW.map((vatualMap)=>{
@@ -236,8 +236,7 @@ if(todosPedidos.length>0){
 
                 if(dimap.name){
                   somaProdTotalMesas+=dimap.quantidade*dimap.price 
-                  if(totalfaturamentomesas){
-                      console.log('>>',somaProdTotalMesas)
+                  if(totalfaturamentomesas){ 
                       nSalesTables.innerHTML=`
                       `+ somaProdTotalMesas.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})+` `;
                      
@@ -254,8 +253,7 @@ if(todosPedidos.length>0){
            
           })
 
-        }else if(vatualMap.tipo=='Deliverys'){
-          console.log('vatualMap.tipo',vatualMap.tipo)
+        }else if(vatualMap.tipo=='Deliverys'){ 
         
           deliveryRelatorio.innerHTML=`Delivery vendas atuais (`+vatualMap.data.length+`)`;
           vatualMap.data.map((dataMap)=>{ 

@@ -1,6 +1,6 @@
   <!DOCTYPE html>
   <html lang="pt-br">
-  <head>
+   <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,155 +17,144 @@
       <link rel="stylesheet" href="assets/components/search/search.css">
       <link rel="stylesheet" href="assets/components/delivery/deliveryorder.css">
       <link rel="stylesheet" href="assets/components/fiscal/fiscal.css"> 
+      <link rel="stylesheet" href="assets/components/backstage/backstage.css"> 
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
-  </head>
-  <body>  
-      <div id="app"></div> 
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+   </head>
 
-      
-
+   <body>
+      <div id="app"></div>
       <!-- // fechar conta form -->
       <div id="closeForm" style="display: none;">
-            <div class="controls">
-                <button onclick="closeOrder(false)"><i class="fa-solid fa-chevron-left"></i></button>
-                <button onclick="closeOrder(false)"><i class="fa-solid fa-xmark"></i></button>    
-            </div>
-
-            <div class="closeAccounts"> 
-                <h6>Forma de Pagamento</h6>
-                <form class="closeForm" action=""> 
-                    <div class="mylabel select"> 
-                        <label>
-                            <i style="color:red; " class="fa-solid fa-file-invoice-dollar"></i>
-                        </label>    
-                        <select onchange="getPay()" id="paymentCheck">   
-                                <option value="1">Selecione a forma de Pagamento</option>
-                                <option value="dinheiro">Dinheiro</option>
-                                <option value="pix">Pix</option>
-                                <option value="debito">Debido Cartão</option>
-                                <option value="credito">Crédito Cartão</option>  
-                        </select> 
-                    </div>
-                    <div class="placeCheckout">
-                        <button onclick="loseOrder(false)" class="btn cancel" type="button" hidden>cancelar</button>
-                        <button type="submit" class="btn closeOrders">Fechar conta</button>
-                    </div>
-                </form>  
-            </div> 
-        </div> 
-
-
-        <!-- MODAL ADD ORDER -->
-        
-        <div id="addOrdersContainer">
-
-         
+         <div class="controls">
+            <button onclick="closeOrder(false)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="closeOrder(false)"><i class="fa-solid fa-xmark"></i></button>    
+         </div>
+         <div class="closeAccounts">
+            <h6>Forma de Pagamento</h6>
+            <form class="closeForm" action="">
+               <div class="mylabel select">
+                  <label>
+                  <i style="color:red; " class="fa-solid fa-file-invoice-dollar"></i>
+                  </label>    
+                  <select onchange="getPay()" id="paymentCheck">
+                     <option value="1">Selecione a forma de Pagamento</option>
+                     <option value="dinheiro">Dinheiro</option>
+                     <option value="pix">Pix</option>
+                     <option value="debito">Debido Cartão</option>
+                     <option value="credito">Crédito Cartão</option>
+                  </select>
+               </div>
+               <div class="placeCheckout">
+                  <button onclick="loseOrder(false)" class="btn cancel" type="button" hidden>cancelar</button>
+                  <button type="submit" class="btn closeOrders">Fechar conta</button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <!-- MODAL ADD ORDER -->
+      <div id="addOrdersContainer">
          <div id="msgLoadSend" class="msgLoad">
             <img src="assets/images/logo.png">
             <h3>Aguarde </h3>
             <p>Enviando seu pedido ..</p>
             <img src="assets/images/loading.gif">
             <!-- <button>Cancelar</button>  -->
-          </div>
-
+         </div>
+         <div class="controls">
+            <button onclick="neworders()">
+               <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                  <path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path>
+               </svg>
+               <!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
+            </button>
+            <button onclick="neworders()">
+               <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                  <path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path>
+               </svg>
+               <!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com --> 
+            </button>
+         </div>
+         <h6>Adicionar pedido.</h6>
+         <div id='contentSearch'>
+            <form class="formOrderNew" id='formOrderNew'>
+               <div style="width:100%; position: relative;">
+                  <span id="closeSearched" onclick="closeSearchedfn()">
+                  <i class="fa-solid fa-xmark"></i>
+                  </span>
+                  <input id='serchInput' placeholder='Busque produtos..'>
+                  <div id='searchResult'>  </div>
+               </div>
+               <div class="mylabel select">
+                  <select onchange="formaRetirada()" id="selectCheckout">
+                     <option value="1">Forma de retirada</option>
+                     <option value="balcao">Balcão</option>
+                     <option value="mesa">Mesa</option>
+                     <option value="delivery">Delivery</option>
+                  </select>
+               </div>
+               <div id="setMesa" class="mylabel"  style="display:none">
+                  <input id="inputMesa"  type="number" placeholder="Digite o numero da mesa">
+               </div>
+               <div id="whatsappId"  style="display: none; ">
+                  <div id="setPhone" class="mylabel" >
+                     <input id="inputLocation"  type="text" placeholder="Endereço de entrega..."  >
+                  </div>
+                  <div id="setEnd" class="mylabel" >
+                     <input id="inputMesa"  type="number" placeholder="Numero celular whatsapp">
+                  </div>
+               </div>
+               <div id='cartList'>  </div>
+               <button type="submit" class='sendOrder'> Enviar pedido  </button>
+            </form>
+         </div>
+      </div>
+      <!-- MODAL PREVIEW  -->
+      <div id="modalApp" >
+         <div onclick="modalJs(false)" class="overylay"> </div>
+         <div id="modalBody" class="modalBody">
             <div class="controls">
-                <button onclick="neworders()">
-                    <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com -->  
-                </button>
-                <button onclick="neworders()"> 
-                    <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com --> 
-                </button>    
+               <button onclick="modalJs(false)">
+                  <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                     <path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path>
+                  </svg>
+                  <!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com --> 
+               </button>
+               <button onclick="modalJs(false)">
+                  <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                     <path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path>
+                  </svg>
+                  <!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com -->  
+               </button>
             </div>
-
-            <h6>Adicionar pedido.</h6>
-
-
-            <div id='contentSearch'>
-                    <form class="formOrderNew" id='formOrderNew'> 
-                        <div style="width:100%; position: relative;">
-                          <span id="closeSearched" onclick="closeSearchedfn()">
-                          <i class="fa-solid fa-xmark"></i>
-                        </span>
-                            <input id='serchInput' placeholder='Busque produtos..'>
-                            <div id='searchResult'>  </div>
-
-                        </div>
-                       
-                        <div class="mylabel select">
-                            
-                            <select onchange="formaRetirada()" id="selectCheckout">
-                                <option value="1">Forma de retirada</option>
-                                <option value="balcao">Balcão</option>
-                                <option value="mesa">Mesa</option>
-                                <option value="delivery">Delivery</option>
-                            </select>
-                        </div>
-                        
-                        <div id="setMesa" class="mylabel"  style="display:none">
-                            
-                            <input id="inputMesa"  type="number" placeholder="Digite o numero da mesa">
-                        </div>
-                        
-                        <div id="whatsappId"  style="display: none; ">
-                             
-                            <div id="setPhone" class="mylabel" >
-                                
-                                <input id="inputLocation"  type="text" placeholder="Endereço de entrega..."  >
-                            </div>
-
-                            <div id="setEnd" class="mylabel" >
-                                
-                                <input id="inputMesa"  type="number" placeholder="Numero celular whatsapp">
-                            </div>
-                        </div>
-
-
-                        <div id='cartList'>  </div> 
-                        <button type="submit" class='sendOrder'> Enviar pedido  </button>
-                    </form> 
-
-                    
-
-               
+            <div id="modalContent">   
             </div>
-
-        </div>
-
-       <!-- MODAL PREVIEW  -->
-       <div id="modalApp" >
-        <div onclick="modalJs(false)" class="overylay"> </div>
-            <div id="modalBody" class="modalBody">  
-                <div class="controls">
-                    <button onclick="modalJs(false)">
-                    <svg class="svg-inline--fa fa-chevron-left" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg><!-- <i class="fa-solid fa-chevron-left"></i> Font Awesome fontawesome.com --> 
-                
-                    </button>
-                    <button onclick="modalJs(false)"> 
-                        <svg class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg><!-- <i class="fa-solid fa-xmark"></i> Font Awesome fontawesome.com -->  
-                    </button>    
-                </div>   
-                <div id="modalContent">   
-                    </div>   
-                    <div class="botoes">
-                        <form class="deleteNotification">
-                            <button type="submit"><svg class="svg-inline--fa fa-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg><!-- <i class="fa-solid fa-check"></i> Font Awesome fontawesome.com --> Clique para saber que o pedido foi entregue!</button>
-                        </form>
-                    </div>                    
-                </div>
+            <div class="botoes">
+               <form class="deleteNotification">
+                  <button type="submit">
+                     <svg class="svg-inline--fa fa-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path>
+                     </svg>
+                     <!-- <i class="fa-solid fa-check"></i> Font Awesome fontawesome.com --> Clique para saber que o pedido foi entregue!
+                  </button>
+               </form>
             </div>
-        </div>
+         </div>
+      </div>
+      </div>
+   </body>
+  <script type="module">
+      import {notfyapp} from './assets/components/backstage/backstage.js'
 
 
-       
-        
-  </body>
+      notfyapp.start()
+   </script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
-
   <script src="api.js"></script>
   <script src="fluxo.js"></script>
   <script src="relatorio.js"></script>
@@ -176,11 +165,11 @@
    <script src="assets/components/notifications.js"></script>
   <script src="assets/components/impressao/impressao.js"></script>
   <script src="assets/components/checkout/checkout.js"></script>
-  <script src="assets/components/getdataapi/getdata.js"></script>
-
+  <script src="assets/components/getdataapi/getdata.js"></script> 
   <script src="assets/components/closeOrder/closeOrder.js"></script>
   <script src="assets/components/menu/menutoggle.js"></script> 
   <script src="assets/components/search/search.js"></script> 
+  
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="assets/js/all.js"></script>

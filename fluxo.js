@@ -277,6 +277,13 @@ function login(){
         app.innerHTML+=`  
                 <div id="login">    
                     <div class="form">
+                        <div class="whidescreen">
+                        <div class="tooltip"
+                            <button id="btnFullScreen" onclick="fullScreen()"><i class="fa-solid fa-expand"></i></button>
+                             <span class="tooltiptext"> tela cheia.</span>
+                        </div>
+
+                        </div>
                         <img class="logo" src="assets/images/logo.png">
                         <div>
                             <h3>Gerencie seus pedidos</h3>

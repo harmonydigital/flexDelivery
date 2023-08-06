@@ -7,18 +7,18 @@ button[status='disable'] {
 }
 
 div#login {
-    background: white;
+    
     width: 100%;
     height: 100%;
     position: fixed;
     margin: 0;
     padding: 0;
     left: 0;
-    top: 0;
-    /* background-image: url(assets/img/bg-app.png); */
+    top: 0; 
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 999;
+    background-image: linear-gradient(to bottom right, #e5e4e4, #ffffff);
 }
 .modal {
     position: fixed;
